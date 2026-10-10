@@ -1,0 +1,423 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wild Goose Lake Protection Association</title>
+<meta name="description" content="The Wild Goose Lake Protection Association works to keep Wild Goose Lake clean, healthy and enjoyable for everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: lakeshore — a horizon-line hero, then calm full-width bands alternating water and shore. */
+:root {
+  --water: #1f4e5a;      /* deep lake teal */
+  --water-2: #2e6b78;
+  --shore: #f2f4ef;      /* pale reed-washed neutral */
+  --paper: #ffffff;
+  --ink: #17262a;
+  --muted: #55676b;
+  --reed: #8a9a5b;       /* marsh grass accent */
+  --sky: #dbe8ea;
+  --line: #d3dcd8;
+  --ph-bg: #fff4c7;      /* placeholder highlight */
+  --ph-ink: #6b5200;
+  --on-water: #f4f8f7;
+  --font-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --maxw: 72rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --water: #163a43; --water-2: #23545f; --shore: #121b1d; --paper: #182326;
+    --ink: #e4ecea; --muted: #9db0b1; --reed: #a9b97a; --sky: #1d2d31; --line: #2a3a3d;
+    --ph-bg: #4a3d0c; --ph-ink: #ffe28a; --on-water: #eef5f4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --water: #163a43; --water-2: #23545f; --shore: #121b1d; --paper: #182326;
+  --ink: #e4ecea; --muted: #9db0b1; --reed: #a9b97a; --sky: #1d2d31; --line: #2a3a3d;
+  --ph-bg: #4a3d0c; --ph-ink: #ffe28a; --on-water: #eef5f4; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--shore); color: var(--ink); font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6; }
+a { color: var(--water-2); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--reed); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.4rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0; }
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: 1.25rem; }
+.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--reed); }
+.ph { background: var(--ph-bg); color: var(--ph-ink); border: 1px dashed currentColor; border-radius: 4px; padding: 0 .3em; font-style: normal; font-size: .95em; }
+
+/* Top bar + header */
+.topbar { background: var(--water); color: var(--on-water); font-size: .85rem; }
+.topbar .wrap { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; justify-content: flex-end; padding-block: .4rem; }
+.topbar a { color: var(--on-water); text-decoration: none; opacity: .9; }
+.topbar a:hover { opacity: 1; text-decoration: underline; }
+header.site { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .75rem; }
+.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--ink); min-width: 0; }
+.brand svg { flex: none; }
+.brand b { font-family: var(--font-display); font-size: 1.25rem; display: block; line-height: 1.1; }
+.brand small { color: var(--muted); font-size: .78rem; letter-spacing: .04em; }
+nav.main ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .25rem; }
+nav.main > ul > li { position: relative; }
+nav.main a { display: block; padding: .5rem .7rem; color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; border-radius: 6px; }
+nav.main a:hover { background: var(--sky); }
+nav.main .sub { display: none; position: absolute; left: 0; top: 100%; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: .35rem; min-width: 14rem; flex-direction: column; box-shadow: 0 10px 24px rgb(0 0 0 / .12); }
+nav.main .sub a { font-weight: 500; }
+nav.main li:hover > .sub, nav.main li:focus-within > .sub { display: flex; }
+.menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 6px; padding: .45rem .7rem; font: inherit; font-weight: 600; cursor: pointer; }
+@media (max-width: 900px) {
+  .menu-btn { display: block; }
+  nav.main { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--paper); border-bottom: 1px solid var(--line); padding: .5rem 1.25rem 1rem; max-height: 75vh; overflow-y: auto; }
+  nav.main.open { display: block; }
+  nav.main ul { flex-direction: column; }
+  nav.main .sub { display: flex; position: static; border: 0; box-shadow: none; padding: 0 0 0 1rem; min-width: 0; }
+}
+
+/* Hero */
+.hero { position: relative; background: linear-gradient(var(--sky), var(--paper) 62%, var(--water-2) 62%, var(--water)); overflow: hidden; }
+.hero .wrap { position: relative; padding-block: 3.5rem 5rem; display: grid; gap: 1.25rem; }
+.hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); max-width: 16ch; }
+.hero p.lede { font-size: 1.2rem; max-width: 40ch; color: var(--muted); }
+.hero .flock { position: absolute; right: 4%; top: 1.5rem; width: min(42%, 22rem); color: var(--water); opacity: .75; }
+@media (max-width: 600px) { .hero .flock { opacity: .25; } }
+.hero .photo-note { color: var(--on-water); font-size: .85rem; margin-top: 3.5rem; }
+.hero .photo-note .ph { color: var(--ph-ink); }
+.btns { display: flex; flex-wrap: wrap; gap: .75rem; }
+.btn { display: inline-block; padding: .7rem 1.2rem; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid var(--water); }
+.btn.solid { background: var(--water); color: var(--on-water); }
+.btn.ghost { color: var(--water); background: var(--paper); }
+@media (prefers-reduced-motion: no-preference) {
+  .flock { animation: drift 14s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(0, 0); } to { transform: translate(-1.5rem, .6rem); } }
+}
+
+/* Sections */
+section.band { padding-block: 4rem; }
+section.band.alt { background: var(--paper); border-block: 1px solid var(--line); }
+.section-head { display: grid; gap: .5rem; margin-bottom: 2rem; max-width: 46rem; }
+.section-head p { color: var(--muted); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 2.5rem; }
+.two > * { min-width: 0; display: grid; gap: .9rem; align-content: start; }
+.mission { border-left: 4px solid var(--reed); padding-left: 1.25rem; font-family: var(--font-display); font-size: 1.35rem; font-style: italic; line-height: 1.45; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1.25rem; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ink); }
+.card .img { aspect-ratio: 16 / 9; max-width: 100%; background: linear-gradient(160deg, var(--sky), var(--water-2)); display: grid; place-items: center; color: var(--on-water); font-size: .8rem; }
+.card .body { padding: 1.1rem 1.2rem 1.3rem; display: grid; gap: .45rem; }
+.card .body p { color: var(--muted); font-size: .97rem; }
+a.card:hover h3 { text-decoration: underline; }
+
+.facts { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.facts th, .facts td { text-align: left; padding: .7rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.facts th { width: 45%; font-weight: 600; color: var(--muted); }
+.table-scroll { overflow-x: auto; }
+
+.news { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.news article { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
+.news time { font-size: .85rem; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.news article > div { min-width: 0; display: grid; gap: .3rem; }
+.news p { color: var(--muted); font-size: .97rem; }
+@media (max-width: 560px) { .news article { grid-template-columns: 1fr; gap: .25rem; } }
+
+.events { display: grid; gap: .9rem; }
+.event { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; align-items: start; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 1rem; }
+.event .date { background: var(--water); color: var(--on-water); border-radius: 8px; text-align: center; padding: .4rem 0; line-height: 1.1; }
+.event .date b { display: block; font-family: var(--font-display); font-size: 1.6rem; }
+.event .date span { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+.event > div:last-child { min-width: 0; display: grid; gap: .2rem; }
+.event p { color: var(--muted); font-size: .95rem; }
+
+.studies { display: grid; gap: .75rem; }
+details { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1.1rem; }
+summary { cursor: pointer; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+details > div { display: grid; gap: .7rem; padding-top: .75rem; color: var(--ink); }
+
+.board { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: 1rem; }
+.person { border-top: 3px solid var(--reed); padding-top: .7rem; display: grid; gap: .15rem; }
+.person span { color: var(--muted); font-size: .9rem; }
+
+.join { background: var(--water); color: var(--on-water); }
+.join .section-head p, .join .eyebrow { color: var(--on-water); }
+.join .eyebrow { opacity: .8; }
+.join ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .4rem; }
+.join .btn.solid { background: var(--on-water); color: var(--water); border-color: var(--on-water); }
+.join .btn.ghost { background: transparent; color: var(--on-water); border-color: var(--on-water); }
+
+form.stack { display: grid; gap: .8rem; }
+label { font-weight: 600; font-size: .92rem; display: grid; gap: .3rem; }
+input, textarea { font: inherit; padding: .6rem .7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); width: 100%; }
+button.submit { justify-self: start; background: var(--water); color: var(--on-water); border: 0; border-radius: 999px; padding: .7rem 1.3rem; font: inherit; font-weight: 700; cursor: pointer; }
+.form-note { font-size: .9rem; color: var(--water-2); font-weight: 600; }
+
+footer.site { background: var(--ink); color: var(--shore); padding-block: 2.5rem; font-size: .92rem; }
+footer.site .wrap { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+footer.site a { color: var(--shore); }
+footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; }
+footer.site .ph { color: var(--ph-ink); }
+.legal { grid-column: 1 / -1; border-top: 1px solid rgb(127 127 127 / .35); padding-top: 1rem; opacity: .8; }
+</style>
+</head><body style="margin:0">
+
+<div class="topbar"><div class="wrap">
+  <a href="#events">Lake Events</a><a href="#news">Lake News</a><a href="#subscribe">Subscribe</a><a href="#contact">Contact Us</a>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Wild Goose Lake Protection Association home">
+    <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="21" fill="var(--water)"/>
+      <path d="M6 29 Q22 25 38 29" stroke="var(--on-water)" stroke-width="1.6" fill="none"/>
+      <path d="M8 33 Q22 30 36 33" stroke="var(--on-water)" stroke-width="1.2" fill="none" opacity=".6"/>
+      <path d="M13 15 l4 2.5 4-2.5 M22 12 l4 2.5 4-2.5 M27 18 l3 2 3-2" stroke="var(--on-water)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span><b>Wild Goose Lake</b><small>Protection Association</small></span>
+  </a>
+  <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav class="main" id="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="#living">Living on the Lake</a>
+        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#safety">Boating Safety</a></li><li><a href="#living">Lake History</a></li></ul></li>
+      <li><a href="#about">WGLPA</a>
+        <ul class="sub"><li><a href="#about">Mission &amp; Activities</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li></ul></li>
+      <li><a href="#studies">Lake Studies</a>
+        <ul class="sub"><li><a href="#studies">Water Quality Monitoring</a></li><li><a href="#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="#studies">Reports Archive</a></li></ul></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </nav>
+</div></header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="flock" viewBox="0 0 220 110" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 20 l9 6 9-6"/><path d="M82 34 l8 5 8-5"/><path d="M120 34 l8 5 8-5"/>
+      <path d="M64 48 l7 4.5 7-4.5"/><path d="M138 48 l7 4.5 7-4.5"/><path d="M46 62 l6 4 6-4"/><path d="M156 62 l6 4 6-4"/>
+    </svg>
+    <div class="wrap">
+      <span class="eyebrow">Since <em class="ph">year founded</em> · A volunteer nonprofit</span>
+      <h1>Keeping Wild Goose Lake clean, healthy and ours to enjoy.</h1>
+      <p class="lede">We are neighbors who share a lake. Together we watch over its water, its shoreline and the wildlife that comes back every season.</p>
+      <div class="btns"><a class="btn solid" href="#join">Become a member</a><a class="btn ghost" href="#events">See upcoming events</a></div>
+      <p class="photo-note">Hero photo goes here: <em class="ph">a wide shot of the lake, ideally with geese on the water</em></p>
+    </div>
+  </section>
+
+  <section class="band alt" id="about">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">About the association</span>
+        <h2>Who we are</h2>
+        <p>The Wild Goose Lake Protection Association (WGLPA) is a nonprofit organization of property owners and friends of Wild Goose Lake in <em class="ph">Town, County, State</em>. About <em class="ph">number</em> households belong today.</p>
+        <p>Membership is open to <em class="ph">lakefront owners / anyone who loves the lake: confirm</em>. Dues are <em class="ph">$ amount per year</em> and go straight to lake monitoring, aquatic plant management and community events.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Mission</span>
+        <p class="mission">To protect and improve the ecological health, recreational value and natural beauty of Wild Goose Lake for the people and wildlife who depend on it today and for generations to come.</p>
+        <p><strong>Our goal</strong> is to catch problems early. We test the water, track changes from year to year, and act on what we learn, whether that means managing invasive plants, educating boaters or working with local and state agencies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="living">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Discover Wild Goose Lake</span>
+        <h2>Living on the lake</h2>
+        <p>Practical information for residents, visitors and anyone who spends time on the water.</p>
+      </div>
+      <div class="cards">
+        <a class="card" href="#facts"><div class="img">Photo placeholder</div><div class="body"><h3>Lake Facts</h3><p>Size, depth, watershed and the fish and wildlife that call the lake home.</p></div></a>
+        <a class="card" href="#safety"><div class="img">Photo placeholder</div><div class="body"><h3>Boating Safety</h3><p>Speed rules, no-wake hours and how to keep invasive species off your boat.</p></div></a>
+        <a class="card" href="#events"><div class="img">Photo placeholder</div><div class="body"><h3>Summer Traditions</h3><p><em class="ph">Signature event, e.g. boat parade, fireworks or lake picnic</em> and how to take part.</p></div></a>
+        <a class="card" href="#living"><div class="img">Photo placeholder</div><div class="body"><h3>Lake History</h3><p>How Wild Goose Lake got its name and how the shoreline has changed. <em class="ph">history to come</em></p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="facts">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">Lake facts</span>
+        <h2>Wild Goose Lake at a glance</h2>
+        <p>These numbers help us measure the lake's health over time. Values marked in yellow still need to be confirmed from county or state lake records.</p>
+      </div>
+      <div class="table-scroll">
+        <table class="facts">
+          <tr><th scope="row">Location</th><td><em class="ph">Township, County, State</em></td></tr>
+          <tr><th scope="row">Surface area</th><td><em class="ph">— acres</em></td></tr>
+          <tr><th scope="row">Maximum depth</th><td><em class="ph">— ft</em></td></tr>
+          <tr><th scope="row">Average depth</th><td><em class="ph">— ft</em></td></tr>
+          <tr><th scope="row">Shoreline length</th><td><em class="ph">— miles</em></td></tr>
+          <tr><th scope="row">Lake type</th><td><em class="ph">e.g. spring-fed, drainage, seepage</em></td></tr>
+          <tr><th scope="row">Water clarity (Secchi, summer avg.)</th><td><em class="ph">— ft</em></td></tr>
+          <tr><th scope="row">Common fish</th><td><em class="ph">e.g. bass, bluegill, walleye, northern pike</em></td></tr>
+          <tr><th scope="row">Public access</th><td><em class="ph">boat launch location</em></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="safety">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">On the water</span>
+        <h2>Boating safety and courtesy</h2>
+        <p>A busy summer weekend works best when everyone follows the same rules. Local ordinances take priority; check them before you launch.</p>
+      </div>
+      <div>
+        <p><strong>Slow-no-wake hours:</strong> <em class="ph">e.g. sunset to 10 a.m.</em></p>
+        <p><strong>Travel direction:</strong> Most lakes run counter-clockwise. <em class="ph">confirm for Wild Goose Lake</em></p>
+        <p><strong>Clean, drain, dry:</strong> Remove plants and mud, drain all water, and let your boat dry before moving between lakes. This is the single best way to stop invasive species.</p>
+        <p><strong>Life jackets:</strong> Keep one for every person aboard, and make sure kids wear theirs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="news">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Lake news</span>
+        <h2>News and announcements</h2>
+        <p>Sample posts below show the layout. Replace them with real updates.</p>
+      </div>
+      <div class="news">
+        <article><time><em class="ph">Date</em></time><div><h3>Annual meeting announced</h3><p>Join us for our yearly members' meeting, board elections and a report on lake water quality.</p></div></article>
+        <article><time><em class="ph">Date</em></time><div><h3>Summer water testing results are in</h3><p>Volunteers recorded clarity and temperature readings from <em class="ph">month</em> through <em class="ph">month</em>. Read the summary in Lake Studies.</p></div></article>
+        <article><time><em class="ph">Date</em></time><div><h3>Aquatic plant survey scheduled</h3><p>A survey of the lake's plants will help us plan next season's treatment, if any is needed.</p></div></article>
+        <article><time><em class="ph">Date</em></time><div><h3>Volunteers needed for shoreline cleanup</h3><p>Bring gloves and a bag. We meet at <em class="ph">location</em>.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="events">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">Lake events</span>
+        <h2>Upcoming events</h2>
+        <p>Members get event reminders by email. <a href="#subscribe">Subscribe to updates</a> so you don't miss one.</p>
+      </div>
+      <div class="events">
+        <div class="event"><div class="date"><span>Mon</span><b>—</b></div><div><h3>WGLPA Annual Meeting</h3><p><em class="ph">Date, time and place</em></p></div></div>
+        <div class="event"><div class="date"><span>Mon</span><b>—</b></div><div><h3><em class="ph">Summer event, e.g. boat parade</em></h3><p><em class="ph">Date and meeting spot</em></p></div></div>
+        <div class="event"><div class="date"><span>Mon</span><b>—</b></div><div><h3>Shoreline Cleanup Day</h3><p><em class="ph">Date and time</em></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="studies">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Lake studies</span>
+        <h2>What we measure, and why</h2>
+        <p>Good decisions start with good data. These programs track the lake's condition year to year.</p>
+      </div>
+      <div class="studies">
+        <details open><summary>Water quality monitoring</summary><div>
+          <p>Volunteers measure water clarity with a Secchi disk, along with temperature and dissolved oxygen, through the open-water season. <em class="ph">Name the state volunteer monitoring program you take part in, if any.</em></p>
+          <p>Phosphorus and chlorophyll samples, when taken, show how much algae the lake can support.</p>
+        </div></details>
+        <details><summary>Aquatic plants and invasive species</summary><div>
+          <p>Native plants shelter fish and hold the lake bottom in place. Invasive species such as Eurasian watermilfoil and starry stonewort can crowd them out. We survey the lake and coordinate any treatment with state permits.</p>
+          <p><em class="ph">History of plant management on Wild Goose Lake</em></p>
+        </div></details>
+        <details><summary>Reports archive</summary><div>
+          <p><em class="ph">Links to annual monitoring reports, surveys and studies</em></p>
+        </div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="board">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Leadership</span>
+        <h2>Board of directors</h2>
+        <p>Our board is made up of volunteers elected by the membership at the annual meeting.</p>
+      </div>
+      <div class="board">
+        <div class="person"><strong><em class="ph">Name</em></strong><span>President</span></div>
+        <div class="person"><strong><em class="ph">Name</em></strong><span>Vice President</span></div>
+        <div class="person"><strong><em class="ph">Name</em></strong><span>Secretary</span></div>
+        <div class="person"><strong><em class="ph">Name</em></strong><span>Treasurer</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band join" id="join">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">Membership</span>
+        <h2>Join the association</h2>
+        <p>Every member makes the lake's care possible. Annual dues are <em class="ph">$ amount</em>.</p>
+        <div class="btns"><a class="btn solid" href="#contact">Ask about joining</a><a class="btn ghost" href="#contact">Make a donation</a></div>
+      </div>
+      <div>
+        <p><strong>Your membership supports:</strong></p>
+        <ul>
+          <li>Water testing through the open-water season</li>
+          <li>Aquatic plant surveys and invasive species control</li>
+          <li>Boater education at the public launch</li>
+          <li>Community events that bring lake neighbors together</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="contact">
+    <div class="wrap two">
+      <div id="subscribe">
+        <span class="eyebrow">Stay in touch</span>
+        <h2>Contact and subscribe</h2>
+        <p>Questions about the lake, membership or an event? Send us a note.</p>
+        <p><strong>Email:</strong> <em class="ph">info@wildgooselake.org</em><br><strong>Mail:</strong> <em class="ph">WGLPA, PO Box, Town, State ZIP</em><br><strong>Facebook:</strong> <em class="ph">page link</em></p>
+      </div>
+      <form class="stack" id="contact-form">
+        <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required></label>
+        <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+        <label for="f-msg">Message<textarea id="f-msg" name="message" rows="4"></textarea></label>
+        <label style="display:flex;gap:.5rem;align-items:center;font-weight:500"><input id="f-sub" type="checkbox" style="width:auto"> Send me lake news and event reminders</label>
+        <button class="submit" type="submit">Send message</button>
+        <p class="form-note" id="form-note" hidden>Preview only. This form will be connected to an email service when the site goes live.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="band" id="links">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Resources</span>
+        <h2>Helpful links</h2>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="body"><h3>State natural resources agency</h3><p><em class="ph">Link to the state DNR or equivalent lake page</em></p></div></div>
+        <div class="card"><div class="body"><h3>County land and water</h3><p><em class="ph">County conservation or lake management office</em></p></div></div>
+        <div class="card"><div class="body"><h3>Statewide lakes association</h3><p><em class="ph">e.g. the state's lakes partnership or federation</em></p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div><strong style="font-family:var(--font-display);font-size:1.2rem">Wild Goose Lake Protection Association</strong><p><em class="ph">Mailing address</em></p></div>
+  <ul><li><a href="#events">Lake Events</a></li><li><a href="#news">Lake News</a></li><li><a href="#subscribe">Subscribe</a></li><li><a href="#contact">Contact Us</a></li></ul>
+  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li></ul>
+  <p class="legal">© 2026 Wild Goose Lake Protection Association. <em class="ph">501(c) status, if applicable</em></p>
+</div></footer>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const nav = document.getElementById('main-nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
+  document.getElementById('contact-form').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('form-note').hidden = false;
+  });
+</script>
+</body></html>
