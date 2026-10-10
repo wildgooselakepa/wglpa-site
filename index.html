@@ -151,7 +151,8 @@ form.stack { display: grid; gap: .8rem; }
 label { font-weight: 600; font-size: .92rem; display: grid; gap: .3rem; }
 input, textarea { font: inherit; padding: .6rem .7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); width: 100%; }
 button.submit { justify-self: start; background: var(--water); color: var(--on-water); border: 0; border-radius: 999px; padding: .7rem 1.3rem; font: inherit; font-weight: 700; cursor: pointer; }
-.form-note { font-size: .9rem; color: var(--water-2); font-weight: 600; }
+.form-note { font-size: .9rem; color: var(--muted); }
+.email { overflow-wrap: anywhere; }
 
 footer.site { background: var(--ink); color: var(--shore); padding-block: 2.5rem; font-size: .92rem; }
 footer.site .wrap { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
@@ -375,7 +376,7 @@ footer.site .ph { color: var(--ph-ink); }
         <span class="eyebrow">Stay in touch</span>
         <h2>Contact and subscribe</h2>
         <p>Questions about the lake, membership or an event? Send us a note.</p>
-        <p><strong>Email:</strong> <em class="ph">info@wildgooselake.org</em><br><strong>Mail:</strong> <em class="ph">WGLPA, PO Box, Town, State ZIP</em><br><strong>Facebook:</strong> <em class="ph">page link</em></p>
+        <p><strong>Email:</strong> <a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a><br><strong>Mail:</strong> <em class="ph">WGLPA, PO Box, Town, State ZIP</em><br><strong>Facebook:</strong> <em class="ph">page link</em></p>
       </div>
       <form class="stack" id="contact-form">
         <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required></label>
@@ -383,7 +384,7 @@ footer.site .ph { color: var(--ph-ink); }
         <label for="f-msg">Message<textarea id="f-msg" name="message" rows="4"></textarea></label>
         <label style="display:flex;gap:.5rem;align-items:center;font-weight:500"><input id="f-sub" type="checkbox" style="width:auto"> Send me lake news and event reminders</label>
         <button class="submit" type="submit">Send message</button>
-        <p class="form-note" id="form-note" hidden>Preview only. This form will be connected to an email service when the site goes live.</p>
+        <p class="form-note" id="form-note">Sending opens your email app with your message addressed to us. If nothing opens, email <span class="email">protection.association@wildgooselake.org</span> directly.</p>
       </form>
     </div>
   </section>
@@ -404,7 +405,7 @@ footer.site .ph { color: var(--ph-ink); }
 </main>
 
 <footer class="site"><div class="wrap">
-  <div><strong style="font-family:var(--font-display);font-size:1.2rem">Wild Goose Lake Protection Association</strong><p><em class="ph">Mailing address</em></p></div>
+  <div><strong style="font-family:var(--font-display);font-size:1.2rem">Wild Goose Lake Protection Association</strong><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><em class="ph">Mailing address</em></p></div>
   <ul><li><a href="#events">Lake Events</a></li><li><a href="#news">Lake News</a></li><li><a href="#subscribe">Subscribe</a></li><li><a href="#contact">Contact Us</a></li></ul>
   <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
   <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) status pending with the IRS.</p>
@@ -420,7 +421,12 @@ footer.site .ph { color: var(--ph-ink); }
   nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
   document.getElementById('contact-form').addEventListener('submit', e => {
     e.preventDefault();
-    document.getElementById('form-note').hidden = false;
+    const name = document.getElementById('f-name').value.trim();
+    const from = document.getElementById('f-email').value.trim();
+    const lines = [document.getElementById('f-msg').value.trim()];
+    if (document.getElementById('f-sub').checked) lines.push('', 'Please add me to the lake news and event reminder list.');
+    lines.push('', `From: ${name} (${from})`);
+    location.href = 'mailto:protection.association@wildgooselake.org?subject=' + encodeURIComponent('Website message from ' + name) + '&body=' + encodeURIComponent(lines.join('\n'));
   });
 </script>
 </body></html>
