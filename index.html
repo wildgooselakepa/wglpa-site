@@ -21,6 +21,7 @@
   --ph-bg: #fff4c7;      /* placeholder highlight */
   --ph-ink: #6b5200;
   --on-water: #f4f8f7;
+  --link: #2e6b78;
   --logo-filter: none;
   --logo-footer-filter: invert(1);
   --font-display: "Cormorant Garamond", Garamond, "Times New Roman", serif;
@@ -32,20 +33,20 @@
     --water: #163a43; --water-2: #23545f; --shore: #121b1d; --paper: #182326;
     --ink: #e4ecea; --muted: #9db0b1; --reed: #a9b97a; --sky: #1d2d31; --line: #2a3a3d;
     --ph-bg: #4a3d0c; --ph-ink: #ffe28a; --on-water: #eef5f4; color-scheme: dark;
-    --logo-filter: invert(1); --logo-footer-filter: none;
+    --link: #8fc6cf; --logo-filter: invert(1); --logo-footer-filter: none;
   }
 }
 :root[data-theme="dark"] {
   --water: #163a43; --water-2: #23545f; --shore: #121b1d; --paper: #182326;
   --ink: #e4ecea; --muted: #9db0b1; --reed: #a9b97a; --sky: #1d2d31; --line: #2a3a3d;
   --ph-bg: #4a3d0c; --ph-ink: #ffe28a; --on-water: #eef5f4; color-scheme: dark;
-  --logo-filter: invert(1); --logo-footer-filter: none;
+  --link: #8fc6cf; --logo-filter: invert(1); --logo-footer-filter: none;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { background: var(--shore); color: var(--ink); font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; font-weight: 400; }
-a { color: var(--water-2); text-underline-offset: 3px; }
+a { color: var(--link); text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--reed); outline-offset: 2px; }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; letter-spacing: -.005em; text-wrap: balance; margin: 0; }
 h2 { font-size: clamp(2.1rem, 4vw, 3rem); }
@@ -114,7 +115,9 @@ a.card:hover h3 { text-decoration: underline; }
 
 .facts { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 .facts th, .facts td { text-align: left; padding: .7rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-.facts th { width: 45%; font-weight: 400; color: var(--muted); }
+.source-note { font-size: .9rem; color: var(--muted); }
+.history, .fish-list { display: grid; gap: 1rem; }
+.facts th { width: 38%; font-weight: 400; color: var(--muted); }
 .table-scroll { overflow-x: auto; }
 
 .news { display: grid; gap: 0; border-top: 1px solid var(--line); }
@@ -179,7 +182,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
   <nav class="main" id="main-nav" aria-label="Main">
     <ul>
       <li><a href="#living">Living on the Lake</a>
-        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#safety">Boating Safety</a></li><li><a href="#living">Lake History</a></li></ul></li>
+        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#safety">Boating Safety</a></li></ul></li>
       <li><a href="#about">WGLPA</a>
         <ul class="sub"><li><a href="#about">Mission &amp; Activities</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li></ul></li>
       <li><a href="#studies">Lake Studies</a>
@@ -208,7 +211,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       <div>
         <span class="eyebrow">About the association</span>
         <h2>Who we are</h2>
-        <p>The Wild Goose Lake Protection Association (WGLPA) is a nonprofit organization of property owners and friends of Wild Goose Lake in <em class="ph">Town, County, State</em>. About <em class="ph">number</em> households belong today. Our application for 501(c)(3) tax-exempt status is pending with the IRS.</p>
+        <p>The Wild Goose Lake Protection Association (WGLPA) is a nonprofit organization of property owners and friends of Wild Goose Lake in Lyndon Township, Washtenaw County, about five miles north of Chelsea, Michigan, next to Waterloo State Recreation Area. About <em class="ph">number</em> households belong today. Our application for 501(c)(3) tax-exempt status is pending with the IRS.</p>
         <p>Membership is open to <em class="ph">lakefront owners / anyone who loves the lake: confirm</em>. Dues are <em class="ph">$ amount per year</em> and go straight to lake monitoring, aquatic plant management and community events.</p>
       </div>
       <div>
@@ -229,8 +232,8 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       <div class="cards">
         <a class="card" href="#facts"><div class="img">Photo placeholder</div><div class="body"><h3>Lake Facts</h3><p>Size, depth, watershed and the fish and wildlife that call the lake home.</p></div></a>
         <a class="card" href="#safety"><div class="img">Photo placeholder</div><div class="body"><h3>Boating Safety</h3><p>Speed rules, no-wake hours and how to keep invasive species off your boat.</p></div></a>
-        <a class="card" href="#events"><div class="img">Photo placeholder</div><div class="body"><h3>Summer Traditions</h3><p><em class="ph">Signature event, e.g. boat parade, fireworks or lake picnic</em> and how to take part.</p></div></a>
-        <a class="card" href="#living"><div class="img">Photo placeholder</div><div class="body"><h3>Lake History</h3><p>How Wild Goose Lake got its name and how the shoreline has changed. <em class="ph">history to come</em></p></div></a>
+        <a class="card" href="#fishing"><div class="img">Photo placeholder</div><div class="body"><h3>Fishing</h3><p>What anglers catch here, where to launch and the Michigan rules to know.</p></div></a>
+        <a class="card" href="#history"><div class="img">Photo placeholder</div><div class="body"><h3>Lake History</h3><p>How three Black families from Ann Arbor founded the Wild Goose community in 1927.</p></div></a>
       </div>
     </div>
   </section>
@@ -240,20 +243,58 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       <div>
         <span class="eyebrow">Lake facts</span>
         <h2>Wild Goose Lake at a glance</h2>
-        <p>These numbers help us measure the lake's health over time. Values marked in yellow still need to be confirmed from county or state lake records.</p>
+        <p>Wild Goose Lake is a small, quiet lake in the hills north of Chelsea, set between Waterloo State Recreation Area and Pinckney Recreation Area.</p>
+        <p class="source-note">Figures come from the Michigan DNR lake contour map, state lake inventories and USGS records. Sources don't always agree on a lake this small, so we've noted where they differ. We couldn't find average depth or water clarity readings on record; volunteer monitoring can fill that gap.</p>
       </div>
       <div class="table-scroll">
         <table class="facts">
-          <tr><th scope="row">Location</th><td><em class="ph">Township, County, State</em></td></tr>
-          <tr><th scope="row">Surface area</th><td><em class="ph">— acres</em></td></tr>
-          <tr><th scope="row">Maximum depth</th><td><em class="ph">— ft</em></td></tr>
-          <tr><th scope="row">Average depth</th><td><em class="ph">— ft</em></td></tr>
-          <tr><th scope="row">Shoreline length</th><td><em class="ph">— miles</em></td></tr>
-          <tr><th scope="row">Lake type</th><td><em class="ph">e.g. spring-fed, drainage, seepage</em></td></tr>
-          <tr><th scope="row">Water clarity (Secchi, summer avg.)</th><td><em class="ph">— ft</em></td></tr>
-          <tr><th scope="row">Common fish</th><td><em class="ph">e.g. bass, bluegill, walleye, northern pike</em></td></tr>
-          <tr><th scope="row">Public access</th><td><em class="ph">boat launch location</em></td></tr>
+          <tr><th scope="row">Location</th><td>Lyndon Township, Washtenaw County, Michigan</td></tr>
+          <tr><th scope="row">Nearby</th><td>About 5 miles north of Chelsea and just west of North Lake, next to <a href="https://www.michigan.gov/recsearch/parks/waterloo">Waterloo State Recreation Area</a></td></tr>
+          <tr><th scope="row">Mailing addresses</th><td>Gregory, MI 48137</td></tr>
+          <tr><th scope="row">Surface area</th><td>About 40 acres, including shallow, marshy edges. The open water is closer to 14 acres.</td></tr>
+          <tr><th scope="row">Maximum depth</th><td>18 feet, in the eastern part of the lake</td></tr>
+          <tr><th scope="row">Shoreline</th><td>About 1.6 miles</td></tr>
+          <tr><th scope="row">Elevation</th><td>About 928 feet above sea level</td></tr>
+          <tr><th scope="row">Lake type</th><td>Small, natural warm-water lake with no mapped stream inlet or outlet</td></tr>
+          <tr><th scope="row">Watershed</th><td>Huron River (Portage Creek area)</td></tr>
+          <tr><th scope="row">Fish</th><td>Largemouth bass and black crappie reported by anglers. <a href="#fishing">See Fishing</a></td></tr>
+          <tr><th scope="row">Public access</th><td>No public boat launch or beach. The nearest state launch is on North Lake.</td></tr>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="history">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">Our history</span>
+        <h2>A lake community since 1927</h2>
+        <p class="mission">Wild Goose was founded by Black families who wanted a lake of their own, at a time when many resorts nearby turned them away.</p>
+      </div>
+      <div class="history">
+        <p>In 1927, three Black families from Ann Arbor, the Bakers, the Grayers and the Popes, bought the 250-acre Schultz farm around Wild Goose Lake. The sale closed on June 1, 1927. Charles Baker, co-owner of the Ann Arbor Foundry, organized the purchase with Donald Grayer and Iva Pope, and together they founded the Wild Goose Country Club.</p>
+        <p>Not every neighbor welcomed them. Some circulated a petition urging the owners not to sell, but the sale went through, and local grocer Perry Noah refused to sign it.</p>
+        <p>The club laid out 93 cottage lots, a shared stretch of shoreline with a fishing dock, a nine-hole golf course and a dance hall on the hill. The old farmhouse became the clubhouse. The first cottages were log cabins built from Sears, Roebuck kits, and lots sold for $100.</p>
+        <p>The Depression slowed building, a storm in the 1930s knocked down the dance hall, and the golf course has long since grown over. Old apple, pear and cherry trees from the farm's orchard outlasted them all, and a descendant of the Baker family still lives on the lake today.</p>
+        <p class="source-note">Sources: Grace Shackman, <a href="https://aadl.org/aaobserver/18628">“A Tale of Two Lakes,”</a> Community Observer, Fall 2004; <a href="https://www.wemu.org/wemu-news/2026-02-13/wild-goose-lake-outside-of-chelsea-has-a-rich-black-history">WEMU</a>, February 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="fishing">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">Fishing</span>
+        <h2>Fishing Wild Goose Lake</h2>
+        <p>Fishing has been part of life here since the club built its dock on the shared shoreline in the 1920s. Much of the lake is shallow, with a deep hole of about 18 feet toward the east end.</p>
+        <p class="source-note">The state has never stocked or surveyed Wild Goose Lake, so there's no official species list yet. <a href="#contact">Tell us what you catch</a> and we'll keep a record.</p>
+      </div>
+      <div class="fish-list">
+        <p><strong>What anglers report:</strong> largemouth bass and black crappie.</p>
+        <p><strong>Getting on the water:</strong> There's no public boat launch, and the shoreline is almost all private. Please fish from your own property or as a guest of a resident. The nearest public launch is on North Lake.</p>
+        <p><strong>Licenses:</strong> Anyone 17 or older needs a Michigan fishing license. In 2026 a resident annual license is $26, or $11 for residents 65 and older.</p>
+        <p><strong>Statewide rules (2026):</strong> Bass are catch-and-release until the Saturday before Memorial Day, then may be kept through December 31 at 14 inches or longer, up to 5 a day. Bluegill, crappie and other sunfish are open all year with no minimum size and a limit of 25 a day combined. Northern pike may be kept from the last Saturday in April through March 15 at 24 inches or longer, 2 a day.</p>
+        <p class="source-note">Rules change each April. Check the <a href="https://www.michigan.gov/dnr/things-to-do/fishing/fishing-regulations">Michigan DNR fishing regulations</a> before you go.</p>
       </div>
     </div>
   </section>
@@ -391,9 +432,9 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
         <h2>Helpful links</h2>
       </div>
       <div class="cards">
-        <div class="card"><div class="body"><h3>State natural resources agency</h3><p><em class="ph">Link to the state DNR or equivalent lake page</em></p></div></div>
-        <div class="card"><div class="body"><h3>County land and water</h3><p><em class="ph">County conservation or lake management office</em></p></div></div>
-        <div class="card"><div class="body"><h3>Statewide lakes association</h3><p><em class="ph">e.g. the state's lakes partnership or federation</em></p></div></div>
+        <a class="card" href="https://www.michigan.gov/recsearch/parks/waterloo"><div class="body"><h3>Waterloo Recreation Area</h3><p>Michigan's largest state park in the Lower Peninsula, with trails, lakes and the Eddy Discovery Center, right next door.</p></div></a>
+        <a class="card" href="https://www.hrwc.org/"><div class="body"><h3>Huron River Watershed Council</h3><p>The nonprofit that protects the Huron River watershed, which Wild Goose Lake drains to.</p></div></a>
+        <a class="card" href="https://micorps.net/"><div class="body"><h3>MiCorps lake monitoring</h3><p>Michigan's volunteer program for testing inland lakes, including water clarity readings.</p></div></a>
       </div>
     </div>
   </section>
@@ -402,7 +443,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
 <footer class="site"><div class="wrap">
   <div style="display:grid;gap:.6rem;align-content:start"><img class="footer-logo" src="assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><em class="ph">Mailing address</em></p></div>
   <ul><li><a href="#events">Lake Events</a></li><li><a href="#news">Lake News</a></li><li><a href="#subscribe">Subscribe</a></li><li><a href="#contact">Contact Us</a></li></ul>
-  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
+  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
   <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) status pending with the IRS.</p>
 </div></footer>
 
