@@ -117,6 +117,14 @@ a.card:hover h3 { text-decoration: underline; }
 .facts th, .facts td { text-align: left; padding: .7rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 .source-note { font-size: .9rem; color: var(--muted); }
 .history, .fish-list { display: grid; gap: 1rem; }
+.fun-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+.fact { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem 1.3rem 1.35rem; display: grid; gap: .45rem; align-content: start; }
+.fact .big { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; line-height: 1; color: var(--link); }
+.fact .big em { font-weight: 500; }
+.fact h3 { font-size: 1.35rem; }
+.fact p { color: var(--muted); font-size: .97rem; }
+.crane-more h3 { font-size: 1.6rem; }
+.crane-more + .source-note { margin-top: 2rem; }
 .facts th { width: 38%; font-weight: 400; color: var(--muted); }
 .table-scroll { overflow-x: auto; }
 
@@ -183,7 +191,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
   <nav class="main" id="main-nav" aria-label="Main">
     <ul>
       <li><a href="#living">Living on the Lake</a>
-        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#safety">Boating Safety</a></li></ul></li>
+        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#safety">Boating Safety</a></li></ul></li>
       <li><a href="#about">WGLPA</a>
         <ul class="sub"><li><a href="#about">Mission &amp; Activities</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li></ul></li>
       <li><a href="#studies">Lake Studies</a>
@@ -259,6 +267,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
           <tr><th scope="row">Lake type</th><td>Small, natural warm-water lake with no mapped stream inlet or outlet</td></tr>
           <tr><th scope="row">Watershed</th><td>Huron River (Portage Creek area)</td></tr>
           <tr><th scope="row">Fish</th><td>Largemouth bass and black crappie reported by anglers. <a href="#fishing">See Fishing</a></td></tr>
+          <tr><th scope="row">Wildlife</th><td>Sandhill cranes nest and feed around the lake. <a href="#cranes">See Sandhill Cranes</a></td></tr>
           <tr><th scope="row">Public access</th><td>No public boat launch or beach. The nearest state launch is on North Lake.</td></tr>
         </table>
       </div>
@@ -297,6 +306,40 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
         <p><strong>Statewide rules (2026):</strong> Bass are catch-and-release until the Saturday before Memorial Day, then may be kept through December 31 at 14 inches or longer, up to 5 a day. Bluegill, crappie and other sunfish are open all year with no minimum size and a limit of 25 a day combined. Northern pike may be kept from the last Saturday in April through March 15 at 24 inches or longer, 2 a day.</p>
         <p class="source-note">Rules change each April. Check the <a href="https://www.michigan.gov/dnr/things-to-do/fishing/fishing-regulations">Michigan DNR fishing regulations</a> before you go.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="band" id="cranes">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our neighbors</span>
+        <h2>Sandhill cranes</h2>
+        <p>Sandhill cranes nest and feed around Wild Goose Lake, and their rolling, trumpeting calls are part of life on the lake. Here are a few things worth knowing about our long-legged neighbors.</p>
+      </div>
+      <div class="fun-facts">
+        <div class="fact"><span class="big">4 ft</span><h3>Tall, gray and red-capped</h3><p>A sandhill crane stands about 4 feet tall with a wingspan of about 6.5 feet. The red cap is bare skin, not feathers, and it turns a deeper red when the bird is excited.</p></div>
+        <div class="fact"><span class="big">2.5 mi</span><h3>Calls that carry</h3><p>You can hear a crane up to 2.5 miles away. Its windpipe is so long that it coils inside the breastbone like a trumpet, which deepens the call and adds rich overtones.</p></div>
+        <div class="fact"><span class="big">20+ yrs</span><h3>Partners for life</h3><p>Cranes mate for life, often for 20 years or more, and pairs stay together all year. Mated pairs sing a duet called the unison call, with the female answering two notes for each of the male's.</p></div>
+        <div class="fact"><span class="big"><em>Bow &amp; leap</em></span><h3>They dance</h3><p>Cranes bow, pump their heads, spread their wings and spring into the air. Males and females both dance, to win a mate and to strengthen a bond they already have.</p></div>
+        <div class="fact"><span class="big"><em>Rust</em></span><h3>Mud makeup</h3><p>In spring, cranes rub iron-rich mud into their gray feathers with their bills, staining them rusty brown. No one knows for sure why, but the leading idea is camouflage on the nest.</p></div>
+        <div class="fact"><span class="big">8 hrs</span><h3>Colts on the move</h3><p>Baby cranes are called colts. Within 8 hours of hatching they can leave the nest and even swim after their parents. They fly at about 10 weeks and stay with the family for 9 to 10 months.</p></div>
+        <div class="fact"><span class="big">2.5 million</span><h3>An ancient bird</h3><p>The oldest known sandhill crane fossil, found in Florida, is about 2.5 million years old. The oldest wild crane on record lived at least 37 years.</p></div>
+        <div class="fact"><span class="big">27 pairs</span><h3>A Michigan comeback</h3><p>Lost wetlands and market hunting left only 27 pairs in the Lower Peninsula by 1944. Under federal protection they rebounded to an estimated 24,000 cranes statewide by 2013.</p></div>
+      </div>
+      <div class="two crane-more">
+        <div>
+          <h3>Where to see thousands</h3>
+          <p>Each fall, cranes gather near Waterloo to rest and feed before flying south. The best place to watch is Michigan Audubon's <a href="https://jacksonaudubon.org/Haehnle">Haehnle Sanctuary</a>, about 1,000 acres on the western edge of Waterloo Recreation Area in Jackson County. In the late afternoon, flocks drop into Mud Lake Marsh to roost. Late October through November is usually the peak. The sanctuary is free and open dawn to dusk.</p>
+          <p>Counters there tallied a record 8,177 cranes on November 19, 2012. Some cranes stay for the winter, too: the 2023–24 Waterloo Christmas Bird Count found 3,507, the most of any count in Michigan that year.</p>
+        </div>
+        <div>
+          <h3>Living alongside cranes</h3>
+          <p><strong>Never feed them.</strong> Cranes that get handouts learn to raid bird feeders and peck at windows, and it brings them close to dogs, raccoons and foxes. If cranes keep visiting your feeder, take it down for a few days.</p>
+          <p><strong>Give families room.</strong> Parents walking with colts often won't fly away, so slow down and let them cross roads and lawns at their own pace.</p>
+          <p><strong>They're protected.</strong> Sandhill cranes are covered by federal migratory bird law, and Michigan has no crane hunting season.</p>
+        </div>
+      </div>
+      <p class="source-note">Sources: Cornell Lab of Ornithology, <a href="https://www.allaboutbirds.org/guide/Sandhill_Crane/overview">All About Birds</a>; Michigan DNR, <a href="https://www.michigan.gov/dnr/things-to-do/wildlife-viewing/cranes">sandhill crane viewing</a> and its 2016 Migratory Bird Treaty centennial bulletin; Michigan Audubon; Jackson Audubon Society; U.S. Fish and Wildlife Service; National Audubon Society Christmas Bird Count.</p>
     </div>
   </section>
 
@@ -446,7 +489,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
 <footer class="site"><div class="wrap">
   <div style="display:grid;gap:.6rem;align-content:start"><img class="footer-logo" src="assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><em class="ph">Mailing address</em></p></div>
   <ul><li><a href="#events">Lake Events</a></li><li><a href="#news">Lake News</a></li><li><a href="#subscribe">Subscribe</a></li><li><a href="#contact">Contact Us</a></li></ul>
-  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
+  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
   <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) status pending with the IRS.</p>
 </div></footer>
 
