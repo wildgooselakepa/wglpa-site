@@ -68,13 +68,13 @@ header.site .wrap { display: flex; align-items: center; justify-content: space-b
 @media (max-width: 480px) { .brand .logo { height: 38px; } }
 nav.main ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .25rem; }
 nav.main > ul > li { position: relative; }
-nav.main a { display: block; padding: .5rem .7rem; color: var(--ink); text-decoration: none; font-weight: 500; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; border-radius: 4px; }
+nav.main a { display: block; white-space: nowrap; padding: .5rem .7rem; color: var(--ink); text-decoration: none; font-weight: 500; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; border-radius: 4px; }
 nav.main a:hover { background: var(--sky); }
 nav.main .sub { display: none; position: absolute; left: 0; top: 100%; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: .35rem; min-width: 14rem; flex-direction: column; box-shadow: 0 10px 24px rgb(0 0 0 / .12); }
 nav.main .sub a { font-weight: 400; letter-spacing: .1em; }
 nav.main li:hover > .sub, nav.main li:focus-within > .sub { display: flex; }
 .menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 6px; padding: .45rem .8rem; font: inherit; font-size: .8rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .menu-btn { display: block; }
   nav.main { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--paper); border-bottom: 1px solid var(--line); padding: .5rem 1.25rem 1rem; max-height: 75vh; overflow-y: auto; }
   nav.main.open { display: block; }
@@ -188,7 +188,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
 </head><body style="margin:0">
 
 <div class="topbar"><div class="wrap">
-  <a href="#events">Lake Events</a><a href="#news">Lake News</a><a href="#subscribe">Subscribe</a><a href="#contact">Contact Us</a><a href="members/">Member Login</a>
+  <a href="#events">Lake Events</a><a href="#news">Lake News</a><a href="#subscribe">Subscribe</a><a href="#contact">Contact Us</a>
 </div></div>
 
 <header class="site"><div class="wrap">
@@ -206,7 +206,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
         <ul class="sub"><li><a href="#studies">Water Quality Monitoring</a></li><li><a href="#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="#studies">Reports Archive</a></li></ul></li>
       <li><a href="#news">News</a></li>
       <li><a href="#links">Links</a></li>
-      <li><a href="members/">Members</a></li>
+      <li><a href="members/">Member Login</a></li>
     </ul>
   </nav>
 </div></header>
