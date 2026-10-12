@@ -172,6 +172,16 @@ details > div { display: grid; gap: .7rem; padding-top: .75rem; color: var(--ink
 .join .problem .eyebrow { color: var(--reed); opacity: 1; display: block; margin-bottom: .35rem; }
 .join .problem h3 { font-size: 1.6rem; margin-bottom: .5rem; color: var(--ink); }
 .join .problem p { color: var(--ink); font-size: 1.02rem; }
+.join .give { background: var(--paper); color: var(--ink); border-radius: 10px; padding: 1.4rem 1.5rem; margin-bottom: 1.5rem; border-top: 6px solid var(--reed); box-shadow: 0 8px 28px rgba(0,0,0,.2); }
+.join .give .eyebrow { color: var(--reed); opacity: 1; }
+.join .give h3 { font-size: 1.75rem; margin: .2rem 0 .6rem; color: var(--ink); }
+.join .give p { color: var(--ink); }
+.join .give p + p { margin-top: .6rem; }
+.join .give .btns { margin: 1rem 0 .6rem; }
+.join .give .btn.solid { background: var(--water); color: var(--on-water); border-color: var(--water); }
+.join .give .btn.ghost { color: var(--water); border-color: var(--water); }
+.join .give .tax-note { color: var(--muted); }
+.topbar a strong { font-weight: 700; }
 .join .btn.ghost { background: transparent; color: var(--on-water); border-color: var(--on-water); }
 
 form.stack { display: grid; gap: .8rem; }
@@ -194,7 +204,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
 </head><body style="margin:0">
 
 <div class="topbar"><div class="wrap">
-  <a href="#events">Lake Events</a><a href="#news">Lake News</a><a href="#subscribe">Subscribe</a><a href="#contact">Contact Us</a><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+  <a href="#give"><strong>Give</strong></a><a href="#events">Lake Events</a><a href="#news">Lake News</a><a href="#subscribe">Subscribe</a><a href="#contact">Contact Us</a><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
 </div></div>
 
 <header class="site"><div class="wrap">
@@ -224,7 +234,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       <span class="eyebrow">Founded 2026 · A volunteer nonprofit</span>
       <h1>Keeping Wild Goose Lake clean, healthy and <em>ours to enjoy.</em></h1>
       <p class="lede">We are neighbors who share a lake. Together we watch over its water, its shoreline and the wildlife that comes back every season.</p>
-      <div class="btns"><a class="btn solid" href="#join">Membership and giving</a><a class="btn ghost" href="#events">See upcoming events</a></div>
+      <div class="btns"><a class="btn solid" href="#give">Make your annual gift</a><a class="btn ghost" href="#join">Membership</a><a class="btn ghost" href="#events">See upcoming events</a></div>
       <p class="photo-note">Hero photo goes here: <em class="ph">a wide shot of the lake, ideally with geese on the water</em></p>
     </div>
   </section>
@@ -506,10 +516,16 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
         </aside>
         <p><strong>Where your gift goes: the Lake Program Fund.</strong> Unless you tell us otherwise, your gift goes into the association's general Lake Program Fund. Before Washtenaw County divides the yearly cost of the lake program among the properties on the roll, the association pays the County what the Lake Program Fund has raised. The County subtracts that money first, so every owner on the roll, lakefront and lake-access alike, sees a smaller lake charge on the winter tax bill, reduced by the same percentage for everyone. The more we raise together, the less each of us pays. One thing to know: before the association pays the County, the Board sets aside from this same fund whatever the Neighbor Fund needs that year, based on the applications received. So the amount that lowers everyone's bill is what remains after neighbors in genuine need have been helped, and the Board reports both figures to members every year.</p>
         <p><strong>The Neighbor Fund: a separate back-up.</strong> The Neighbor Fund is kept apart from the Lake Program Fund and does not lower the roll. It exists for the few households that still cannot afford the lake charge, even after the Lake Program Fund has brought it down, because of a low income, age or disability. It pays that household's charge directly to the Township. Applications are confidential and reviewed by a three-person committee that includes someone from outside the lake. You can designate a gift to the Neighbor Fund if you wish. Our promise: no one on Wild Goose Lake loses their home or land because of the cost of caring for the lake.</p>
-        <div class="btns"><a class="btn solid" href="#contact">Make your annual gift</a><a class="btn ghost" href="#contact">Ask about the Neighbor Fund</a></div>
-        <p class="tax-note">We are applying to the IRS for 501(c)(3) tax-exempt status. Until it is approved, we can't confirm that gifts are tax-deductible.</p>
       </div>
       <div>
+        <div class="give" id="give">
+          <span class="eyebrow">Annual gift</span>
+          <h3>Give to the Lake Program Fund</h3>
+          <p>We ask every association member and our community partners to make a charitable donation to the Lake Program Fund once a year, in whatever amount is right for you. Every dollar goes to Washtenaw County to lower the lake charge for all of us, and the Board sets aside what the Neighbor Fund needs first.</p>
+          <p><strong>How to give.</strong> Until our online giving page is ready, email the Treasurer and we will send you how to give by check or electronically. Gifts can be designated for the Neighbor Fund.</p>
+          <div class="btns"><a class="btn solid" href="mailto:treasurer.pa@wildgooselake.org?subject=Annual%20gift%20to%20the%20Lake%20Program%20Fund">Make your annual gift</a><a class="btn ghost" href="#contact">Ask about the Neighbor Fund</a></div>
+          <p class="tax-note">We are applying to the IRS for 501(c)(3) tax-exempt status. Until it is approved, we can't confirm that gifts are tax-deductible.</p>
+        </div>
         <p><strong>Your annual gift supports:</strong></p>
         <ul>
           <li>The Lake Program Fund, which pays down the County lake charge for every owner on the roll</li>
