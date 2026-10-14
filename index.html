@@ -6,801 +6,118 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap">
-<style>
-/* Layout: lakeshore — a horizon-line hero, then calm full-width bands alternating water and shore. */
-:root {
-  --water: #1f4e5a;      /* deep lake teal */
-  --water-2: #2e6b78;
-  --shore: #f2f4ef;      /* pale reed-washed neutral */
-  --paper: #ffffff;
-  --ink: #17262a;
-  --muted: #55676b;
-  --reed: #8a9a5b;       /* marsh grass accent */
-  --sky: #dbe8ea;
-  --line: #d3dcd8;
-  --ph-bg: #fff4c7;      /* placeholder highlight */
-  --ph-ink: #6b5200;
-  --on-water: #f4f8f7;
-  --link: #2e6b78;
-  --logo-filter: none;
-  --logo-footer-filter: invert(1);
-  --font-display: "Cormorant Garamond", Garamond, "Times New Roman", serif;
-  --font-body: "Jost", Futura, "Century Gothic", system-ui, sans-serif;
-  --maxw: 72rem;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --water: #163a43; --water-2: #23545f; --shore: #121b1d; --paper: #182326;
-    --ink: #e4ecea; --muted: #9db0b1; --reed: #a9b97a; --sky: #1d2d31; --line: #2a3a3d;
-    --ph-bg: #4a3d0c; --ph-ink: #ffe28a; --on-water: #eef5f4; color-scheme: dark;
-    --link: #8fc6cf; --logo-filter: invert(1); --logo-footer-filter: none;
-  }
-}
-:root[data-theme="dark"] {
-  --water: #163a43; --water-2: #23545f; --shore: #121b1d; --paper: #182326;
-  --ink: #e4ecea; --muted: #9db0b1; --reed: #a9b97a; --sky: #1d2d31; --line: #2a3a3d;
-  --ph-bg: #4a3d0c; --ph-ink: #ffe28a; --on-water: #eef5f4; color-scheme: dark;
-  --link: #8fc6cf; --logo-filter: invert(1); --logo-footer-filter: none;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { background: var(--shore); color: var(--ink); font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; font-weight: 400; }
-a { color: var(--link); text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid var(--reed); outline-offset: 2px; }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; letter-spacing: -.005em; text-wrap: balance; margin: 0; }
-h2 { font-size: clamp(2.1rem, 4vw, 3rem); }
-h3 { font-size: 1.45rem; }
-p { margin: 0; }
-.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: 1.25rem; }
-.eyebrow { font-size: .72rem; font-weight: 500; letter-spacing: .26em; text-transform: uppercase; color: var(--reed); }
-.ph { background: var(--ph-bg); color: var(--ph-ink); border: 1px dashed currentColor; border-radius: 4px; padding: 0 .3em; font-style: normal; font-size: .95em; }
+<link rel="stylesheet" href="assets/site.css">
+</head><body>
 
-/* Top bar + header */
-.topbar { background: var(--water); color: var(--on-water); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; }
-.topbar .wrap { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; justify-content: flex-end; padding-block: .4rem; }
-.topbar a { color: var(--on-water); text-decoration: none; opacity: .9; }
-.topbar a:hover { opacity: 1; text-decoration: underline; }
-header.site { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; }
-header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .75rem; }
-.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--ink); min-width: 0; }
-.brand .logo { display: block; height: 52px; width: auto; max-width: 100%; filter: var(--logo-filter); }
-@media (max-width: 480px) { .brand .logo { height: 38px; } }
-nav.main ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .25rem; }
-nav.main > ul > li { position: relative; }
-nav.main a { display: block; white-space: nowrap; padding: .5rem .7rem; color: var(--ink); text-decoration: none; font-weight: 500; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; border-radius: 4px; }
-nav.main a:hover { background: var(--sky); }
-nav.main .sub { display: none; position: absolute; left: 0; top: 100%; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: .35rem; min-width: 14rem; flex-direction: column; box-shadow: 0 10px 24px rgb(0 0 0 / .12); }
-nav.main .sub a { font-weight: 400; letter-spacing: .1em; }
-nav.main li:hover > .sub, nav.main li:focus-within > .sub { display: flex; }
-.menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 6px; padding: .45rem .8rem; font: inherit; font-size: .8rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
-html { scroll-padding-top: 5.5rem; }
-@media (min-width: 1081px) {
-  html { scroll-padding-top: 9rem; }
-  header.site .wrap { flex-direction: column; gap: .35rem; padding-block: .7rem .4rem; }
-  nav.main ul { flex-wrap: wrap; justify-content: center; gap: .1rem; }
-  nav.main > ul > li > a { padding: .5rem .6rem; letter-spacing: .11em; }
-}
-@media (max-width: 1080px) {
-  .menu-btn { display: block; }
-  nav.main { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--paper); border-bottom: 1px solid var(--line); padding: .5rem 1.25rem 1rem; max-height: 75vh; overflow-y: auto; }
-  nav.main.open { display: block; }
-  nav.main ul { flex-direction: column; }
-  nav.main .sub { display: flex; position: static; border: 0; box-shadow: none; padding: 0 0 0 1rem; min-width: 0; }
-}
-
-/* Hero */
-.hero { position: relative; background: linear-gradient(var(--sky), var(--paper) calc(100% - 8rem), var(--water-2) calc(100% - 8rem), var(--water)); overflow: hidden; }
-.hero .wrap { position: relative; padding-block: 3.5rem 5rem; display: grid; gap: 1.25rem; }
-.hero h1 { font-size: clamp(2.7rem, 7vw, 4.8rem); font-weight: 500; line-height: 1.02; max-width: 15ch; }
-.hero h1 em { font-style: italic; }
-.hero p.lede { font-size: 1.25rem; font-weight: 300; line-height: 1.6; max-width: 38ch; color: var(--muted); }
-.hero .hero-logo { display: block; width: min(15rem, 70%); height: auto; filter: var(--logo-filter); }
-@media (min-width: 1000px) { .hero .hero-logo { position: absolute; right: 1.25rem; top: 3rem; width: min(30%, 22rem); } }
-.hero .photo-note { color: var(--on-water); font-size: .85rem; margin-top: 3.5rem; }
-.hero .photo-note .ph { color: var(--ph-ink); }
-.btns { display: flex; flex-wrap: wrap; gap: .75rem; }
-.btn { display: inline-block; padding: .7rem 1.2rem; border-radius: 999px; font-size: .8rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--water); padding: .85rem 1.6rem; }
-.btn.solid { background: var(--water); color: var(--on-water); }
-.btn.ghost { color: var(--ink); background: var(--paper); border-color: var(--water-2); }
-
-/* Sections */
-section.band { padding-block: 4rem; }
-section.band.alt { background: var(--paper); border-block: 1px solid var(--line); }
-.section-head { display: grid; gap: .5rem; margin-bottom: 2rem; max-width: 46rem; }
-.section-head p { color: var(--muted); }
-.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 2.5rem; }
-.two > * { min-width: 0; display: grid; gap: .9rem; align-content: start; }
-.mission { border-left: 2px solid var(--reed); padding-left: 1.5rem; font-family: var(--font-display); font-size: 1.7rem; font-weight: 500; font-style: italic; line-height: 1.35; }
-
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1.25rem; }
-.card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: var(--ink); }
-.card .img { aspect-ratio: 16 / 9; max-width: 100%; background: linear-gradient(160deg, var(--sky), var(--water-2)); display: grid; place-items: center; color: var(--on-water); font-size: .8rem; }
-.card .body { padding: 1.1rem 1.2rem 1.3rem; display: grid; gap: .45rem; }
-.card .body p { color: var(--muted); font-size: .97rem; }
-a.card:hover h3 { text-decoration: underline; }
-
-.facts { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-.facts th, .facts td { text-align: left; padding: .7rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
-.source-note { font-size: .9rem; color: var(--muted); }
-.history, .fish-list { display: grid; gap: 1rem; }
-.fun-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
-.fact { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem 1.3rem 1.35rem; display: grid; gap: .45rem; align-content: start; }
-.fact .big { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; line-height: 1; color: var(--link); }
-.fact .big em { font-weight: 500; }
-.fact h3 { font-size: 1.35rem; }
-.fact p { color: var(--muted); font-size: .97rem; }
-.partners .fact .big em { font-size: 1rem; font-style: normal; color: var(--muted); }
-.partners .fact p a { font-weight: 500; }
-.partners + .source-note { margin-top: 1.5rem; }
-@media (min-width: 48rem) { .fun-facts.two-up { grid-template-columns: repeat(2, 1fr); } }
-.crane-more h3 { font-size: 1.6rem; }
-.crane-more + .source-note { margin-top: 2rem; }
-.hunt-note { background: var(--shore); border-left: 2px solid var(--reed); padding: .9rem 1.1rem; border-radius: 0 8px 8px 0; font-size: .97rem; }
-.fish-list h3, .hunt-rules h3 { font-size: 1.5rem; }
-.fish-list h3 + p { margin-top: -.4rem; }
-.hunt-rules { margin-top: 2.5rem; }
-.hunt-rules .table-scroll { margin-top: .4rem; }
-.facts th { width: 38%; font-weight: 400; color: var(--muted); }
-.table-scroll { overflow-x: auto; }
-
-.news { display: grid; gap: 0; border-top: 1px solid var(--line); }
-.news article { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
-.news time { font-size: .74rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
-.news article > div { min-width: 0; display: grid; gap: .3rem; }
-.news p { color: var(--muted); font-size: .97rem; }
-@media (max-width: 560px) { .news article { grid-template-columns: 1fr; gap: .25rem; } }
-
-.events { display: grid; gap: .9rem; }
-.event { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; align-items: start; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 1rem; }
-.event .date { background: var(--water); color: var(--on-water); border-radius: 8px; text-align: center; padding: .4rem 0; line-height: 1.1; }
-.event .date b { display: block; font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; }
-.event .date span { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; }
-.event > div:last-child { min-width: 0; display: grid; gap: .2rem; }
-.event p { color: var(--muted); font-size: .95rem; }
-
-.studies { display: grid; gap: .75rem; }
-details { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1.1rem; }
-summary { cursor: pointer; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; }
-details > div { display: grid; gap: .7rem; padding-top: .75rem; color: var(--ink); }
-
-.board-title { font-size: 1.6rem; margin-bottom: 1.1rem; }
-.board-title-2 { margin-top: 2.5rem; }
-.board { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
-.person { border-top: 3px solid var(--reed); padding-top: .7rem; display: grid; gap: .15rem; align-content: start; }
-.person strong { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; line-height: 1.2; }
-.person .slated { font-family: var(--font-body); font-size: .82rem; font-weight: 400; color: var(--muted); letter-spacing: .02em; }
-.person span { color: var(--muted); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; }
-.person a.email { font-size: .92rem; margin-top: .2rem; overflow-wrap: anywhere; }
-
-.roadmap { margin: 0 0 2.5rem; padding: 1.4rem 1.5rem; background: var(--paper); border: 1px solid var(--line); border-top: 6px solid var(--reed); border-radius: 10px; }
-.roadmap h3 { margin-bottom: .8rem; }
-.roadmap ol { margin: 0; padding-left: 1.4rem; display: grid; gap: .55rem; }
-.model { padding: 1.25rem 1.4rem; background: var(--paper); border-left: 6px solid var(--reed); border-radius: 0 8px 8px 0; box-shadow: 0 6px 24px rgba(0,0,0,.08); display: grid; gap: .6rem; }
-.model .eyebrow { color: var(--reed); }
-.dues-btn { margin: 1rem 0 .25rem; }
-.login-card { background: var(--paper); border: 1px solid var(--line); border-top: 6px solid var(--reed); border-radius: 10px; padding: 1.4rem 1.5rem; display: grid; gap: .6rem; box-shadow: 0 8px 28px rgba(0,0,0,.08); }
-.login-card .eyebrow { color: var(--reed); }
-.login-card .btns { margin-top: .4rem; }
-.join { background: var(--water); color: var(--on-water); }
-.join .section-head p, .join .eyebrow { color: var(--on-water); }
-.join .eyebrow { opacity: .8; }
-.join ul { margin: 0; padding-left: 1.2rem; display: grid; gap: .4rem; }
-.join .btn.solid { background: var(--on-water); color: var(--water); border-color: var(--on-water); }
-.join .dues-btn { margin: 1rem 0 .25rem; }
-.join .tax-note { font-size: .9rem; opacity: .85; max-width: 46ch; }
-.join .problem { margin: 1.25rem 0; padding: 1.25rem 1.4rem; background: var(--paper); color: var(--ink); border-left: 6px solid var(--reed); border-radius: 0 8px 8px 0; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
-.join .problem .eyebrow { color: var(--reed); opacity: 1; display: block; margin-bottom: .35rem; }
-.join .problem h3 { font-size: 1.6rem; margin-bottom: .5rem; color: var(--ink); }
-.join .problem p { color: var(--ink); font-size: 1.02rem; }
-.join .give { background: var(--paper); color: var(--ink); border-radius: 10px; padding: 1.4rem 1.5rem; margin-bottom: 1.5rem; border-top: 6px solid var(--reed); box-shadow: 0 8px 28px rgba(0,0,0,.2); }
-.join .give .eyebrow { color: var(--reed); opacity: 1; }
-.join .give h3 { font-size: 1.75rem; margin: .2rem 0 .6rem; color: var(--ink); }
-.join .give p { color: var(--ink); }
-.join .give p + p { margin-top: .6rem; }
-.join .give .btns { margin: 1rem 0 .6rem; }
-.join .give .btn.solid { background: var(--water); color: var(--on-water); border-color: var(--water); }
-.join .give .btn.ghost { color: var(--water); border-color: var(--water); }
-.join .give .tax-note { color: var(--muted); }
-.topbar a strong { font-weight: 700; }
-.join .btn.ghost { background: transparent; color: var(--on-water); border-color: var(--on-water); }
-
-form.stack { display: grid; gap: .8rem; }
-label { font-weight: 500; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; display: grid; gap: .4rem; }
-label input, label textarea { letter-spacing: normal; text-transform: none; font-size: 1rem; }
-input, textarea { font: inherit; padding: .6rem .7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); color: var(--ink); width: 100%; }
-button.submit { justify-self: start; background: var(--water); color: var(--on-water); border: 0; border-radius: 999px; padding: .85rem 1.6rem; font: inherit; font-size: .8rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
-.form-note { font-size: .9rem; color: var(--muted); }
-.email { overflow-wrap: anywhere; }
-.soon { color: var(--muted); font-style: italic; }
-
-footer.site { background: var(--ink); color: var(--shore); padding-block: 2.5rem; font-size: .92rem; }
-footer.site .wrap { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
-footer.site a { color: var(--shore); }
-footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; }
-footer.site .ph { color: var(--ph-ink); }
-footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto; filter: var(--logo-footer-filter); }
-.legal { grid-column: 1 / -1; border-top: 1px solid rgb(127 127 127 / .35); padding-top: 1rem; opacity: .8; }
-</style>
-</head><body style="margin:0">
-
+<a class="skip" href="#main">Skip to content</a>
 <div class="topbar"><div class="wrap">
-  <a href="#give"><strong>Give</strong></a><a href="#events">Lake Events</a><a href="#news">Lake News</a><a href="#subscribe">Subscribe</a><a href="#contact">Contact Us</a><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+  <a href="fundraising.html#give"><strong>Give</strong></a><a href="news.html#events">Lake Events</a><a href="news.html#news">Lake News</a><a href="association.html#subscribe">Subscribe</a><a href="association.html#contact">Contact Us</a><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
 </div></div>
 
 <header class="site"><div class="wrap">
-  <a class="brand" href="#top" aria-label="Wild Goose Lake Protection Association home">
+  <a class="brand" href="index.html" aria-label="Wild Goose Lake Protection Association home">
     <img class="logo" src="assets/logo.png" alt="Wild Goose Lake Protection Association" width="809" height="160">
   </a>
   <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button>
   <nav class="main" id="main-nav" aria-label="Main">
     <ul>
-      <li><a href="#living">Living on the Lake</a>
-        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#hunting">Waterfowl Hunting</a></li><li><a href="#safety">Boating Safety</a></li><li><a href="#stewardship">Lake-Friendly Living</a></li></ul></li>
-      <li><a href="#about">WGLPA</a>
-        <ul class="sub"><li><a href="#about">Mission &amp; Activities</a></li><li><a href="#board">Board</a></li><li><a href="#documents">Documents</a></li></ul></li>
-      <li><a href="#studies">Lake Studies</a>
-        <ul class="sub"><li><a href="#studies">Water Quality Monitoring</a></li><li><a href="#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="#reports">Reports Archive</a></li></ul></li>
-      <li><a href="#assessment">Special Assessment District</a></li>
-      <li><a href="#fundraising">Fundraising</a>
-        <ul class="sub"><li><a href="#give">Lake Program Fund</a></li><li><a href="#neighbor-fund">Neighbor Fund</a></li></ul></li>
-      <li><a href="#join">Membership</a>
-        <ul class="sub"><li><a href="#join">Join &amp; Dues</a></li><li><a href="members/">Member Login</a></li></ul></li>
-      <li><a href="#partners">Partners</a>
-        <ul class="sub"><li><a href="#partners">Statewide Partners</a></li><li><a href="#community-partners">Community Partners</a></li></ul></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#links">Links</a></li>
+      <li><a href="lake.html#living">Living on the Lake</a>
+        <ul class="sub"><li><a href="lake.html#facts">Lake Facts</a></li><li><a href="lake.html#history">Lake History</a></li><li><a href="lake.html#fishing">Fishing</a></li><li><a href="lake.html#cranes">Sandhill Cranes</a></li><li><a href="lake.html#hunting">Waterfowl Hunting</a></li><li><a href="lake.html#safety">Boating Safety</a></li><li><a href="lake.html#stewardship">Lake-Friendly Living</a></li></ul></li>
+      <li><a href="association.html#about">WGLPA</a>
+        <ul class="sub"><li><a href="association.html#about">Mission &amp; Activities</a></li><li><a href="association.html#board">Board</a></li><li><a href="association.html#documents">Documents</a></li></ul></li>
+      <li><a href="studies.html#studies">Lake Studies</a>
+        <ul class="sub"><li><a href="studies.html#studies">Water Quality Monitoring</a></li><li><a href="studies.html#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="studies.html#reports">Reports Archive</a></li></ul></li>
+      <li><a href="assessment.html#assessment">Special Assessment District</a></li>
+      <li><a href="fundraising.html#fundraising">Fundraising</a>
+        <ul class="sub"><li><a href="fundraising.html#give">Lake Program Fund</a></li><li><a href="fundraising.html#neighbor-fund">Neighbor Fund</a></li></ul></li>
+      <li><a href="membership.html#join">Membership</a>
+        <ul class="sub"><li><a href="membership.html#join">Join &amp; Dues</a></li><li><a href="members/">Member Login</a></li></ul></li>
+      <li><a href="partners.html#partners">Partners</a>
+        <ul class="sub"><li><a href="partners.html#partners">Statewide Partners</a></li><li><a href="partners.html#community-partners">Community Partners</a></li></ul></li>
+      <li><a href="news.html#news">News</a></li>
+      <li><a href="links.html#links">Links</a></li>
     </ul>
   </nav>
 </div></header>
 
-<main id="top">
-  <section class="hero">
+<main id="main">
+  <section class="hero-photo">
+    <img src="assets/img/hero.jpg" alt="Mist on Wild Goose Lake at sunrise, with geese on the water and a wooden dock" width="2000" height="1125" fetchpriority="high">
     <div class="wrap">
-      <img class="hero-logo" src="assets/logo-stacked.png" alt="" width="1045" height="420">
       <span class="eyebrow">Founded 2026 · A volunteer nonprofit</span>
       <h1>Keeping Wild Goose Lake clean, healthy and <em>ours to enjoy.</em></h1>
       <p class="lede">We are neighbors who share a lake. Together we watch over its water, its shoreline and the wildlife that comes back every season.</p>
-      <div class="btns"><a class="btn solid" href="#give">Make your annual gift</a><a class="btn ghost" href="#join">Membership</a><a class="btn ghost" href="#events">See upcoming events</a></div>
-      <p class="photo-note">Hero photo goes here: <em class="ph">a wide shot of the lake, ideally with geese on the water</em></p>
+      <div class="btns"><a class="btn light" href="fundraising.html#give">Make your annual gift</a><a class="btn outline-light" href="membership.html">Membership</a></div>
     </div>
   </section>
 
-  <section class="band alt" id="about">
-    <div class="wrap two">
-      <div>
-        <span class="eyebrow">About the association</span>
-        <h2>Who we are</h2>
-        <p>The Wild Goose Lake Protection Association (WGLPA) is a nonprofit organization of property owners and friends of Wild Goose Lake in Lyndon Township, Washtenaw County, about five miles north of Chelsea, Michigan, next to Waterloo State Recreation Area. Every owner of lakefront or lake-access property is a member, about 40 owners and 58 parcels in all. We are applying to the IRS for 501(c)(3) tax-exempt status.</p>
-        <p>Members pay $10 a year in <a href="#join">dues</a> for the association's running costs. Separately, gifts to our <a href="#give">Lake Program Fund</a> lower every owner's share of the cost of caring for the lake, and the <a href="#neighbor-fund">Neighbor Fund</a> helps households that still can't afford it.</p>
-      </div>
-      <div>
-        <span class="eyebrow">Mission</span>
-        <p class="mission">To protect and improve the ecological health, recreational value and natural beauty of Wild Goose Lake for the people and wildlife who depend on it today and for generations to come.</p>
-        <p><strong>Our goal</strong> is to catch problems early. We test the water, track changes from year to year, and act on what we learn, whether that means managing invasive plants, educating boaters or working with local and state agencies.</p>
-      </div>
+  <section class="band" id="welcome">
+    <div class="wrap trio">
+      <div class="pillar"><span class="eyebrow">The association</span><h2>Who we are</h2><p>A nonprofit of owners and friends of Wild Goose Lake in Lyndon Township, about five miles north of Chelsea, beside Waterloo State Recreation Area. Every lakefront and lake-access owner is a member.</p><a class="more" href="association.html">About the association</a></div>
+      <div class="pillar"><span class="eyebrow">Our mission</span><h2>Protect and improve</h2><p class="mission-sm">The ecological health, recreational value and natural beauty of Wild Goose Lake, for the people and wildlife who depend on it today and for generations to come.</p></div>
+      <div class="pillar"><span class="eyebrow">Our goal</span><h2>Catch problems early</h2><p>We test the water, track changes from year to year and act on what we learn, modeling our lake program on North Lake's.</p><a class="more" href="assessment.html">Our lake program</a></div>
     </div>
   </section>
 
-  <section class="band" id="living">
+  <section class="band alt" id="discover">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Discover Wild Goose Lake</span>
-        <h2>Living on the lake</h2>
-        <p>Practical information for residents, visitors and anyone who spends time on the water.</p>
-      </div>
-      <div class="cards">
-        <a class="card" href="#facts"><div class="img">Photo placeholder</div><div class="body"><h3>Lake Facts</h3><p>Size, depth, watershed and the fish and wildlife that call the lake home.</p></div></a>
-        <a class="card" href="#safety"><div class="img">Photo placeholder</div><div class="body"><h3>Boating Safety</h3><p>Speed rules, no-wake hours and how to keep invasive species off your boat.</p></div></a>
-        <a class="card" href="#fishing"><div class="img">Photo placeholder</div><div class="body"><h3>Fishing</h3><p>What anglers catch here, where to launch and the Michigan rules to know.</p></div></a>
-        <a class="card" href="#history"><div class="img">Photo placeholder</div><div class="body"><h3>Lake History</h3><p>How three Black families from Ann Arbor founded the Wild Goose community in 1927.</p></div></a>
+      <div class="section-head"><span class="eyebrow">Discover</span><h2>Explore Wild Goose Lake</h2></div>
+      <div class="cards three">
+        <a class="card" href="lake.html#facts"><div class="img-wrap"><img src="assets/img/facts.jpg" alt="" loading="lazy" width="1200" height="900"></div><div class="body"><h3>Lake Facts</h3><p>Size, depth, watershed and the wildlife that call the lake home.</p></div></a>
+        <a class="card" href="lake.html#history"><div class="img-wrap"><img src="assets/img/history.jpg" alt="" loading="lazy" width="1200" height="900"></div><div class="body"><h3>Lake History</h3><p>How three Black families from Ann Arbor founded the Wild Goose community in 1927.</p></div></a>
+        <a class="card" href="lake.html#cranes"><div class="img-wrap"><img src="assets/img/cranes.jpg" alt="" loading="lazy" width="1200" height="900"></div><div class="body"><h3>Sandhill Cranes</h3><p>Our tallest neighbors, and how to share the shore with them.</p></div></a>
+        <a class="card" href="studies.html"><div class="img-wrap"><img src="assets/img/studies.jpg" alt="" loading="lazy" width="1200" height="900"></div><div class="body"><h3>Lake Studies</h3><p>What we measure, why it matters, and how to volunteer as a lake monitor.</p></div></a>
+        <a class="card" href="assessment.html"><div class="img-wrap"><img src="assets/img/shoreline.jpg" alt="" loading="lazy" width="1200" height="900"></div><div class="body"><h3>Special Assessment District</h3><p>Our path to professional lake care, following North Lake's model.</p></div></a>
+        <a class="card" href="lake.html#safety"><div class="img-wrap"><img src="assets/img/safety.jpg" alt="" loading="lazy" width="1200" height="900"></div><div class="body"><h3>Boating Safety</h3><p>Michigan rules and lake courtesy for a safe summer on the water.</p></div></a>
       </div>
     </div>
   </section>
 
-  <section class="band alt" id="facts">
+  <section class="band" id="latest">
     <div class="wrap two">
       <div>
-        <span class="eyebrow">Lake facts</span>
-        <h2>Wild Goose Lake at a glance</h2>
-        <p>Wild Goose Lake is a small, quiet lake in the hills north of Chelsea, set between Waterloo State Recreation Area and Pinckney Recreation Area.</p>
-        <p class="source-note">Each figure notes its source. Sources don't always agree on a lake this small, so we've shown where they differ. We couldn't find average depth or water clarity readings on record; volunteer monitoring can fill that gap.</p>
-      </div>
-      <div class="table-scroll">
-        <table class="facts">
-          <tr><th scope="row">Location</th><td>Lyndon Township, Washtenaw County, Michigan</td></tr>
-          <tr><th scope="row">Nearby</th><td>About 5 miles north of Chelsea and just west of North Lake, next to <a href="https://www.michigan.gov/recsearch/parks/waterloo">Waterloo State Recreation Area</a></td></tr>
-          <tr><th scope="row">Mailing addresses</th><td>Gregory, MI 48137</td></tr>
-          <tr><th scope="row">Surface area</th><td>About 40 acres, including shallow, marshy edges, per the Michigan DNR lake inventory. Newer USGS mapping counts only the open water, about 14 acres.</td></tr>
-          <tr><th scope="row">Maximum depth</th><td>18 feet, in the eastern part of the lake, per the Michigan DNR lake contour map. An older DNR table lists 15 feet.</td></tr>
-          <tr><th scope="row">Shoreline</th><td>About 1.6 miles (DNR lake map)</td></tr>
-          <tr><th scope="row">Elevation</th><td>About 928 feet above sea level (USGS)</td></tr>
-          <tr><th scope="row">Lake type</th><td>Small, natural warm-water lake with no mapped stream inlet or outlet</td></tr>
-          <tr><th scope="row">Watershed</th><td>Huron River (Portage Creek area)</td></tr>
-          <tr><th scope="row">Fish</th><td>Largemouth bass and black crappie reported by anglers. <a href="#fishing">See Fishing</a></td></tr>
-          <tr><th scope="row">Wildlife</th><td>Sandhill cranes nest and feed around the lake. <a href="#cranes">See Sandhill Cranes</a></td></tr>
-          <tr><th scope="row">Public access</th><td><!-- placeholder: public access details to be added --><em class="ph">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></td></tr>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="history">
-    <div class="wrap two">
-      <div>
-        <span class="eyebrow">Our history</span>
-        <h2>A lake community since 1927</h2>
-        <p class="mission">Wild Goose was founded by Black families who wanted a lake of their own, at a time when many resorts nearby turned them away.</p>
-      </div>
-      <div class="history">
-        <p>In 1927, three Black families from Ann Arbor, the Bakers, the Grayers and the Popes, bought the 250-acre Schultz farm around Wild Goose Lake. The sale closed on June 1, 1927. Charles Baker, co-owner of the Ann Arbor Foundry, organized the purchase with Donald Grayer and Iva Pope, and together they founded the Wild Goose Country Club.</p>
-        <p>Not every neighbor welcomed them. Some circulated a petition urging the owners not to sell, but the sale went through, and local grocer Perry Noah refused to sign it.</p>
-        <p>The club laid out 93 cottage lots, a shared stretch of shoreline with a fishing dock, a nine-hole golf course and a dance hall on the hill. The old farmhouse became the clubhouse. The first cottages were log cabins built from Sears, Roebuck kits, and lots sold for $100.</p>
-        <p>The Depression slowed building, a storm in the 1930s knocked down the dance hall, and the golf course has long since grown over. Old apple, pear and cherry trees from the farm's orchard outlasted them all, and a descendant of the Baker family still lives on the lake today.</p>
-        <p><strong>Read the full story:</strong> <a href="https://aadl.org/aaobserver/18628">“A Tale of Two Lakes”</a> by Grace Shackman, in the Ann Arbor District Library's Observer archive, tells the history of Wild Goose and its neighbor Inverness on North Lake.</p>
-        <p class="source-note">Sources: Grace Shackman, <a href="https://aadl.org/aaobserver/18628">“A Tale of Two Lakes,”</a> Community Observer, Fall 2004; <a href="https://www.wemu.org/wemu-news/2026-02-13/wild-goose-lake-outside-of-chelsea-has-a-rich-black-history">WEMU</a>, February 2026.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="band alt" id="fishing">
-    <div class="wrap two">
-      <div>
-        <span class="eyebrow">Fishing</span>
-        <h2>Fishing Wild Goose Lake</h2>
-        <p>Fishing has been part of life here since the club built its dock on the shared shoreline in the 1920s. Much of the lake is shallow, with a deep hole of about 18 feet toward the east end.</p>
-        <p class="source-note">The state has never stocked or surveyed Wild Goose Lake, so there's no official species list yet. <a href="#contact">Tell us what you catch</a> and we'll keep a record.</p>
-      </div>
-      <div class="fish-list">
-        <p><strong>What anglers report:</strong> largemouth bass and black crappie.</p>
-        <p><strong>Getting on the water:</strong> <!-- placeholder: lake access details to be added --><em class="ph">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em></p>
-        <p><strong>Licenses:</strong> Anyone 17 or older needs a Michigan fishing license. In 2026 a resident annual license is $26, or $11 for residents 65 and older.</p>
-        <p><strong>Statewide rules (2026):</strong> Bass are catch-and-release until the Saturday before Memorial Day, then may be kept through December 31 at 14 inches or longer, up to 5 a day. Bluegill, crappie and other sunfish are open all year with no minimum size and a limit of 25 a day combined. Northern pike may be kept from the last Saturday in April through March 15 at 24 inches or longer, 2 a day.</p>
-        <p class="source-note">Rules change each April. Check the <a href="https://www.michigan.gov/dnr/things-to-do/fishing/fishing-regulations">Michigan DNR fishing regulations</a> before you go.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="cranes">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Our neighbors</span>
-        <h2>Sandhill cranes</h2>
-        <p>Sandhill cranes nest and feed around Wild Goose Lake, and their rolling, trumpeting calls are part of life on the lake. Here are a few things worth knowing about our long-legged neighbors.</p>
-      </div>
-      <div class="fun-facts">
-        <div class="fact"><span class="big">4 ft</span><h3>Tall, gray and red-capped</h3><p>A sandhill crane stands about 4 feet tall with a wingspan of about 6.5 feet. The red cap is bare skin, not feathers, and it turns a deeper red when the bird is excited.</p></div>
-        <div class="fact"><span class="big">2.5 mi</span><h3>Calls that carry</h3><p>You can hear a crane up to 2.5 miles away. Its windpipe is so long that it coils inside the breastbone like a trumpet, which deepens the call and adds rich overtones.</p></div>
-        <div class="fact"><span class="big">20+ yrs</span><h3>Partners for life</h3><p>Cranes mate for life, often for 20 years or more, and pairs stay together all year. Mated pairs sing a duet called the unison call, with the female answering two notes for each of the male's.</p></div>
-        <div class="fact"><span class="big"><em>Bow &amp; leap</em></span><h3>They dance</h3><p>Cranes bow, pump their heads, spread their wings and spring into the air. Males and females both dance, to win a mate and to strengthen a bond they already have.</p></div>
-        <div class="fact"><span class="big"><em>Rust</em></span><h3>Mud makeup</h3><p>In spring, cranes rub iron-rich mud into their gray feathers with their bills, staining them rusty brown. No one knows for sure why, but the leading idea is camouflage on the nest.</p></div>
-        <div class="fact"><span class="big">8 hrs</span><h3>Colts on the move</h3><p>Baby cranes are called colts. Within 8 hours of hatching they can leave the nest and even swim after their parents. They fly at about 10 weeks and stay with the family for 9 to 10 months.</p></div>
-        <div class="fact"><span class="big">2.5 million</span><h3>An ancient bird</h3><p>The oldest known sandhill crane fossil, found in Florida, is about 2.5 million years old. The oldest wild crane on record lived at least 37 years.</p></div>
-        <div class="fact"><span class="big">27 pairs</span><h3>A Michigan comeback</h3><p>Lost wetlands and market hunting left only 27 pairs in the Lower Peninsula by 1944. Under federal protection they rebounded to an estimated 24,000 cranes statewide by 2013.</p></div>
-      </div>
-      <div class="two crane-more">
-        <div>
-          <h3>Where to see thousands</h3>
-          <p>Each fall, cranes gather near Waterloo to rest and feed before flying south. The best place to watch is Michigan Audubon's <a href="https://jacksonaudubon.org/Haehnle">Haehnle Sanctuary</a>, about 1,000 acres on the western edge of Waterloo Recreation Area in Jackson County. In the late afternoon, flocks drop into Mud Lake Marsh to roost. Late October through November is usually the peak. The sanctuary is free and open dawn to dusk.</p>
-          <p>Counters there tallied a record 8,177 cranes on November 19, 2012. Some cranes stay for the winter, too: the 2023–24 Waterloo Christmas Bird Count found 3,507, the most of any count in Michigan that year.</p>
-        </div>
-        <div>
-          <h3>Living alongside cranes</h3>
-          <p><strong>Never feed them.</strong> Cranes that get handouts learn to raid bird feeders and peck at windows, and it brings them close to dogs, raccoons and foxes. If cranes keep visiting your feeder, take it down for a few days.</p>
-          <p><strong>Give families room.</strong> Parents walking with colts often won't fly away, so slow down and let them cross roads and lawns at their own pace.</p>
-          <p><strong>They're protected.</strong> Sandhill cranes are covered by federal migratory bird law, and Michigan has no crane hunting season.</p>
-        </div>
-      </div>
-      <p class="source-note">Sources: Cornell Lab of Ornithology, <a href="https://www.allaboutbirds.org/guide/Sandhill_Crane/overview">All About Birds</a>; Michigan DNR, <a href="https://www.michigan.gov/dnr/things-to-do/wildlife-viewing/cranes">sandhill crane viewing</a> and its 2016 Migratory Bird Treaty centennial bulletin; Michigan Audubon; Jackson Audubon Society; U.S. Fish and Wildlife Service; National Audubon Society Christmas Bird Count.</p>
-    </div>
-  </section>
-
-  <section class="band alt" id="hunting">
-    <div class="wrap two">
-      <div>
-        <span class="eyebrow">Hunting</span>
-        <h2>Waterfowl hunting near the lake</h2>
-        <p>Glaciers left the country around Wild Goose Lake dotted with kettle lakes, marshes and farm fields, and the state land at Waterloo and Pinckney alone holds dozens of lakes, ponds and wetlands. That mix of open water, cover and food draws ducks and geese, and Michigan sits in the Mississippi Flyway, one of North America's four waterfowl flyways.</p>
-        <p>Canada geese nest in every Michigan county and are most common in the southern third of the state, so the DNR adds early September and late-winter goose seasons aimed at these year-round residents.</p>
-        <p class="hunt-note"><strong>On Wild Goose Lake itself:</strong> The shoreline is almost all private, and Michigan law bars hunting with a firearm within 450 feet of an occupied home or farm building without the owner's or occupant's written permission. The law makes no exception for hunting from the water.</p>
-      </div>
-      <div class="fish-list">
-        <h3>Goose Lake State Game Area</h3>
-        <p>About 202 acres of marsh, open water, fields and woods surrounding Goose Lake in Sylvan Township, southwest of Chelsea. It's a different lake from ours, about 11 miles away as the crow flies. The DNR manages it first of all to raise waterfowl, with mallards and wood ducks among its featured species, and waterfowl and deer hunters use it most. Parking and a half-mile walking trail are on Rank Road, about 4 miles south of the Kalmbach Road exit on I-94. There's no boat launch.</p>
-        <p class="source-note"><a href="https://www2.dnr.state.mi.us/publications/pdfs/huntingwildlifehabitat/sga/Goose_Lake_SGA_map.pdf">DNR area map</a> · <a href="https://www.michigan.gov/dnr/-/media/Project/Websites/dnr/Documents/WLD/Archive/SGA/goose_lake_sga_mp.pdf">DNR management plan</a></p>
-        <h3>Other public land close by</h3>
-        <p>Waterloo Recreation Area, which reaches into Lyndon Township, and Pinckney Recreation Area allow hunting in most places outside posted safety zones, though parts of Waterloo are closed to waterfowl hunting Sept. 1–15. A Recreation Passport is required for vehicles. Unadilla State Wildlife Area (about 1,160 acres of marsh and lakes, northwest of us), Chelsea State Game Area (about 800 acres, east of Chelsea) and Gregory State Game Area (about 2,700 acres, to the north) are also open to hunting. The DNR's <a href="https://www.michigan.gov/dnr/things-to-do/hunting/where">Mi-HUNT map</a> shows exact boundaries.</p>
-      </div>
-    </div>
-    <div class="wrap two hunt-rules">
-      <div>
-        <h3>2026–27 seasons (South Zone)</h3>
-        <div class="table-scroll">
-          <table class="facts">
-            <tr><th scope="row">Ducks, mergansers and coots</th><td>Oct. 17 – Dec. 13 and Dec. 26–27. Up to 6 ducks a day, with no more than 4 mallards (only 2 of them hens) and 3 wood ducks. Some other species have their own limits.</td></tr>
-            <tr><th scope="row">Canada and other dark geese</th><td>Sept. 1–30, Oct. 17 – Dec. 13, Dec. 26 – Jan. 3 and Feb. 6–15. Up to 5 a day.</td></tr>
-            <tr><th scope="row">Youth waterfowl weekend</th><td>Sept. 19–20</td></tr>
-            <tr><th scope="row">Shooting hours</th><td>A half hour before sunrise until sunset</td></tr>
-          </table>
-        </div>
-      </div>
-      <div class="fish-list">
-        <h3>What you'll need</h3>
-        <p><strong>Licenses:</strong> A Michigan base license, a Michigan waterfowl license (which includes federal HIP registration) and, at 16 or older, a federal duck stamp. Anyone born on or after January 1, 1960 needs a hunter education certificate, or can start on an apprentice license with a licensed mentor.</p>
-        <p><strong>Gear:</strong> Non-toxic shot only, such as steel. Hunter orange isn't required for waterfowl.</p>
-        <p><strong>Boats:</strong> Shut off the motor and let the boat stop before you shoot, and keep guns unloaded while under power.</p>
-        <p><strong>Private land:</strong> Always get the landowner's permission first.</p>
-        <p class="source-note">Seasons and limits change every year. Check the <a href="https://www.michigan.gov/dnr/managing-resources/laws/regulations/waterfowl">DNR's 2026 waterfowl regulations</a> before you go.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="safety">
-    <div class="wrap two">
-      <div>
-        <span class="eyebrow">On the water</span>
-        <h2>Boating safety and courtesy</h2>
-        <p>A busy summer weekend works best when everyone follows the same rules. The Michigan DNR's list of special local watercraft rules for Washtenaw County does not include Wild Goose Lake, so state boating law applies here. These are some of the rules that matter most on a small lake; the <a href="https://www.michigan.gov/dnr/things-to-do/boating/rules-and-regs" target="_blank" rel="noopener">DNR's boating rules</a> have the full list.</p>
-        <h3>Boater safety certificate</h3>
-        <p>Anyone born on or after July 1, 1996, needs a Michigan boating safety certificate to run a motorboat over 6 horsepower, and most personal watercraft (jet ski) operators born after December 31, 1978, need one too. You can earn it in a classroom or through the <a href="https://www.boat-ed.com/michigan/" target="_blank" rel="noopener">DNR-approved online course</a>, and it is good for life. Children have their own limits; see the DNR's <a href="https://www.michigan.gov/dnr/things-to-do/boating/rules-and-regs/age-restrictions" target="_blank" rel="noopener">age rules</a>.</p>
-      </div>
-      <div>
-        <p><strong>Life jackets:</strong> Every boat needs a Coast Guard-approved life jacket for each person aboard or being towed, plus a throwable ring or cushion on boats 16 feet or longer. Children under 6 must wear one on an open deck. Anyone on a jet ski or being towed must wear one, and inflatables don't count for them. <a href="https://www.michigan.gov/dnr/things-to-do/boating/rules-and-regs/life-jacket-rules" target="_blank" rel="noopener">DNR life jacket rules</a></p>
-        <p><strong>Jet ski hours:</strong> No personal watercraft from sunset until 8 a.m.</p>
-        <p><strong>Jet ski distances:</strong> Stay at least 100 feet from docks, rafts, swimming areas, people in the water and boats at anchor or drifting, unless you are at slow-no-wake speed.</p>
-        <p><strong>Towing:</strong> No skiing or tubing from one hour after sunset to one hour before sunrise.</p>
-        <p><strong>Near shore:</strong> Slow-no-wake within 100 feet of the shoreline where the water is less than 3 feet deep.</p>
-        <p><strong>Travel direction:</strong> By custom, boats travel counterclockwise around the lake.</p>
-        <p><strong>Clean, drain, dry:</strong> Remove plants and mud, drain all water, and let your boat dry before moving between lakes. This is the single best way to stop invasive species.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="band alt" id="stewardship">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">At home on the shore</span>
-        <h2>Lake-friendly living</h2>
-        <p>Most of what reaches the lake starts on the land around it. A few habits on every property add up to clearer water and fewer weeds.</p>
-      </div>
-      <div class="cards">
-        <div class="card"><div class="body"><h3>Keep a natural shoreline</h3><p>A strip of native plants along the water filters runoff, holds the bank in place and gives fish and birds cover. The <a href="https://www.shorelinepartnership.org/" target="_blank" rel="noopener">Michigan Natural Shoreline Partnership</a> has guides and certified contractors.</p></div></div>
-        <div class="card"><div class="body"><h3>Go easy on fertilizer</h3><p>Phosphorus feeds algae and weeds. Skip fertilizer near the water, or choose phosphorus-free, and keep grass clippings and leaves out of the lake.</p></div></div>
-        <div class="card"><div class="body"><h3>Don't feed the waterfowl</h3><p>Feeding geese and ducks draws large flocks, adds nutrients and bacteria to the water near shore and teaches birds to depend on people.</p></div></div>
-        <div class="card"><div class="body"><h3>Care for your septic system</h3><p>A failing septic system leaks nutrients into the lake. Have it inspected and pumped on schedule; the County's <a href="https://www.washtenaw.org/water" target="_blank" rel="noopener">water pages</a> have guidance.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="news">
-    <div class="wrap">
-      <div class="section-head">
         <span class="eyebrow">Lake news</span>
-        <h2>News and announcements</h2>
-        <p>Sample posts below show the layout. Replace them with real updates.</p>
-      </div>
-      <div class="news">
+        <h2>Latest news</h2>
+        <div class="news">
         <article><time datetime="2026-10-10">October 10, 2026</time><div><h3>Bylaws ratification meeting set for November 14</h3><p>Every owner of lakefront and lake-access property is invited to vote on the association's Bylaws and elect the first Board of Directors on Saturday, November 14, 2026. The draft Bylaws, agenda and ballot will be posted on this website and emailed to every owner at least two weeks ahead; owners who have not given us an email address will get a one-page paper notice. To receive notices by email, send your name, lake address and email to <a class="email" href="mailto:secretary.pa@wildgooselake.org">secretary.pa@wildgooselake.org</a>. <em class="ph">Time and place</em></p></div></article>
         <article><time><em class="ph">Date</em></time><div><h3>Summer water testing results are in</h3><p>Volunteers recorded clarity and temperature readings from <em class="ph">month</em> through <em class="ph">month</em>. Read the summary in Lake Studies.</p></div></article>
-        <article><time><em class="ph">Date</em></time><div><h3>Aquatic plant survey scheduled</h3><p>A survey of the lake's plants will help us plan next season's treatment, if any is needed.</p></div></article>
-        <article><time><em class="ph">Date</em></time><div><h3>Volunteers needed for shoreline cleanup</h3><p>Bring gloves and a bag. We meet at <em class="ph">location</em>.</p></div></article>
+        </div>
+        <a class="more" href="news.html">All news</a>
       </div>
-    </div>
-  </section>
-
-  <section class="band alt" id="events">
-    <div class="wrap two">
       <div>
         <span class="eyebrow">Lake events</span>
-        <h2>Upcoming events</h2>
-        <p><a href="#subscribe">Give us your email</a> so you don't miss a meeting notice or event.</p>
-      </div>
-      <div class="events">
+        <h2>Upcoming</h2>
+        <div class="events">
         <div class="event"><div class="date"><span>Nov</span><b>14</b></div><div><h3>Bylaws Ratification Meeting and Board Election</h3><p>Saturday, November 14, 2026 · <em class="ph">Time and place</em></p></div></div>
         <div class="event"><div class="date"><span>Sep</span><b>2027</b></div><div><h3>First Annual Meeting</h3><p>Members hear the year's lake and financial reports and elect the Board. · <em class="ph">Date and place</em></p></div></div>
-        <div class="event"><div class="date"><span>Mon</span><b>—</b></div><div><h3><em class="ph">Summer event, e.g. boat parade</em></h3><p><em class="ph">Date and meeting spot</em></p></div></div>
-        <div class="event"><div class="date"><span>Mon</span><b>—</b></div><div><h3>Shoreline Cleanup Day</h3><p><em class="ph">Date and time</em></p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="studies">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Lake studies</span>
-        <h2>What we measure, and why</h2>
-        <p>Good decisions start with good data. These programs track the lake's condition year to year.</p>
-      </div>
-      <div class="studies">
-        <details open><summary>Water quality monitoring</summary><div>
-          <p>Volunteers measure water clarity with a Secchi disk, along with temperature and dissolved oxygen, through the open-water season.</p>
-          <p>Michigan's statewide volunteer program is the <a href="https://www.micorps.net/lakes" target="_blank" rel="noopener">Cooperative Lakes Monitoring Program (CLMP)</a>, run by MiCorps. North Lake's volunteers take part, and their records guide the lake's treatments and show long-term trends. The association plans to enroll Wild Goose Lake. <a href="#partners">More about MiCorps.</a></p>
-          <p><strong>Volunteer to be a lake monitor.</strong> Readings are taken from a boat or kayak through the summer, and no experience is needed. <a href="mailto:protection.association@wildgooselake.org?subject=Volunteer%20lake%20monitor">Tell us you're interested.</a></p>
-          <p>Phosphorus and chlorophyll samples, when taken, show how much algae the lake can support.</p>
-        </div></details>
-        <details><summary>Aquatic plants and invasive species</summary><div>
-          <p>Native plants shelter fish and hold the lake bottom in place. Invasive species such as Eurasian watermilfoil and starry stonewort can crowd them out. We survey the lake and coordinate any treatment with state permits.</p>
-          <p><em class="ph">History of plant management on Wild Goose Lake</em></p>
-        </div></details>
-        <details id="reports"><summary>Reports archive</summary><div>
-          <p>Each year's monitoring reports, plant surveys and any consultant studies will be posted here, newest first, so owners can see how the lake is changing.</p>
-          <p><em class="ph">No reports posted yet</em></p>
-        </div></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="band alt" id="board">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Leadership</span>
-        <h2>Wild Goose Lake Protection Association Board</h2>
-        <p>The first Board of Directors will be elected by the members at the Bylaws ratification meeting on Saturday, November 14, 2026, and will serve until the association's first annual meeting in September 2027. After that, directors are elected each year at the September annual meeting. Until the first election, you can reach the association through the role mailboxes below.</p>
-      </div>
-      <h3 class="board-title">Board Officers</h3>
-      <div class="board">
-        <div class="person"><strong>President</strong><a class="email" href="mailto:president.pa@wildgooselake.org">president.pa@wildgooselake.org</a></div>
-        <div class="person"><strong>Vice President</strong><a class="email" href="mailto:vicepresident.pa@wildgooselake.org">vicepresident.pa@wildgooselake.org</a></div>
-        <div class="person"><strong>Secretary</strong><a class="email" href="mailto:secretary.pa@wildgooselake.org">secretary.pa@wildgooselake.org</a></div>
-        <div class="person"><strong>Treasurer</strong><a class="email" href="mailto:treasurer.pa@wildgooselake.org">treasurer.pa@wildgooselake.org</a></div>
-      </div>
-      <h3 class="board-title board-title-2">Committee Chairs</h3>
-      <p>Under the Bylaws, the chairs of the four standing committees also serve on the Board and are elected with the officers.</p>
-      <div class="board">
-        <div class="person"><strong>Weed Control Committee Chair</strong></div>
-        <div class="person"><strong>Water Quality Monitoring Chair</strong></div>
-        <div class="person"><strong>Website and Newsletter Chair</strong></div>
-        <div class="person"><strong>Events Committee Chair</strong></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="documents">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Open records</span>
-        <h2>Documents and reports</h2>
-        <p>Like North Lake, we post our governing documents, meeting minutes and Treasurer's reports here so every owner can see how decisions are made and how money is spent.</p>
-      </div>
-      <div class="cards">
-        <div class="card"><div class="body"><h3>Bylaws</h3><p>The proposed Bylaws, up for a vote on November 14, 2026, and the adopted version afterward.</p><p><em class="ph">Link to Bylaws</em></p></div></div>
-        <div class="card"><div class="body"><h3>Meeting notices and minutes</h3><p>Agendas, ballots and minutes of member and Board meetings.</p><p><em class="ph">No minutes posted yet</em></p></div></div>
-        <div class="card"><div class="body"><h3>Treasurer's reports</h3><p>Yearly income and spending, including how much the Lake Program Fund paid the County and what the Neighbor Fund provided.</p><p><em class="ph">No reports posted yet</em></p></div></div>
-        <div class="card"><div class="body"><h3>Lake reports</h3><p>Water monitoring results, plant surveys and studies. <a href="#reports">See the reports archive.</a></p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band alt" id="assessment">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Lake Improvement Program</span>
-        <h2>Wild Goose Lake Special Assessment District</h2>
-        <p>Through the Wild Goose Lake Protection Association, Wild Goose Lake is modeling its lake program on North Lake's, starting with a Special Assessment District like the one North Lake has used since 2008 to pay for professional care of its lake. Under Michigan's Public Act 185 of 1957, Washtenaw County can run a lake improvement program and spread its yearly cost across the properties that benefit, collected as a line on the winter tax bill. The association cannot create or impose an assessment. Only the County can, after a public process in which every owner may speak for or against it.</p>
-      </div>
-      <div class="roadmap">
-        <h3>Our path, following North Lake</h3>
-        <ol>
-          <li><strong>Organize.</strong> Owners ratify the Bylaws and elect the first Board, including a Weed Control Committee chair, on November 14, 2026.</li>
-          <li><strong>Listen.</strong> Ask every owner, by questionnaire, what concerns them most about the lake, as North Lake did before its first treatments.</li>
-          <li><strong>Measure.</strong> Enroll in the Cooperative Lakes Monitoring Program and start volunteer water testing and plant surveys.</li>
-          <li><strong>Get the numbers.</strong> Ask Washtenaw County for a lake improvement cost estimate and proposed lakefront and lake-access charges.</li>
-          <li><strong>Owners decide.</strong> Send the estimate to every owner, then hold the two-thirds vote the Bylaws require before the association supports a district.</li>
-          <li><strong>County process.</strong> The County holds its public hearings and, if it approves, sets up the district and hires a consultant and a licensed contractor.</li>
-          <li><strong>Care for the lake.</strong> Yearly inspections and treatments, volunteer monitoring, gifts to the Lake Program Fund to lower everyone's charge, and a renewal vote every five years.</li>
-        </ol>
-      </div>
-      <div class="two">
-        <div>
-          <h3>How it will work</h3>
-          <p>As at North Lake, the County will estimate the yearly cost of aquatic plant control, water testing and lake management, and divide it among the properties on the assessment roll by tier: lakefront properties pay one rate and lake-access properties a lower one.</p>
-          <table class="facts">
-            <tr><th scope="row">Status</th><td>In planning, following North Lake's model</td></tr>
-            <tr><th scope="row">Lakefront rate</th><td><em class="ph">Pending County estimate</em></td></tr>
-            <tr><th scope="row">Lake-access rate</th><td><em class="ph">Pending County estimate</em></td></tr>
-            <tr><th scope="row">Term</th><td><em class="ph">To be set by the County</em></td></tr>
-          </table>
-          <p>When Washtenaw County provides its cost estimate, we will post it here and send it to every owner.</p>
-          <h3>Owners decide first</h3>
-          <p>Under our Bylaws, the association cannot support a district, or its renewal, until it has sent every lakefront and lake-access owner, member or not, the County's cost estimate, the proposed charge for each tier and a description of the Neighbor Fund. Owners of two-thirds of all properties on the lake must then approve, at a meeting or by a mail ballot with at least fourteen days to return it. Every owner keeps the right to petition, support or oppose the project before the County.</p>
         </div>
-        <div>
-          <aside class="model">
-            <span class="eyebrow">Our model</span>
-            <h3>North Lake's district</h3>
-            <p>In October 2017, Washtenaw County approved a new five-year term for North Lake's district at the same rates in place since 2008: $220 a year for lakefront owners, $140 for lake-access owners and $70 for North Lake Farms owners. In 2016 and 2017 only half of those rates were charged because of savings in the program.</p>
-            <p>Much of those savings came from North Lake volunteers who test the water and survey the lake for changes in weed growth. Their work helps the lake and lowers every owner's assessment.</p>
-            <p><a href="https://northlaker.org/?page_id=37" target="_blank" rel="noopener">Read North Lake's Special Assessment District page</a></p>
-          </aside>
-          <h3>What a season looks like</h3>
-          <p>At North Lake, the County hires a lake consultant to survey the weeds and a licensed contractor to treat them under state and federal rules. Each spring the County, the consultant, the contractor and the association tour the lake by boat, decide which areas need treatment, and post signs around the lake before treatment begins. Wild Goose Lake will follow the same yearly cycle, led by our Weed Control Committee, and we will post each year's inspection notes and treatment dates in <a href="#news">News</a>.</p>
-          <h3>Keeping the cost down</h3>
-          <p>Volunteer monitoring, gifts to the <a href="#give">Lake Program Fund</a> and the <a href="#neighbor-fund">Neighbor Fund</a> all lower what owners pay. <a href="#fundraising">See Fundraising.</a></p>
-        </div>
+        <a class="more" href="news.html#events">All events</a>
       </div>
     </div>
   </section>
 
-  <section class="band join" id="fundraising">
+  <section class="band join" id="help">
     <div class="wrap two">
       <div>
-        <span class="eyebrow">Fundraising</span>
-        <h2>Caring for the lake together</h2>
-        <aside class="problem">
-          <span class="eyebrow">Why we are asking</span>
-          <h3>The problem</h3>
-          <p>The lake has never had professional management, and invasive plants and water-quality changes are now visible. Like North Lake, we plan to pay for professional care through a County <a href="#assessment">Special Assessment District</a>. But with so few owners to share the cost, each household's charge would be three to five times what North Lake owners pay, and for our lower-income and older households it is a real burden.</p>
-        </aside>
-        <p><strong>Where your gift goes: the Lake Program Fund.</strong> Unless you tell us otherwise, your gift goes into the association's general Lake Program Fund. Before Washtenaw County divides the yearly cost of the lake program among the properties on the roll, the association pays the County what the Lake Program Fund has raised. The County subtracts that money first, so every owner on the roll, lakefront and lake-access alike, sees a smaller lake charge on the winter tax bill, reduced by the same percentage for everyone. The more we raise together, the less each of us pays. One thing to know: before the association pays the County, the Board sets aside from this same fund whatever the Neighbor Fund needs that year, based on the applications received. So the amount that lowers everyone's bill is what remains after neighbors in genuine need have been helped, and the Board reports both figures to members every year.</p>
-        <p id="neighbor-fund"><strong>The Neighbor Fund: a separate back-up.</strong> The Neighbor Fund is kept apart from the Lake Program Fund and does not lower the roll. It exists for the few households that still cannot afford the lake charge, even after the Lake Program Fund has brought it down, because of a low income, age or disability. It pays that household's charge directly to the Township. Applications are confidential and reviewed by a three-person committee that includes someone from outside the lake. You can designate a gift to the Neighbor Fund if you wish. Our promise: no one on Wild Goose Lake loses their home or land because of the cost of caring for the lake.</p>
+        <span class="eyebrow">Get involved</span>
+        <h2>Two ways to help the lake</h2>
+        <p>Membership dues keep the association running. Annual gifts to the Lake Program Fund lower every owner's share of the cost of caring for the lake.</p>
       </div>
-      <div>
-        <div class="give" id="give">
-          <span class="eyebrow">Annual gift</span>
-          <h3>Give to the Lake Program Fund</h3>
-          <p>We ask every association member and our community partners to make a charitable donation to the Lake Program Fund once a year, in whatever amount is right for you.</p>
-          <p><strong>How to give.</strong> Until our online giving page is ready, email the Treasurer and we will send you how to give by check or electronically.</p>
-          <div class="btns"><a class="btn solid" href="mailto:treasurer.pa@wildgooselake.org?subject=Annual%20gift%20to%20the%20Lake%20Program%20Fund">Make your annual gift</a></div>
-          <p class="tax-note">We are applying to the IRS for 501(c)(3) tax-exempt status. Until it is approved, we can't confirm that gifts are tax-deductible.</p>
-        </div>
-        <p><strong>Your gift helps pay for the lake program:</strong></p>
-        <ul>
-          <li>Water testing through the open-water season</li>
-          <li>Aquatic plant surveys and invasive species control</li>
-          <li>Boater education and clean-boat practices to keep invasive species out</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="join">
-    <div class="wrap two">
-      <div>
-        <span class="eyebrow">Membership</span>
-        <h2>Everyone belongs.</h2>
-        <p>If you own lakefront or lake-access property on Wild Goose Lake, you are a member of the association, with one vote per property at every meeting. Following North Lake's example, dues are $10 a year per household and pay for the newsletter, the website, insurance, lake events and a small reserve for the unexpected; the members can change the amount by vote, and no one loses membership or a vote over dues. Dues are separate from fundraising: our annual gifts to the Lake Program Fund and the Neighbor Fund are described under <a href="#fundraising">Fundraising</a>.</p>
-        <div class="btns dues-btn"><a class="btn solid" href="mailto:treasurer.pa@wildgooselake.org?subject=Annual%20%2410%20association%20dues">Pay your annual $10.00 dues</a></div>
-        <p><strong>Not an owner?</strong> Friends of the lake, former residents and descendants of Wild Goose families are welcome as associate members and donors. <a href="#contact">Get in touch.</a></p>
-      </div>
-      <div>
-        <div class="login-card" id="member-login">
-          <span class="eyebrow">Members area</span>
-          <h3>Member Login</h3>
-          <p>Association members can open the members area with the members password.</p>
-          <p>If you need the password, email the association and we will send it to you.</p>
-          <div class="btns"><a class="btn solid" href="members/">Go to Member Login</a><a class="btn ghost" href="mailto:protection.association@wildgooselake.org?subject=Members%20area%20password">Request the password</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band alt" id="contact">
-    <div class="wrap two">
-      <div id="subscribe">
-        <span class="eyebrow">Stay in touch</span>
-        <h2>Contact and subscribe</h2>
-        <p>Questions about the lake, your membership, the Neighbor Fund or an event? Send us a note.</p>
-        <p><strong>Official notices.</strong> This website is the association's official record. Meeting notices, agendas, ballots, proposed Bylaw changes, minutes and financial reports are posted here and emailed to every owner who has given us an email address. Paper notices go only to owners without email, or who ask for paper in writing. Keep your email current with the Secretary at <a class="email" href="mailto:secretary.pa@wildgooselake.org">secretary.pa@wildgooselake.org</a>.</p>
-        <p><strong>Email:</strong> <a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a><br><strong>Mail:</strong> <em class="ph">WGLPA, PO Box, Town, State ZIP</em><br><strong>Instagram:</strong> <a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener">@wildgooselake.mich</a></p>
-      </div>
-      <form class="stack" id="contact-form">
-        <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" required></label>
-        <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
-        <label for="f-msg">Message<textarea id="f-msg" name="message" rows="4"></textarea></label>
-        <label style="display:flex;gap:.6rem;align-items:center;font-size:.95rem;letter-spacing:normal;text-transform:none;font-weight:400"><input id="f-sub" type="checkbox" style="width:auto"> Send official notices, lake news and event reminders to this email</label>
-        <button class="submit" type="submit">Send message</button>
-        <p class="form-note" id="form-note">Sending opens your email app with your message addressed to us. If nothing opens, email <span class="email">protection.association@wildgooselake.org</span> directly.</p>
-      </form>
-    </div>
-  </section>
-
-  <section class="band" id="partners">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">State partners</span>
-        <h2>The statewide groups we work with</h2>
-        <p>Wild Goose Lake does not have to figure everything out alone. These Michigan organizations give us training, lake data, expert advice and a voice in Lansing.</p>
-      </div>
-      <div class="fun-facts partners">
-        <div class="fact">
-          <h3>Michigan Lakes and Streams Association</h3>
-          <p>The statewide nonprofit for lake and stream associations. Membership for a group of up to 50 members includes The Michigan Riparian magazine, and MLSA hosts the annual Michigan Lakes and Streams Conference each spring, where volunteers train and pick up monitoring equipment.</p>
-          <p><a href="https://mymlsa.org/new-memberships-renewals/lake-association-memberships/">mymlsa.org</a></p>
-        </div>
-        <div class="fact">
-          <h3>MiCorps lake monitoring</h3>
-          <p>The Cooperative Lakes Monitoring Program, run by the State with MLSA and Michigan State University, trains volunteers to test their own lake. Each test is a small yearly fee: water clarity, spring and summer phosphorus, and dissolved oxygen, with plant mapping available. Training is free, and the results go into a public state database.</p>
-          <p><a href="https://www.micorps.net/lakes/monitor">micorps.net</a></p>
-        </div>
-        <div class="fact">
-          <h3>Michigan Waterfront Alliance</h3>
-          <p>A statewide advocacy group for lakefront owners and lake associations, supported entirely by membership dues. It speaks for riparian owners on state laws and rules that affect inland lakes.</p>
-          <p><a href="https://michiganwaterfrontalliance.com/">michiganwaterfrontalliance.com</a></p>
-        </div>
-      </div>
-      <p class="source-note">MiCorps enrollment opens each winter, with deadlines from March 1 to May 10.</p>
-    </div>
-  </section>
-
-  <section class="band alt" id="community-partners">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Community partners</span>
-        <h2>Foundations we plan to ask for help</h2>
-        <p>Grants can carry the start-up work of a lake program, such as the first lake survey, monitoring equipment and volunteer training, so that less of it falls on owners. Once the association has its tax-exempt status, or a fiscal sponsor, we plan to approach these local foundations. None has made a grant to us yet.</p>
-      </div>
-      <div class="fun-facts partners two-up">
-        <div class="fact">
-          <h3>5 Healthy Towns Foundation</h3>
-          <p>Serves the Chelsea, Dexter, Grass Lake, Manchester and Stockbridge school districts, including Gregory. Its Stockbridge-Area Wellness Coalition funds local projects that help people move more and connect with each other. We plan to propose open-water swim and paddle mornings, a volunteer monitoring team and a centennial lake gathering.</p>
-          <p><a href="https://www.5healthytowns.org/grants/">5healthytowns.org</a></p>
-        </div>
-        <div class="fact">
-          <h3>Community Foundation for Southeast Michigan</h3>
-          <p>Makes community grants across seven counties, including Washtenaw, with a focus area for public space and the environment. We plan to ask about support for the baseline lake survey and invasive-plant control.</p>
-          <p><a href="https://cfsem.org/grants-endowment/">cfsem.org</a></p>
-        </div>
-        <div class="fact">
-          <h3>Ann Arbor Area Community Foundation</h3>
-          <p>Serves nonprofits across Washtenaw County. Wild Goose Lake was settled in 1927 by Black families from Ann Arbor, and we plan to ask how the Foundation might support a centennial project joining lake care, local history and help for neighbors in need.</p>
-          <p><a href="https://www.aaacf.org/">aaacf.org</a></p>
-        </div>
-        <div class="fact">
-          <h3>Chelsea Community Foundation</h3>
-          <p>An affiliate of the Community Foundation for Southeast Michigan that supports the Chelsea community, including trails, parks and health and wellness. Many lake families shop, bank and see doctors in Chelsea, and we plan to ask whether a request from Wild Goose Lake can be considered.</p>
-          <p><a href="https://chelseafoundation.org/">chelseafoundation.org</a></p>
-        </div>
-      </div>
-      <p class="source-note">Local businesses, churches, clubs and friends of the lake can be community partners too. A yearly gift to the Lake Program Fund helps keep the lake affordable for every owner. <a href="#give">Make a gift</a> or <a href="#contact">get in touch</a>.</p>
-    </div>
-  </section>
-
-  <section class="band" id="links">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Resources</span>
-        <h2>Helpful links</h2>
-      </div>
-      <div class="cards">
-        <a class="card" href="https://www.michigan.gov/recsearch/parks/waterloo"><div class="body"><h3>Waterloo Recreation Area</h3><p>Michigan's largest state park in the Lower Peninsula, with trails, lakes and the Eddy Discovery Center, right next door.</p></div></a>
-        <a class="card" href="https://www.hrwc.org/"><div class="body"><h3>Huron River Watershed Council</h3><p>The nonprofit that protects the Huron River watershed, which Wild Goose Lake drains to.</p></div></a>
-        <a class="card" href="https://www.washtenaw.org/water-resources-contact-information" target="_blank" rel="noopener"><div class="body"><h3>Report a lake problem</h3><p>Washtenaw County Water Resources Commissioner contacts for lake management, lake levels, flooding and illegal dumping.</p></div></a>
-        <a class="card" href="https://www.washtenaw.org/lake-management-resources" target="_blank" rel="noopener"><div class="body"><h3>County lake management</h3><p>The County's lake improvement projects, including North Lake's, with reports, treatment information and natural shoreline resources.</p></div></a>
-        <a class="card" href="https://www.shorelinepartnership.org/" target="_blank" rel="noopener"><div class="body"><h3>Michigan Natural Shoreline Partnership</h3><p>How to plant and keep a natural shoreline that protects the lake.</p></div></a>
-        <a class="card" href="https://www.washtenaw.org/mapwashtenaw" target="_blank" rel="noopener"><div class="body"><h3>MapWashtenaw</h3><p>The County's property map, for parcel lines, aerial photos and property records.</p></div></a>
-        <a class="card" href="https://www.northlaker.org/" target="_blank" rel="noopener"><div class="body"><h3>North Lake Protection Association</h3><p>Our neighbor a few miles away, and the model for our lake improvement plan.</p></div></a>
-        <a class="card" href="https://www.michigan.gov/dnr/things-to-do/hunting/waterfowl"><div class="body"><h3>DNR waterfowl hunting</h3><p>The Michigan DNR's hub for duck and goose hunters, with licenses, current rules, bird identification guides and hunting maps.</p></div></a>
-        <a class="card" href="https://www.facebook.com/groups/146016626113/"><div class="body"><h3>Michigan Duck Hunters Association</h3><p>A nonprofit devoted to waterfowl and wetland conservation that coordinates Michigan's waterfowl stamp program with the DNR.</p></div></a>
+      <div class="help-actions">
+        <a class="help-card" href="membership.html"><span class="eyebrow">$10 a year</span><h3>Pay your dues</h3><p>For the newsletter, website, insurance and lake events.</p></a>
+        <a class="help-card" href="fundraising.html#give"><span class="eyebrow">Any amount</span><h3>Make your annual gift</h3><p>To the Lake Program Fund or the Neighbor Fund.</p></a>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="site"><div class="wrap">
-  <div style="display:grid;gap:.6rem;align-content:start"><img class="footer-logo" src="assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@wildgooselake.mich on Instagram</a></p><p><em class="ph">Mailing address</em></p></div>
-  <ul><li><a href="#events">Lake Events</a></li><li><a href="#news">Lake News</a></li><li><a href="#subscribe">Subscribe</a></li><li><a href="#contact">Contact Us</a></li><li><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener">Instagram</a></li></ul>
-  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#hunting">Waterfowl Hunting</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#partners">Statewide Partners</a></li><li><a href="#community-partners">Community Partners</a></li><li><a href="#board">Board</a></li><li><a href="#documents">Documents</a></li><li><a href="#assessment">Special Assessment District</a></li><li><a href="#fundraising">Fundraising</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
+  <div class="f-brand"><img class="footer-logo" src="assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener">@wildgooselake.mich on Instagram</a></p><p><em class="ph">Mailing address</em></p></div>
+  <div><h2 class="f-h">The lake</h2><ul><li><a href="lake.html#facts">Lake Facts</a></li><li><a href="lake.html#history">Lake History</a></li><li><a href="lake.html#fishing">Fishing</a></li><li><a href="lake.html#cranes">Sandhill Cranes</a></li><li><a href="lake.html#hunting">Waterfowl Hunting</a></li><li><a href="lake.html#safety">Boating Safety</a></li><li><a href="lake.html#stewardship">Lake-Friendly Living</a></li></ul></div>
+  <div><h2 class="f-h">Lake program</h2><ul><li><a href="studies.html#studies">Lake Studies</a></li><li><a href="assessment.html#assessment">Special Assessment District</a></li><li><a href="fundraising.html#fundraising">Fundraising</a></li><li><a href="partners.html#partners">Statewide Partners</a></li><li><a href="partners.html#community-partners">Community Partners</a></li><li><a href="links.html#links">Helpful Links</a></li></ul></div>
+  <div><h2 class="f-h">Association</h2><ul><li><a href="association.html#about">About Us</a></li><li><a href="association.html#board">Board</a></li><li><a href="association.html#documents">Documents</a></li><li><a href="membership.html#join">Membership</a></li><li><a href="members/">Member Login</a></li><li><a href="news.html#news">News</a></li><li><a href="news.html#events">Events</a></li><li><a href="association.html#subscribe">Subscribe</a></li><li><a href="association.html#contact">Contact Us</a></li></ul></div>
   <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) application in progress.</p>
 </div></footer>
 
-<script>
-  const btn = document.getElementById('menu-btn');
-  const nav = document.getElementById('main-nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-  nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
-  document.getElementById('contact-form').addEventListener('submit', e => {
-    e.preventDefault();
-    const name = document.getElementById('f-name').value.trim();
-    const from = document.getElementById('f-email').value.trim();
-    const lines = [document.getElementById('f-msg').value.trim()];
-    if (document.getElementById('f-sub').checked) lines.push('', 'Please add me to the lake news and event reminder list.');
-    lines.push('', `From: ${name} (${from})`);
-    location.href = 'mailto:protection.association@wildgooselake.org?subject=' + encodeURIComponent('Website message from ' + name) + '&body=' + encodeURIComponent(lines.join('\n'));
-  });
-  const openReports = () => { if (location.hash === '#reports') document.getElementById('reports').open = true; };
-  window.addEventListener('hashchange', openReports); openReports();
-</script>
+<script src="assets/site.js" defer></script>
 </body></html>
