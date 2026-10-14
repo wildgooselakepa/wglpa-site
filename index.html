@@ -74,6 +74,13 @@ nav.main .sub { display: none; position: absolute; left: 0; top: 100%; backgroun
 nav.main .sub a { font-weight: 400; letter-spacing: .1em; }
 nav.main li:hover > .sub, nav.main li:focus-within > .sub { display: flex; }
 .menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 6px; padding: .45rem .8rem; font: inherit; font-size: .8rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; }
+html { scroll-padding-top: 5.5rem; }
+@media (min-width: 1081px) {
+  html { scroll-padding-top: 9rem; }
+  header.site .wrap { flex-direction: column; gap: .35rem; padding-block: .7rem .4rem; }
+  nav.main ul { flex-wrap: wrap; justify-content: center; gap: .1rem; }
+  nav.main > ul > li > a { padding: .5rem .6rem; letter-spacing: .11em; }
+}
 @media (max-width: 1080px) {
   .menu-btn { display: block; }
   nav.main { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--paper); border-bottom: 1px solid var(--line); padding: .5rem 1.25rem 1rem; max-height: 75vh; overflow-y: auto; }
@@ -166,6 +173,12 @@ details > div { display: grid; gap: .7rem; padding-top: .75rem; color: var(--ink
 .person span { color: var(--muted); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; }
 .person a.email { font-size: .92rem; margin-top: .2rem; overflow-wrap: anywhere; }
 
+.model { padding: 1.25rem 1.4rem; background: var(--paper); border-left: 6px solid var(--reed); border-radius: 0 8px 8px 0; box-shadow: 0 6px 24px rgba(0,0,0,.08); display: grid; gap: .6rem; }
+.model .eyebrow { color: var(--reed); }
+.dues-btn { margin: 1rem 0 .25rem; }
+.login-card { background: var(--paper); border: 1px solid var(--line); border-top: 6px solid var(--reed); border-radius: 10px; padding: 1.4rem 1.5rem; display: grid; gap: .6rem; box-shadow: 0 8px 28px rgba(0,0,0,.08); }
+.login-card .eyebrow { color: var(--reed); }
+.login-card .btns { margin-top: .4rem; }
 .join { background: var(--water); color: var(--on-water); }
 .join .section-head p, .join .eyebrow { color: var(--on-water); }
 .join .eyebrow { opacity: .8; }
@@ -220,16 +233,20 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
   <nav class="main" id="main-nav" aria-label="Main">
     <ul>
       <li><a href="#living">Living on the Lake</a>
-        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#hunting">Waterfowl Hunting</a></li><li><a href="#safety">Boating Safety</a></li></ul></li>
+        <ul class="sub"><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#hunting">Waterfowl Hunting</a></li><li><a href="#safety">Boating Safety</a></li><li><a href="#stewardship">Lake-Friendly Living</a></li></ul></li>
       <li><a href="#about">WGLPA</a>
-        <ul class="sub"><li><a href="#about">Mission &amp; Activities</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li></ul></li>
+        <ul class="sub"><li><a href="#about">Mission &amp; Activities</a></li><li><a href="#board">Board</a></li><li><a href="#documents">Documents</a></li></ul></li>
       <li><a href="#studies">Lake Studies</a>
-        <ul class="sub"><li><a href="#studies">Water Quality Monitoring</a></li><li><a href="#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="#studies">Reports Archive</a></li></ul></li>
+        <ul class="sub"><li><a href="#studies">Water Quality Monitoring</a></li><li><a href="#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="#reports">Reports Archive</a></li></ul></li>
+      <li><a href="#assessment">Special Assessment District</a></li>
+      <li><a href="#fundraising">Fundraising</a>
+        <ul class="sub"><li><a href="#give">Lake Program Fund</a></li><li><a href="#neighbor-fund">Neighbor Fund</a></li></ul></li>
+      <li><a href="#join">Membership</a>
+        <ul class="sub"><li><a href="#join">Join &amp; Dues</a></li><li><a href="members/">Member Login</a></li></ul></li>
       <li><a href="#partners">Partners</a>
         <ul class="sub"><li><a href="#partners">Statewide Partners</a></li><li><a href="#community-partners">Community Partners</a></li></ul></li>
       <li><a href="#news">News</a></li>
       <li><a href="#links">Links</a></li>
-      <li><a href="members/">Member Login</a></li>
     </ul>
   </nav>
 </div></header>
@@ -420,18 +437,39 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       <div>
         <span class="eyebrow">On the water</span>
         <h2>Boating safety and courtesy</h2>
-        <p>A busy summer weekend works best when everyone follows the same rules. Local ordinances take priority; check them before you launch.</p>
+        <p>A busy summer weekend works best when everyone follows the same rules. The Michigan DNR's list of special local watercraft rules for Washtenaw County does not include Wild Goose Lake, so state boating law applies here. These are some of the rules that matter most on a small lake; the <a href="https://www.michigan.gov/dnr/things-to-do/boating/rules-and-regs" target="_blank" rel="noopener">DNR's boating rules</a> have the full list.</p>
+        <h3>Boater safety certificate</h3>
+        <p>Anyone born on or after July 1, 1996, needs a Michigan boating safety certificate to run a motorboat over 6 horsepower, and most personal watercraft (jet ski) operators born after December 31, 1978, need one too. You can earn it in a classroom or through the <a href="https://www.boat-ed.com/michigan/" target="_blank" rel="noopener">DNR-approved online course</a>, and it is good for life. Children have their own limits; see the DNR's <a href="https://www.michigan.gov/dnr/things-to-do/boating/rules-and-regs/age-restrictions" target="_blank" rel="noopener">age rules</a>.</p>
       </div>
       <div>
-        <p><strong>Slow-no-wake hours:</strong> <em class="ph">e.g. sunset to 10 a.m.</em></p>
-        <p><strong>Travel direction:</strong> Most lakes run counter-clockwise. <em class="ph">confirm for Wild Goose Lake</em></p>
+        <p><strong>Life jackets:</strong> Every boat needs a Coast Guard-approved life jacket for each person aboard or being towed, plus a throwable ring or cushion on boats 16 feet or longer. Children under 6 must wear one on an open deck. Anyone on a jet ski or being towed must wear one, and inflatables don't count for them. <a href="https://www.michigan.gov/dnr/things-to-do/boating/rules-and-regs/life-jacket-rules" target="_blank" rel="noopener">DNR life jacket rules</a></p>
+        <p><strong>Jet ski hours:</strong> No personal watercraft from sunset until 8 a.m.</p>
+        <p><strong>Jet ski distances:</strong> Stay at least 100 feet from docks, rafts, swimming areas, people in the water and boats at anchor or drifting, unless you are at slow-no-wake speed.</p>
+        <p><strong>Towing:</strong> No skiing or tubing from one hour after sunset to one hour before sunrise.</p>
+        <p><strong>Near shore:</strong> Slow-no-wake within 100 feet of the shoreline where the water is less than 3 feet deep.</p>
+        <p><strong>Travel direction:</strong> By custom, boats travel counterclockwise around the lake.</p>
         <p><strong>Clean, drain, dry:</strong> Remove plants and mud, drain all water, and let your boat dry before moving between lakes. This is the single best way to stop invasive species.</p>
-        <p><strong>Life jackets:</strong> Keep one for every person aboard, and make sure kids wear theirs.</p>
       </div>
     </div>
   </section>
 
-  <section class="band alt" id="news">
+  <section class="band alt" id="stewardship">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">At home on the shore</span>
+        <h2>Lake-friendly living</h2>
+        <p>Most of what reaches the lake starts on the land around it. A few habits on every property add up to clearer water and fewer weeds.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="body"><h3>Keep a natural shoreline</h3><p>A strip of native plants along the water filters runoff, holds the bank in place and gives fish and birds cover. The <a href="https://www.shorelinepartnership.org/" target="_blank" rel="noopener">Michigan Natural Shoreline Partnership</a> has guides and certified contractors.</p></div></div>
+        <div class="card"><div class="body"><h3>Go easy on fertilizer</h3><p>Phosphorus feeds algae and weeds. Skip fertilizer near the water, or choose phosphorus-free, and keep grass clippings and leaves out of the lake.</p></div></div>
+        <div class="card"><div class="body"><h3>Don't feed the waterfowl</h3><p>Feeding geese and ducks draws large flocks, adds nutrients and bacteria to the water near shore and teaches birds to depend on people.</p></div></div>
+        <div class="card"><div class="body"><h3>Care for your septic system</h3><p>A failing septic system leaks nutrients into the lake. Have it inspected and pumped on schedule; the County's <a href="https://www.washtenaw.org/water" target="_blank" rel="noopener">water pages</a> have guidance.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="news">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Lake news</span>
@@ -447,7 +485,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
     </div>
   </section>
 
-  <section class="band" id="events">
+  <section class="band alt" id="events">
     <div class="wrap two">
       <div>
         <span class="eyebrow">Lake events</span>
@@ -456,13 +494,14 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       </div>
       <div class="events">
         <div class="event"><div class="date"><span>Nov</span><b>14</b></div><div><h3>Bylaws Ratification Meeting and Board Election</h3><p>Saturday, November 14, 2026 · <em class="ph">Time and place</em></p></div></div>
+        <div class="event"><div class="date"><span>Sep</span><b>2027</b></div><div><h3>First Annual Meeting</h3><p>Members hear the year's lake and financial reports and elect the Board. · <em class="ph">Date and place</em></p></div></div>
         <div class="event"><div class="date"><span>Mon</span><b>—</b></div><div><h3><em class="ph">Summer event, e.g. boat parade</em></h3><p><em class="ph">Date and meeting spot</em></p></div></div>
         <div class="event"><div class="date"><span>Mon</span><b>—</b></div><div><h3>Shoreline Cleanup Day</h3><p><em class="ph">Date and time</em></p></div></div>
       </div>
     </div>
   </section>
 
-  <section class="band alt" id="studies">
+  <section class="band" id="studies">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Lake studies</span>
@@ -471,21 +510,24 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       </div>
       <div class="studies">
         <details open><summary>Water quality monitoring</summary><div>
-          <p>Volunteers measure water clarity with a Secchi disk, along with temperature and dissolved oxygen, through the open-water season. <em class="ph">Name the state volunteer monitoring program you take part in, if any.</em></p>
+          <p>Volunteers measure water clarity with a Secchi disk, along with temperature and dissolved oxygen, through the open-water season.</p>
+          <p>Michigan's statewide volunteer program is the <a href="https://www.micorps.net/lakes" target="_blank" rel="noopener">Cooperative Lakes Monitoring Program (CLMP)</a>, run by MiCorps. North Lake's volunteers take part, and their records guide the lake's treatments and show long-term trends. Enrollment is online each spring, new volunteers start with water clarity, and MiCorps provides training and equipment. We hope to enroll Wild Goose Lake.</p>
+          <p><strong>Volunteer to be a lake monitor.</strong> Readings are taken from a boat or kayak through the summer, and no experience is needed. <a href="mailto:protection.association@wildgooselake.org?subject=Volunteer%20lake%20monitor">Tell us you're interested.</a></p>
           <p>Phosphorus and chlorophyll samples, when taken, show how much algae the lake can support.</p>
         </div></details>
         <details><summary>Aquatic plants and invasive species</summary><div>
           <p>Native plants shelter fish and hold the lake bottom in place. Invasive species such as Eurasian watermilfoil and starry stonewort can crowd them out. We survey the lake and coordinate any treatment with state permits.</p>
           <p><em class="ph">History of plant management on Wild Goose Lake</em></p>
         </div></details>
-        <details><summary>Reports archive</summary><div>
-          <p><em class="ph">Links to annual monitoring reports, surveys and studies</em></p>
+        <details id="reports"><summary>Reports archive</summary><div>
+          <p>Each year's monitoring reports, plant surveys and any consultant studies will be posted here, newest first, so owners can see how the lake is changing.</p>
+          <p><em class="ph">No reports posted yet</em></p>
         </div></details>
       </div>
     </div>
   </section>
 
-  <section class="band" id="board">
+  <section class="band alt" id="board">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Leadership</span>
@@ -510,20 +552,76 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
     </div>
   </section>
 
-  <section class="band join" id="join">
+  <section class="band" id="documents">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Open records</span>
+        <h2>Documents and reports</h2>
+        <p>This website is the association's official record. Like North Lake, we post our governing documents, meeting minutes and Treasurer's reports here so every owner can see how decisions are made and how money is spent.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><div class="body"><h3>Bylaws</h3><p>The proposed Bylaws, up for a vote on November 14, 2026, and the adopted version afterward.</p><p><em class="ph">Link to Bylaws</em></p></div></div>
+        <div class="card"><div class="body"><h3>Meeting notices and minutes</h3><p>Agendas, ballots and minutes of member and Board meetings.</p><p><em class="ph">No minutes posted yet</em></p></div></div>
+        <div class="card"><div class="body"><h3>Treasurer's reports</h3><p>Yearly income and spending, including how much the Lake Program Fund paid the County and what the Neighbor Fund provided.</p><p><em class="ph">No reports posted yet</em></p></div></div>
+        <div class="card"><div class="body"><h3>Lake reports</h3><p>Water monitoring results, plant surveys and studies. <a href="#reports">See the reports archive.</a></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="assessment">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Lake Improvement Program</span>
+        <h2>Wild Goose Lake Special Assessment District</h2>
+        <p>Wild Goose Lake owners are considering a Special Assessment District, the same tool North Lake has used since 2008 to pay for professional care of its lake. Under Michigan's Public Act 185 of 1957, Washtenaw County can run a lake improvement program and spread its yearly cost across the properties that benefit, collected as a line on the winter tax bill. The association cannot create or impose an assessment. Only the County can, after a public process in which every owner may speak for or against it.</p>
+      </div>
+      <div class="two">
+        <div>
+          <h3>How it would work</h3>
+          <p>The County would estimate the yearly cost of aquatic plant control, water testing and lake management, then divide it among the properties on the assessment roll by tier: lakefront properties pay one rate and lake-access properties a lower one. A district runs for a fixed term, five years at North Lake, and continuing it after that requires a renewal.</p>
+          <table class="facts">
+            <tr><th scope="row">Status</th><td>Proposed, not yet established</td></tr>
+            <tr><th scope="row">Lakefront rate</th><td><em class="ph">Pending County estimate</em></td></tr>
+            <tr><th scope="row">Lake-access rate</th><td><em class="ph">Pending County estimate</em></td></tr>
+            <tr><th scope="row">Term</th><td><em class="ph">To be set by the County</em></td></tr>
+          </table>
+          <p>When Washtenaw County provides its cost estimate, we will post it here and send it to every owner.</p>
+          <h3>Owners decide first</h3>
+          <p>Under our Bylaws, the association cannot support a district, or its renewal, until it has sent every lakefront and lake-access owner, member or not, the County's cost estimate, the proposed charge for each tier and a description of the Neighbor Fund. Owners of two-thirds of all properties on the lake must then approve, at a meeting or by a mail ballot with at least fourteen days to return it. Every owner keeps the right to petition, support or oppose the project before the County.</p>
+        </div>
+        <div>
+          <aside class="model">
+            <span class="eyebrow">Our model</span>
+            <h3>North Lake's district</h3>
+            <p>In October 2017, Washtenaw County approved a new five-year term for North Lake's district at the same rates in place since 2008: $220 a year for lakefront owners, $140 for lake-access owners and $70 for North Lake Farms owners. In 2016 and 2017 only half of those rates were charged because of savings in the program.</p>
+            <p>Much of those savings came from North Lake volunteers who test the water and survey the lake for changes in weed growth. Their work helps the lake and lowers every owner's assessment.</p>
+            <p><a href="https://northlaker.org/?page_id=37" target="_blank" rel="noopener">Read North Lake's Special Assessment District page</a></p>
+          </aside>
+          <h3>What a season looks like</h3>
+          <p>At North Lake, the County hires a lake consultant to survey the weeds and a licensed contractor to treat them under state and federal rules. Each spring the County, the consultant, the contractor and the association tour the lake by boat, decide which areas need treatment, and post signs around the lake before treatment begins. If a district is formed here, we will post each year's inspection notes and treatment dates in <a href="#news">News</a>.</p>
+          <h3>Keeping the cost down</h3>
+          <ul>
+            <li><strong>The Lake Program Fund.</strong> Before the County spreads each year's cost, the association pays it what the fund has raised, which lowers every owner's charge by the same percentage. <a href="#fundraising">See Fundraising.</a></li>
+            <li><strong>Volunteers.</strong> As at North Lake, neighbors who help with water testing and plant surveys reduce what the County has to pay for.</li>
+            <li><strong>The Neighbor Fund.</strong> Households that still cannot afford the charge because of low income, age or disability can apply confidentially for help. <a href="#neighbor-fund">Learn more.</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band join" id="fundraising">
     <div class="wrap two">
       <div>
-        <span class="eyebrow">Membership</span>
-        <h2>Everyone belongs.</h2>
-        <p>If you own lakefront or lake-access property on Wild Goose Lake, you are a member of the association, with one vote per property at every meeting. Following North Lake's example, dues are $10 a year per household and pay for the newsletter, the website, insurance, lake events and a small reserve for the unexpected; the members can change the amount by vote, and no one loses membership or a vote over dues. Separately, we ask our association members and our community partners to make a charitable donation to the Lake Program Fund every year, in whatever amount is right for them, to make cleaning up the lake affordable for our members.</p>
-        <div class="btns dues-btn"><a class="btn solid" href="mailto:treasurer.pa@wildgooselake.org?subject=Annual%20%2410%20association%20dues">Pay your annual $10.00 dues</a></div>
+        <span class="eyebrow">Fundraising</span>
+        <h2>Caring for the lake together</h2>
         <aside class="problem">
           <span class="eyebrow">Why we are asking</span>
           <h3>The problem</h3>
           <p>The lake has never had professional management, and invasive plants and water-quality changes are now visible. The established remedy in Washtenaw County is a County-run lake improvement program paid for by a special assessment on each property's tax bill. We are modeling our plan on North Lake, a few miles away, which has run its program this way since 2008. For a small lake with few owners, that charge per household is three to five times what North Lake owners pay, and for our lower-income and older households it is a real burden.</p>
         </aside>
         <p><strong>Where your gift goes: the Lake Program Fund.</strong> Unless you tell us otherwise, your gift goes into the association's general Lake Program Fund. Before Washtenaw County divides the yearly cost of the lake program among the properties on the roll, the association pays the County what the Lake Program Fund has raised. The County subtracts that money first, so every owner on the roll, lakefront and lake-access alike, sees a smaller lake charge on the winter tax bill, reduced by the same percentage for everyone. The more we raise together, the less each of us pays. One thing to know: before the association pays the County, the Board sets aside from this same fund whatever the Neighbor Fund needs that year, based on the applications received. So the amount that lowers everyone's bill is what remains after neighbors in genuine need have been helped, and the Board reports both figures to members every year.</p>
-        <p><strong>The Neighbor Fund: a separate back-up.</strong> The Neighbor Fund is kept apart from the Lake Program Fund and does not lower the roll. It exists for the few households that still cannot afford the lake charge, even after the Lake Program Fund has brought it down, because of a low income, age or disability. It pays that household's charge directly to the Township. Applications are confidential and reviewed by a three-person committee that includes someone from outside the lake. You can designate a gift to the Neighbor Fund if you wish. Our promise: no one on Wild Goose Lake loses their home or land because of the cost of caring for the lake.</p>
+        <p id="neighbor-fund"><strong>The Neighbor Fund: a separate back-up.</strong> The Neighbor Fund is kept apart from the Lake Program Fund and does not lower the roll. It exists for the few households that still cannot afford the lake charge, even after the Lake Program Fund has brought it down, because of a low income, age or disability. It pays that household's charge directly to the Township. Applications are confidential and reviewed by a three-person committee that includes someone from outside the lake. You can designate a gift to the Neighbor Fund if you wish. Our promise: no one on Wild Goose Lake loses their home or land because of the cost of caring for the lake.</p>
       </div>
       <div>
         <div class="give" id="give">
@@ -541,7 +639,27 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
           <li>Boater education and clean-boat practices to keep invasive species out</li>
           <li>Community events that bring lake neighbors together</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="join">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow">Membership</span>
+        <h2>Everyone belongs.</h2>
+        <p>If you own lakefront or lake-access property on Wild Goose Lake, you are a member of the association, with one vote per property at every meeting. Following North Lake's example, dues are $10 a year per household and pay for the newsletter, the website, insurance, lake events and a small reserve for the unexpected; the members can change the amount by vote, and no one loses membership or a vote over dues. Dues are separate from fundraising: our annual gifts to the Lake Program Fund and the Neighbor Fund are described under <a href="#fundraising">Fundraising</a>.</p>
+        <div class="btns dues-btn"><a class="btn solid" href="mailto:treasurer.pa@wildgooselake.org?subject=Annual%20%2410%20association%20dues">Pay your annual $10.00 dues</a></div>
         <p><strong>Not an owner?</strong> Friends of the lake, former residents and descendants of Wild Goose families are welcome as associate members and donors. <a href="#contact">Get in touch.</a></p>
+      </div>
+      <div>
+        <div class="login-card" id="member-login">
+          <span class="eyebrow">Members area</span>
+          <h3>Member Login</h3>
+          <p>Association members can open the members area with the members password.</p>
+          <p>If you need the password, email the association and we will send it to you.</p>
+          <div class="btns"><a class="btn solid" href="members/">Go to Member Login</a><a class="btn ghost" href="mailto:protection.association@wildgooselake.org?subject=Members%20area%20password">Request the password</a></div>
+        </div>
       </div>
     </div>
   </section>
@@ -636,6 +754,13 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
       <div class="cards">
         <a class="card" href="https://www.michigan.gov/recsearch/parks/waterloo"><div class="body"><h3>Waterloo Recreation Area</h3><p>Michigan's largest state park in the Lower Peninsula, with trails, lakes and the Eddy Discovery Center, right next door.</p></div></a>
         <a class="card" href="https://www.hrwc.org/"><div class="body"><h3>Huron River Watershed Council</h3><p>The nonprofit that protects the Huron River watershed, which Wild Goose Lake drains to.</p></div></a>
+        <a class="card" href="https://www.washtenaw.org/water-resources-contact-information" target="_blank" rel="noopener"><div class="body"><h3>Report a lake problem</h3><p>Washtenaw County Water Resources Commissioner contacts for lake management, lake levels, flooding and illegal dumping.</p></div></a>
+        <a class="card" href="https://www.washtenaw.org/lake-management-resources" target="_blank" rel="noopener"><div class="body"><h3>County lake management</h3><p>The County's lake improvement projects, including North Lake's, with reports, treatment information and natural shoreline resources.</p></div></a>
+        <a class="card" href="https://www.micorps.net/lakes" target="_blank" rel="noopener"><div class="body"><h3>MiCorps lake monitoring</h3><p>Michigan's Cooperative Lakes Monitoring Program, for volunteers who test lake water and track invasive plants.</p></div></a>
+        <a class="card" href="https://www.shorelinepartnership.org/" target="_blank" rel="noopener"><div class="body"><h3>Michigan Natural Shoreline Partnership</h3><p>How to plant and keep a natural shoreline that protects the lake.</p></div></a>
+        <a class="card" href="https://www.washtenaw.org/mapwashtenaw" target="_blank" rel="noopener"><div class="body"><h3>MapWashtenaw</h3><p>The County's property map, for parcel lines, aerial photos and property records.</p></div></a>
+        <a class="card" href="https://www.boat-ed.com/michigan/" target="_blank" rel="noopener"><div class="body"><h3>Michigan boater safety course</h3><p>The DNR-approved online course for earning a Michigan boating safety certificate.</p></div></a>
+        <a class="card" href="https://www.northlaker.org/" target="_blank" rel="noopener"><div class="body"><h3>North Lake Protection Association</h3><p>Our neighbor a few miles away, and the model for our lake improvement plan.</p></div></a>
         <a class="card" href="https://www.michigan.gov/dnr/things-to-do/hunting/waterfowl"><div class="body"><h3>DNR waterfowl hunting</h3><p>The Michigan DNR's hub for duck and goose hunters, with licenses, current rules, bird identification guides and hunting maps.</p></div></a>
         <a class="card" href="https://www.facebook.com/groups/146016626113/"><div class="body"><h3>Michigan Duck Hunters Association</h3><p>A nonprofit devoted to waterfowl and wetland conservation that coordinates Michigan's waterfowl stamp program with the DNR.</p></div></a>
       </div>
@@ -646,7 +771,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
 <footer class="site"><div class="wrap">
   <div style="display:grid;gap:.6rem;align-content:start"><img class="footer-logo" src="assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@wildgooselake.mich on Instagram</a></p><p><em class="ph">Mailing address</em></p></div>
   <ul><li><a href="#events">Lake Events</a></li><li><a href="#news">Lake News</a></li><li><a href="#subscribe">Subscribe</a></li><li><a href="#contact">Contact Us</a></li><li><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener">Instagram</a></li></ul>
-  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#hunting">Waterfowl Hunting</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#partners">Statewide Partners</a></li><li><a href="#community-partners">Community Partners</a></li><li><a href="#board">Board</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
+  <ul><li><a href="#facts">Lake Facts</a></li><li><a href="#history">Lake History</a></li><li><a href="#fishing">Fishing</a></li><li><a href="#cranes">Sandhill Cranes</a></li><li><a href="#hunting">Waterfowl Hunting</a></li><li><a href="#studies">Lake Studies</a></li><li><a href="#partners">Statewide Partners</a></li><li><a href="#community-partners">Community Partners</a></li><li><a href="#board">Board</a></li><li><a href="#documents">Documents</a></li><li><a href="#assessment">Special Assessment District</a></li><li><a href="#fundraising">Fundraising</a></li><li><a href="#join">Membership</a></li><li><a href="members/">Member Login</a></li></ul>
   <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) application in progress.</p>
 </div></footer>
 
@@ -667,5 +792,7 @@ footer.site .footer-logo { display: block; width: min(13rem, 100%); height: auto
     lines.push('', `From: ${name} (${from})`);
     location.href = 'mailto:protection.association@wildgooselake.org?subject=' + encodeURIComponent('Website message from ' + name) + '&body=' + encodeURIComponent(lines.join('\n'));
   });
+  const openReports = () => { if (location.hash === '#reports') document.getElementById('reports').open = true; };
+  window.addEventListener('hashchange', openReports); openReports();
 </script>
 </body></html>
