@@ -290,3 +290,5 @@ footer.site ul a:hover, footer.site .f-brand a:hover { opacity: 1; text-decorati
 .nominations p { line-height: 1.7; }
 .nominate-how { display: grid; gap: .8rem; align-content: start; }
 .nominate-how .btns { margin-top: .3rem; }
+.dues-note { margin: 1.2rem 0 .4rem; padding: 1rem 1.25rem; border-left: 4px solid var(--reed); background: var(--paper); border-radius: 0 10px 10px 0; display: grid; gap: .35rem; }
+.dues-note p { margin: 0; }
