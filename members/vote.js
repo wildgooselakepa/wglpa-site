@@ -1,6 +1,6 @@
 (() => {
-  // Paste the Google Apps Script web app URL (ends in /exec) here.
-  const ENDPOINT = 'PASTE_WEB_APP_URL_HERE';
+  // The Cloudflare Worker URL is set in ballot-config.js (https://wglpa-ballot.<account>.workers.dev).
+  const ENDPOINT = String(window.WGLPA_BALLOT_URL || 'PASTE_WORKER_URL_HERE').replace(/\/+$/, '') + '/';
 
   // Board officer ballot. Put each nominee's name in "nominee" once the slate is set.
   // A blank name shows "Nominee to be announced" in yellow.
@@ -45,7 +45,7 @@
   const say = (id, text, ok) => { const m = $(id); m.textContent = text; m.hidden = !text; m.classList.toggle('ok', !!ok); };
 
   const call = async body => {
-    if (ENDPOINT.startsWith('PASTE')) return { ok: false, error: 'Online voting is not open yet.' };
+    if (ENDPOINT.startsWith('PASTE') || !/^https?:/.test(ENDPOINT)) return { ok: false, error: 'Online voting is not open yet.' };
     try {
       const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(body) });
       return await r.json();

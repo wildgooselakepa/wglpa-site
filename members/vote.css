@@ -33,3 +33,18 @@ fieldset.q:first-child { border-top: 0; padding-top: 0; }
 #step-3 form { max-width: none; }
 fieldset.q legend { float: left; width: 100%; }
 fieldset.q legend + * { clear: both; }
+
+/* Ballot admin page */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .75rem; margin: 0; }
+.stats div { border: 1px solid var(--line); border-radius: 10px; padding: .7rem .9rem; background: var(--paper); }
+.stats dt { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.stats dd { margin: .2rem 0 0; font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; font-variant-numeric: lining-nums tabular-nums; }
+.table-wrap { overflow-x: auto; }
+table.results { width: 100%; border-collapse: collapse; font-size: .98rem; }
+table.results th, table.results td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); }
+table.results td:nth-child(2), table.results td:nth-child(3), table.results th:nth-child(2), table.results th:nth-child(3) { text-align: right; }
+fieldset.q.mini { padding: .6rem 0 .2rem; }
+fieldset.q.mini legend { font-size: 1.15rem; float: none; }
+.yn { display: flex; gap: .6rem; flex-wrap: wrap; }
+.yn label.choice { padding: .55rem 1rem; }
+button.danger { color: #9b2414; border-color: #d9a49b; }

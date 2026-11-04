@@ -1,0 +1,135 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ballot Admin | Wild Goose Lake Protection Association</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="The Wild Goose Lake Protection Association works to keep Wild Goose Lake clean, healthy and enjoyable for everyone.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="vote.css">
+</head><body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap">
+  <a href="../fundraising.html#give"><strong>Give</strong></a><a href="../news.html#events">Lake Events</a><a href="../news.html#news">Lake News</a><a href="../association.html#subscribe">Subscribe</a><a href="../association.html#contact">Contact Us</a><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html" aria-label="Wild Goose Lake Protection Association home">
+    <img class="logo" src="../assets/logo.png" alt="Wild Goose Lake Protection Association" width="809" height="160">
+  </a>
+  <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav class="main" id="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="../lake.html#living">Living on the Lake</a>
+        <ul class="sub"><li><a href="../lake.html#facts">Lake Facts</a></li><li><a href="../lake.html#history">Lake History</a></li><li><a href="../lake.html#fishing">Fishing</a></li><li><a href="../lake.html#cranes">Sandhill Cranes</a></li><li><a href="../lake.html#hunting">Waterfowl Hunting</a></li><li><a href="../lake.html#safety">Boating Safety</a></li><li><a href="../lake.html#stewardship">Lake-Friendly Living</a></li></ul></li>
+      <li><a href="../association.html#about">WGLPA</a>
+        <ul class="sub"><li><a href="../association.html#about">Mission &amp; Activities</a></li><li><a href="../association.html#board">Board</a></li><li><a href="../association.html#documents">Documents</a></li></ul></li>
+      <li><a href="../studies.html#studies">Lake Studies</a>
+        <ul class="sub"><li><a href="../studies.html#studies">Water Quality Monitoring</a></li><li><a href="../studies.html#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="../studies.html#reports">Reports Archive</a></li></ul></li>
+      <li><a href="../assessment.html#assessment">Special Assessment District</a></li>
+      <li><a href="../fundraising.html#fundraising">Fundraising</a>
+        <ul class="sub"><li><a href="../fundraising.html#give">Lake Program Fund</a></li><li><a href="../fundraising.html#neighbor-fund">Neighbor Fund</a></li></ul></li>
+      <li><a href="../membership.html#join">Membership</a>
+        <ul class="sub"><li><a href="../membership.html#join">Join &amp; Dues</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Member Vote</a></li></ul></li>
+      <li><a href="../partners.html#partners">Partners</a>
+        <ul class="sub"><li><a href="../partners.html#partners">Statewide Partners</a></li><li><a href="../partners.html#community-partners">Community Partners</a></li></ul></li>
+      <li><a href="../news.html#news">News</a></li>
+      <li><a href="../links.html#links">Links</a></li>
+    </ul>
+  </nav>
+</div></header>
+
+<main id="main">
+  <section class="band" id="admin">
+    <div class="wrap ballot">
+      <h1 class="panel-h">Ballot admin</h1>
+      <p>For the Secretary. Load the voter list, follow turnout, record paper ballots and download the results. Results are not public until the Board posts them.</p>
+
+      <div class="login-card panel" id="a-login">
+        <h2 class="panel-h">Sign in</h2>
+        <form class="stack" id="a-signin" novalidate>
+          <label>Admin key<input type="password" id="a-key" autocomplete="off" required></label>
+          <button class="submit" type="submit">Sign in</button>
+          <p class="msg" id="a-msg-login" role="alert" hidden></p>
+        </form>
+        <p class="form-note">The admin key is the ADMIN_TOKEN secret saved in Cloudflare. It is kept only in this browser tab and cleared when you close it.</p>
+      </div>
+
+      <div class="panel" id="a-main" hidden>
+        <div class="btns"><button class="btn ghost" type="button" id="a-refresh">Refresh</button><button class="btn ghost" type="button" id="a-signout">Sign out</button></div>
+        <p class="msg ok" id="a-msg" role="status" hidden></p>
+
+        <div class="login-card panel">
+          <h2 class="panel-h">Turnout and results</h2>
+          <p id="a-state"></p>
+          <dl class="stats" id="a-stats"></dl>
+          <div class="table-wrap"><table class="results"><thead><tr><th scope="col">Question</th><th scope="col">Yes</th><th scope="col">No</th><th scope="col">Result</th></tr></thead><tbody id="a-results"></tbody></table></div>
+          <div class="btns"><button class="submit" type="button" id="a-dl-results">Download results (CSV)</button><button class="btn ghost" type="button" id="a-toggle">Close voting</button></div>
+          <p class="form-note">Voting closes on its own at the end of December 12, 2026. Import the results file into Proton Sheets (File, Import) to keep a record.</p>
+        </div>
+
+        <div class="login-card panel">
+          <h2 class="panel-h">Voter list</h2>
+          <p>Keep the master list in Proton Sheets with the columns Email, Owner and Votes. When it changes, download it from Proton Sheets as CSV (File, Download, CSV) and upload it here. Uploading replaces the whole list. Votes already cast are kept.</p>
+          <form class="stack" id="a-upload" novalidate>
+            <label>Voter list CSV<input type="file" id="a-file" accept=".csv,text/csv" required></label>
+            <div class="btns"><button class="submit" type="submit">Upload voter list</button><button class="btn ghost" type="button" id="a-dl-voters">Download voter list with Voted column</button></div>
+          </form>
+        </div>
+
+        <div class="login-card panel">
+          <h2 class="panel-h">Record a paper ballot</h2>
+          <p>For owners who return a paper ballot. Use the owner name exactly as it appears on the voter list, so the same owner cannot also vote online. For owners not on the list, use the name on the tax roll and enter the number of Properties they own.</p>
+          <form class="stack" id="a-paper" novalidate>
+            <label>Owner name<input type="text" id="p-owner" autocomplete="off" required list="owners"></label>
+            <datalist id="owners"></datalist>
+            <label>Properties (votes)<input type="number" id="p-props" min="1" max="20" value="1"></label>
+            <p class="form-note">If the owner is on the voter list, the number of votes from the list is used.</p>
+            <fieldset class="q mini"><legend>Ratify the Bylaws</legend>
+              <div class="yn"><label class="choice"><input type="radio" name="p-bylaws" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-bylaws" value="no"> <span>No</span></label></div>
+            </fieldset>
+            <fieldset class="q mini"><legend>President: James Hurst</legend>
+              <div class="yn"><label class="choice"><input type="radio" name="p-president" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-president" value="no"> <span>No</span></label></div>
+            </fieldset>
+            <fieldset class="q mini"><legend>Vice President: Scott Laing</legend>
+              <div class="yn"><label class="choice"><input type="radio" name="p-vicepresident" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-vicepresident" value="no"> <span>No</span></label></div>
+            </fieldset>
+            <fieldset class="q mini"><legend>Secretary: Julie Maynard</legend>
+              <div class="yn"><label class="choice"><input type="radio" name="p-secretary" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-secretary" value="no"> <span>No</span></label></div>
+            </fieldset>
+            <fieldset class="q mini"><legend>Treasurer: Martin Brosnan</legend>
+              <div class="yn"><label class="choice"><input type="radio" name="p-treasurer" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-treasurer" value="no"> <span>No</span></label></div>
+            </fieldset>
+            <button class="submit" type="submit">Record paper ballot</button>
+          </form>
+        </div>
+
+        <div class="login-card panel">
+          <h2 class="panel-h">Clear test votes</h2>
+          <p>Use this only before the ballot goes out to members. It deletes every vote and paper ballot recorded so far. The voter list is kept.</p>
+          <form class="stack" id="a-reset" novalidate>
+            <label>Type DELETE to confirm<input type="text" id="a-confirm" autocomplete="off"></label>
+            <button class="btn ghost danger" type="submit">Delete all votes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<footer class="site"><div class="wrap">
+  <div class="f-brand"><img class="footer-logo" src="../assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener">@wildgooselake.mich on Instagram</a></p><p><em class="ph">Mailing address</em></p></div>
+  <div><h2 class="f-h">The lake</h2><ul><li><a href="../lake.html#facts">Lake Facts</a></li><li><a href="../lake.html#history">Lake History</a></li><li><a href="../lake.html#fishing">Fishing</a></li><li><a href="../lake.html#cranes">Sandhill Cranes</a></li><li><a href="../lake.html#hunting">Waterfowl Hunting</a></li><li><a href="../lake.html#safety">Boating Safety</a></li><li><a href="../lake.html#stewardship">Lake-Friendly Living</a></li></ul></div>
+  <div><h2 class="f-h">Lake program</h2><ul><li><a href="../studies.html#studies">Lake Studies</a></li><li><a href="../assessment.html#assessment">Special Assessment District</a></li><li><a href="../fundraising.html#fundraising">Fundraising</a></li><li><a href="../partners.html#partners">Statewide Partners</a></li><li><a href="../partners.html#community-partners">Community Partners</a></li><li><a href="../links.html#links">Helpful Links</a></li></ul></div>
+  <div><h2 class="f-h">Association</h2><ul><li><a href="../association.html#about">About Us</a></li><li><a href="../association.html#board">Board</a></li><li><a href="../association.html#documents">Documents</a></li><li><a href="../membership.html#join">Membership</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Member Vote</a></li><li><a href="../news.html#news">News</a></li><li><a href="../news.html#events">Events</a></li><li><a href="../association.html#subscribe">Subscribe</a></li><li><a href="../association.html#contact">Contact Us</a></li></ul></div>
+  <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) application in progress.</p>
+</div></footer>
+
+<script src="../assets/site.js" defer></script>
+<script src="ballot-config.js"></script>
+<script src="admin.js" defer></script>
+</body></html>

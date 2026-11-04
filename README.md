@@ -23,6 +23,8 @@ public repository. To change the content or the password, re-encrypt the source 
 
 `members/vote.html` is the online ballot: members sign in with their email address and the shared
 member password, read the proposed Bylaws (`members/bylaws/`), and vote yes or no on the Bylaws and on each officer
-nominee (President, Vice President, Secretary, Treasurer). Nominee names are set in `OFFICERS` in `members/vote.js`. Votes are stored
-in a private Google Sheet by a Google Apps Script web app; the member email list and the password live
-only there, never in this repository. Paste the web app URL into `ENDPOINT` in `members/vote.js`.
+nominee (President, Vice President, Secretary, Treasurer). Nominee names are set in `OFFICERS` in `members/vote.js`.
+Votes are stored by a Cloudflare Worker with a D1 database (code kept outside this repository). The member email list and
+the password live only there, never in this repository; the master voter list is kept in Proton Sheets and uploaded as CSV.
+Paste the Worker URL into `members/ballot-config.js`. `members/admin.html` is the Secretary's page (admin key required)
+for loading the voter list, following turnout, recording paper ballots, opening or closing voting and downloading results.
