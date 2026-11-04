@@ -18,3 +18,10 @@ Text highlighted in yellow on the page is a placeholder that still needs real de
 only opens with the members password. The readable source is kept privately, outside this
 public repository. To change the content or the password, re-encrypt the source and replace
 `members/index.html`.
+
+## Online Bylaws ballot
+
+`members/vote.html` is the online ballot: members sign in with their email address and the shared
+member password, read the proposed Bylaws (`members/bylaws/`), and vote yes or no. Votes are stored
+in a private Google Sheet by a Google Apps Script web app; the member email list and the password live
+only there, never in this repository. Paste the web app URL into `ENDPOINT` in `members/vote.js`.
