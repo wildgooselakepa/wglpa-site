@@ -1,0 +1,138 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Member Vote | Wild Goose Lake Protection Association</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="The Wild Goose Lake Protection Association works to keep Wild Goose Lake clean, healthy and enjoyable for everyone.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="vote.css">
+</head><body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="wrap">
+  <a href="../fundraising.html#give"><strong>Give</strong></a><a href="../news.html#events">Lake Events</a><a href="../news.html#news">Lake News</a><a href="../association.html#subscribe">Subscribe</a><a href="../association.html#contact">Contact Us</a><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:.35rem"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html" aria-label="Wild Goose Lake Protection Association home">
+    <img class="logo" src="../assets/logo.png" alt="Wild Goose Lake Protection Association" width="809" height="160">
+  </a>
+  <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav class="main" id="main-nav" aria-label="Main">
+    <ul>
+      <li><a href="../lake.html#living">Living on the Lake</a>
+        <ul class="sub"><li><a href="../lake.html#facts">Lake Facts</a></li><li><a href="../lake.html#history">Lake History</a></li><li><a href="../lake.html#fishing">Fishing</a></li><li><a href="../lake.html#cranes">Sandhill Cranes</a></li><li><a href="../lake.html#hunting">Waterfowl Hunting</a></li><li><a href="../lake.html#safety">Boating Safety</a></li><li><a href="../lake.html#stewardship">Lake-Friendly Living</a></li></ul></li>
+      <li><a href="../association.html#about">WGLPA</a>
+        <ul class="sub"><li><a href="../association.html#about">Mission &amp; Activities</a></li><li><a href="../association.html#board">Board</a></li><li><a href="../association.html#documents">Documents</a></li></ul></li>
+      <li><a href="../studies.html#studies">Lake Studies</a>
+        <ul class="sub"><li><a href="../studies.html#studies">Water Quality Monitoring</a></li><li><a href="../studies.html#studies">Aquatic Plants &amp; Invasives</a></li><li><a href="../studies.html#reports">Reports Archive</a></li></ul></li>
+      <li><a href="../assessment.html#assessment">Special Assessment District</a></li>
+      <li><a href="../fundraising.html#fundraising">Fundraising</a>
+        <ul class="sub"><li><a href="../fundraising.html#give">Lake Program Fund</a></li><li><a href="../fundraising.html#neighbor-fund">Neighbor Fund</a></li></ul></li>
+      <li><a href="../membership.html#join">Membership</a>
+        <ul class="sub"><li><a href="../membership.html#join">Join &amp; Dues</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Member Vote</a></li></ul></li>
+      <li><a href="../partners.html#partners">Partners</a>
+        <ul class="sub"><li><a href="../partners.html#partners">Statewide Partners</a></li><li><a href="../partners.html#community-partners">Community Partners</a></li></ul></li>
+      <li><a href="../news.html#news">News</a></li>
+      <li><a href="../links.html#links">Links</a></li>
+    </ul>
+  </nav>
+</div></header>
+
+<main id="main">
+  <section class="page-hero">
+    <img src="../assets/img/history.jpg" alt="" width="1200" height="900" fetchpriority="high">
+    <div class="wrap">
+      <p class="crumbs"><a href="../index.html">Home</a> <span aria-hidden="true">/</span> <a href="./">Members</a> <span aria-hidden="true">/</span> Member Vote</p>
+      <span class="eyebrow">Member ballot</span>
+      <h1>Vote on the Bylaws and the Board officers</h1>
+      <p class="lede">Sign in, read the Bylaws, and vote yes or no on the Bylaws and on each officer nominee by Saturday, December 12, 2026. Each property has one vote.</p>
+    </div>
+  </section>
+
+  <section class="band" id="ballot">
+    <div class="wrap ballot">
+      <ol class="steps" aria-label="Ballot steps">
+        <li data-step="1" class="on">Sign in</li><li data-step="2">Review the Bylaws</li><li data-step="3">Vote</li>
+      </ol>
+
+      <!-- Step 1: sign in -->
+      <div class="login-card panel" id="step-1">
+        <span class="eyebrow">Step 1</span>
+        <h2 class="panel-h">Sign in to vote</h2>
+        <p>Use the email address the association has on file for you and the member password from your ballot notice.</p>
+        <form class="stack" id="signin" novalidate>
+          <label>Email address<input type="email" id="email" autocomplete="email" required></label>
+          <label>Member password<input type="password" id="password" autocomplete="current-password" required></label>
+          <button class="submit" type="submit">Sign in</button>
+          <p class="msg" id="msg-1" role="alert" hidden></p>
+        </form>
+        <p class="form-note">Don't have the password, or your email isn't recognized? Write to <a class="email" href="mailto:secretary.pa@wildgooselake.org">secretary.pa@wildgooselake.org</a>. You can also ask for a paper ballot.</p>
+      </div>
+
+      <!-- Step 2: review -->
+      <div class="panel" id="step-2" hidden>
+        <span class="eyebrow">Step 2</span>
+        <h2 class="panel-h">Review the proposed Bylaws</h2>
+        <p>Read all six pages below before you vote. <a href="bylaws/WGLPA-proposed-bylaws.pdf" target="_blank" rel="noopener">Open or download the PDF</a>.</p>
+        <div class="doc" tabindex="0" aria-label="Proposed Bylaws, six pages">
+          <img src="bylaws/page-1.jpg" alt="Bylaws page 1: Article I, Name and Purpose; Article II, Members" width="935" height="1210" loading="lazy">
+          <img src="bylaws/page-2.jpg" alt="Bylaws page 2: Article II continued; Article III, Meetings of Members; Article IV, Board of Directors" width="935" height="1210" loading="lazy">
+          <img src="bylaws/page-3.jpg" alt="Bylaws page 3: Article IV continued, officers; Article V, Finances; Article VI, Committees" width="935" height="1210" loading="lazy">
+          <img src="bylaws/page-4.jpg" alt="Bylaws page 4: Article VI continued; Article VII, Notices and Communications" width="935" height="1210" loading="lazy">
+          <img src="bylaws/page-5.jpg" alt="Bylaws page 5: Article VII continued, timing, contact information, remote meetings" width="935" height="1210" loading="lazy">
+          <img src="bylaws/page-6.jpg" alt="Bylaws page 6: Article VIII, Amendments; Article IX, Dissolution; Article X, Adoption and Transition" width="935" height="1210" loading="lazy">
+        </div>
+        <label class="check"><input type="checkbox" id="reviewed"> I have read the proposed Bylaws.</label>
+        <div class="btns"><button class="submit" type="button" id="to-vote" disabled>Continue to vote</button></div>
+      </div>
+
+      <!-- Step 3: vote -->
+      <div class="login-card panel" id="step-3" hidden>
+        <span class="eyebrow">Step 3</span>
+        <h2 class="panel-h">Cast your ballot</h2>
+        <form class="stack" id="voteform" novalidate>
+          <fieldset class="q">
+            <legend><span class="q-n">1</span> Shall the members ratify the proposed Bylaws of Wild Goose Lake Protection Association, Inc.?</legend>
+            <label class="choice"><input type="radio" name="bylaws" value="yes"> <span>Yes, ratify the Bylaws</span></label>
+            <label class="choice"><input type="radio" name="bylaws" value="no"> <span>No, do not ratify the Bylaws</span></label>
+          </fieldset>
+          <h3 class="officers-h">Board officers</h3>
+          <p class="form-note">The first officers serve until the first annual meeting in September 2027 (Bylaws Article X).</p>
+          <div id="officers"></div>
+          <p class="form-note">Each property has one vote. If you own more than one property, your ballot counts once for each. If you share ownership, agree on your vote with your co-owners first. Only one of you can submit it. Once you submit, the vote can't be changed. The ballot is secret: the association records that your property voted, not how.</p>
+          <div class="btns">
+            <button class="submit" type="submit" id="submit-vote">Submit my vote</button>
+            <button class="btn ghost" type="button" id="back">Back to the Bylaws</button>
+          </div>
+          <p class="msg" id="msg-3" role="alert" hidden></p>
+        </form>
+      </div>
+
+      <!-- Done -->
+      <div class="login-card panel" id="step-done" hidden tabindex="-1">
+        <span class="eyebrow">Ballot received</span>
+        <h2 class="panel-h">Thank you for voting</h2>
+        <p id="done-text">Your vote has been recorded. The results will be posted on this website after voting closes on December 12, 2026.</p>
+        <div class="btns"><a class="btn ghost" href="../news.html#news">Lake news</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<footer class="site"><div class="wrap">
+  <div class="f-brand"><img class="footer-logo" src="../assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener">@wildgooselake.mich on Instagram</a></p><p><em class="ph">Mailing address</em></p></div>
+  <div><h2 class="f-h">The lake</h2><ul><li><a href="../lake.html#facts">Lake Facts</a></li><li><a href="../lake.html#history">Lake History</a></li><li><a href="../lake.html#fishing">Fishing</a></li><li><a href="../lake.html#cranes">Sandhill Cranes</a></li><li><a href="../lake.html#hunting">Waterfowl Hunting</a></li><li><a href="../lake.html#safety">Boating Safety</a></li><li><a href="../lake.html#stewardship">Lake-Friendly Living</a></li></ul></div>
+  <div><h2 class="f-h">Lake program</h2><ul><li><a href="../studies.html#studies">Lake Studies</a></li><li><a href="../assessment.html#assessment">Special Assessment District</a></li><li><a href="../fundraising.html#fundraising">Fundraising</a></li><li><a href="../partners.html#partners">Statewide Partners</a></li><li><a href="../partners.html#community-partners">Community Partners</a></li><li><a href="../links.html#links">Helpful Links</a></li></ul></div>
+  <div><h2 class="f-h">Association</h2><ul><li><a href="../association.html#about">About Us</a></li><li><a href="../association.html#board">Board</a></li><li><a href="../association.html#documents">Documents</a></li><li><a href="../membership.html#join">Membership</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Member Vote</a></li><li><a href="../news.html#news">News</a></li><li><a href="../news.html#events">Events</a></li><li><a href="../association.html#subscribe">Subscribe</a></li><li><a href="../association.html#contact">Contact Us</a></li></ul></div>
+  <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) application in progress.</p>
+</div></footer>
+
+<script src="../assets/site.js" defer></script>
+<script src="ballot-config.js"></script>
+<script src="vote.js" defer></script>
+</body></html>
