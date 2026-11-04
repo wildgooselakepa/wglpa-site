@@ -5,13 +5,13 @@
   // Board officer ballot. Put each nominee's name in "nominee" once the slate is set.
   // A blank name shows "Nominee to be announced" in yellow.
   const OFFICERS = [
-    { key: 'president', office: 'President', nominee: '', email: 'president.pa@wildgooselake.org',
+    { key: 'president', office: 'President', nominee: 'James Hurst', email: 'president.pa@wildgooselake.org',
       duties: "Presides at meetings, is the association's single point of contact with Washtenaw County, Lyndon Township and the lake-management contractors, and signs documents the Board approves." },
-    { key: 'vicepresident', office: 'Vice President', nominee: '', email: 'vicepresident.pa@wildgooselake.org',
+    { key: 'vicepresident', office: 'Vice President', nominee: 'Scott Laing', email: 'vicepresident.pa@wildgooselake.org',
       duties: 'Acts for the President when the President is absent.' },
-    { key: 'secretary', office: 'Secretary', nominee: '', email: 'secretary.pa@wildgooselake.org',
+    { key: 'secretary', office: 'Secretary', nominee: 'Julie Maynard', email: 'secretary.pa@wildgooselake.org',
       duties: 'Keeps the minutes and the member contact list, gives meeting notices, and posts notices, minutes and documents on this website.' },
-    { key: 'treasurer', office: 'Treasurer', nominee: '', email: 'treasurer.pa@wildgooselake.org',
+    { key: 'treasurer', office: 'Treasurer', nominee: 'Martin Brosnan', email: 'treasurer.pa@wildgooselake.org',
       duties: "Receives gifts and sends acknowledgments, pays approved bills, keeps the books and a separate account for each fund, makes the association's member-approved contribution to the County project, files the State annual report, and gives a written financial report at the annual meeting." }
   ];
   const QUESTIONS = [{ key: 'bylaws', label: 'Bylaws' }, ...OFFICERS.map(o => ({ key: o.key, label: o.office }))];
