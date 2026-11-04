@@ -23,3 +23,13 @@ button.btn { font: inherit; font-size: .8rem; font-weight: 500; letter-spacing: 
 .msg { padding: .7rem .9rem; border-radius: 8px; background: #fbe9e7; color: #7a1f12; border: 1px solid #e7b9b1; font-size: .97rem; }
 .msg.ok { background: var(--sky); color: var(--ink); border-color: var(--line); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .msg:not(.ok) { background: #3a1d19; color: #ffc9bf; border-color: #6b3128; } }
+fieldset.q { padding: 1.1rem 0 .4rem; border-top: 1px solid var(--line); }
+fieldset.q:first-child { border-top: 0; padding-top: 0; }
+.q-n { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: .35rem; border-radius: 50%; background: var(--water); color: var(--on-water); font-family: var(--font-body); font-size: .85rem; vertical-align: .2em; }
+.duties { color: var(--muted); font-size: .95rem; margin: -.2rem 0 .3rem; }
+.duties a { white-space: nowrap; }
+.officers-h { margin-top: 1.2rem; font-size: 1.7rem; }
+#step-3 { max-width: 44rem; }
+#step-3 form { max-width: none; }
+fieldset.q legend { float: left; width: 100%; }
+fieldset.q legend + * { clear: both; }

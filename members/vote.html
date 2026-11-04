@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bylaws Vote | Wild Goose Lake Protection Association</title>
+<title>Member Vote | Wild Goose Lake Protection Association</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="The Wild Goose Lake Protection Association works to keep Wild Goose Lake clean, healthy and enjoyable for everyone.">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
@@ -33,7 +33,7 @@
       <li><a href="../fundraising.html#fundraising">Fundraising</a>
         <ul class="sub"><li><a href="../fundraising.html#give">Lake Program Fund</a></li><li><a href="../fundraising.html#neighbor-fund">Neighbor Fund</a></li></ul></li>
       <li><a href="../membership.html#join">Membership</a>
-        <ul class="sub"><li><a href="../membership.html#join">Join &amp; Dues</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Bylaws Vote</a></li></ul></li>
+        <ul class="sub"><li><a href="../membership.html#join">Join &amp; Dues</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Member Vote</a></li></ul></li>
       <li><a href="../partners.html#partners">Partners</a>
         <ul class="sub"><li><a href="../partners.html#partners">Statewide Partners</a></li><li><a href="../partners.html#community-partners">Community Partners</a></li></ul></li>
       <li><a href="../news.html#news">News</a></li>
@@ -46,10 +46,10 @@
   <section class="page-hero">
     <img src="../assets/img/history.jpg" alt="" width="1200" height="900" fetchpriority="high">
     <div class="wrap">
-      <p class="crumbs"><a href="../index.html">Home</a> <span aria-hidden="true">/</span> <a href="./">Members</a> <span aria-hidden="true">/</span> Bylaws Vote</p>
+      <p class="crumbs"><a href="../index.html">Home</a> <span aria-hidden="true">/</span> <a href="./">Members</a> <span aria-hidden="true">/</span> Member Vote</p>
       <span class="eyebrow">Member ballot</span>
-      <h1>Vote on the proposed Bylaws</h1>
-      <p class="lede">Sign in, read the Bylaws, and vote yes or no by Saturday, December 12, 2026. Each property has one vote.</p>
+      <h1>Vote on the Bylaws and the Board officers</h1>
+      <p class="lede">Sign in, read the Bylaws, and vote yes or no on the Bylaws and on each officer nominee by Saturday, December 12, 2026. Each property has one vote.</p>
     </div>
   </section>
 
@@ -95,11 +95,14 @@
         <span class="eyebrow">Step 3</span>
         <h2 class="panel-h">Cast your ballot</h2>
         <form class="stack" id="voteform" novalidate>
-          <fieldset>
-            <legend>Shall the members ratify the proposed Bylaws of Wild Goose Lake Protection Association, Inc.?</legend>
-            <label class="choice"><input type="radio" name="vote" value="yes"> <span>Yes, ratify the Bylaws</span></label>
-            <label class="choice"><input type="radio" name="vote" value="no"> <span>No, do not ratify the Bylaws</span></label>
+          <fieldset class="q">
+            <legend><span class="q-n">1</span> Shall the members ratify the proposed Bylaws of Wild Goose Lake Protection Association, Inc.?</legend>
+            <label class="choice"><input type="radio" name="bylaws" value="yes"> <span>Yes, ratify the Bylaws</span></label>
+            <label class="choice"><input type="radio" name="bylaws" value="no"> <span>No, do not ratify the Bylaws</span></label>
           </fieldset>
+          <h3 class="officers-h">Board officers</h3>
+          <p class="form-note">The first officers serve until the first annual meeting in September 2027 (Bylaws Article X).</p>
+          <div id="officers"></div>
           <p class="form-note">One vote per property. If you share the property with other owners, agree on your vote first. Once you submit, the vote can't be changed. The ballot is secret: the association records that your property voted, not how.</p>
           <div class="btns">
             <button class="submit" type="submit" id="submit-vote">Submit my vote</button>
@@ -125,7 +128,7 @@
   <div class="f-brand"><img class="footer-logo" src="../assets/logo-stacked.png" alt="Wild Goose Lake Protection Association" width="1045" height="420"><p><a class="email" href="mailto:protection.association@wildgooselake.org">protection.association@wildgooselake.org</a></p><p><a href="https://www.instagram.com/wildgooselake.mich/" target="_blank" rel="noopener">@wildgooselake.mich on Instagram</a></p><p><em class="ph">Mailing address</em></p></div>
   <div><h2 class="f-h">The lake</h2><ul><li><a href="../lake.html#facts">Lake Facts</a></li><li><a href="../lake.html#history">Lake History</a></li><li><a href="../lake.html#fishing">Fishing</a></li><li><a href="../lake.html#cranes">Sandhill Cranes</a></li><li><a href="../lake.html#hunting">Waterfowl Hunting</a></li><li><a href="../lake.html#safety">Boating Safety</a></li><li><a href="../lake.html#stewardship">Lake-Friendly Living</a></li></ul></div>
   <div><h2 class="f-h">Lake program</h2><ul><li><a href="../studies.html#studies">Lake Studies</a></li><li><a href="../assessment.html#assessment">Special Assessment District</a></li><li><a href="../fundraising.html#fundraising">Fundraising</a></li><li><a href="../partners.html#partners">Statewide Partners</a></li><li><a href="../partners.html#community-partners">Community Partners</a></li><li><a href="../links.html#links">Helpful Links</a></li></ul></div>
-  <div><h2 class="f-h">Association</h2><ul><li><a href="../association.html#about">About Us</a></li><li><a href="../association.html#board">Board</a></li><li><a href="../association.html#documents">Documents</a></li><li><a href="../membership.html#join">Membership</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Bylaws Vote</a></li><li><a href="../news.html#news">News</a></li><li><a href="../news.html#events">Events</a></li><li><a href="../association.html#subscribe">Subscribe</a></li><li><a href="../association.html#contact">Contact Us</a></li></ul></div>
+  <div><h2 class="f-h">Association</h2><ul><li><a href="../association.html#about">About Us</a></li><li><a href="../association.html#board">Board</a></li><li><a href="../association.html#documents">Documents</a></li><li><a href="../membership.html#join">Membership</a></li><li><a href="./">Member Login</a></li><li><a href="vote.html">Member Vote</a></li><li><a href="../news.html#news">News</a></li><li><a href="../news.html#events">Events</a></li><li><a href="../association.html#subscribe">Subscribe</a></li><li><a href="../association.html#contact">Contact Us</a></li></ul></div>
   <p class="legal">© 2026 Wild Goose Lake Protection Association. 501(c)(3) application in progress.</p>
 </div></footer>
 
