@@ -1,9 +1,7 @@
 (() => {
-  // The Cloudflare Worker URL is set in ballot-config.js (https://wglpa-ballot.<account>.workers.dev).
+  // The Cloudflare Worker URL is set in ballot-config.js.
   const ENDPOINT = String(window.WGLPA_BALLOT_URL || 'PASTE_WORKER_URL_HERE').replace(/\/+$/, '') + '/';
-
-  // Board officer ballot. Put each nominee's name in "nominee" once the slate is set.
-  // A blank name shows "Nominee to be announced" in yellow.
+  // A blank nominee shows the existing placeholder.
   const OFFICERS = [
     { key: 'president', office: 'President', nominee: 'James Hurst', email: 'president.pa@wildgooselake.org',
       duties: "Presides at meetings, is the association's single point of contact with Washtenaw County, Lyndon Township and the lake-management contractors, and signs documents the Board approves." },
@@ -12,25 +10,26 @@
     { key: 'secretary', office: 'Secretary', nominee: 'Julie Maynard', email: 'secretary.pa@wildgooselake.org',
       duties: 'Keeps the minutes and the member contact list, gives meeting notices, and posts notices, minutes and documents on this website.' },
     { key: 'treasurer', office: 'Treasurer', nominee: 'Martin Brosnan', email: 'treasurer.pa@wildgooselake.org',
-      duties: "Receives gifts and sends acknowledgments, pays approved bills, keeps the books and a separate account for each fund, makes the association's member-approved contribution to the County project, files the State annual report, and gives a written financial report at the annual meeting." }
+      duties: "Receives gifts and sends acknowledgments, pays approved bills, keeps the books and a separate account for each fund, makes the association's member-approved contribution to the County project, files the State annual report, and gives a written financial report at the annual meeting." },
+    { key: 'memberatlarge', office: 'Member at Large', nominee: '', email: '', duties: '' }
   ];
   const QUESTIONS = [{ key: 'bylaws', label: 'Bylaws' }, ...OFFICERS.map(o => ({ key: o.key, label: o.office }))];
-
   const $ = id => document.getElementById(id);
   const steps = document.querySelectorAll('.steps li');
   const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   $('officers').innerHTML = OFFICERS.map((o, i) => {
     const who = o.nominee ? esc(o.nominee) : '<em class="ph">Nominee to be announced</em>';
     const name = o.nominee ? esc(o.nominee) : 'the nominee';
+    const email = o.email ? ` <a class="email" href="mailto:${esc(o.email)}">${esc(o.email)}</a>` : '';
+    const details = o.duties || o.email ? `<p class="duties">${esc(o.duties)}${email}</p>` : '';
     return `<fieldset class="q">
       <legend><span class="q-n">${i + 2}</span> ${esc(o.office)}: ${who}</legend>
-      <p class="duties">${esc(o.duties)} <a class="email" href="mailto:${o.email}">${o.email}</a></p>
+      ${details}
       <label class="choice"><input type="radio" name="${o.key}" value="yes"> <span>Yes, elect ${name} as ${esc(o.office)}</span></label>
       <label class="choice"><input type="radio" name="${o.key}" value="no"> <span>No</span></label>
     </fieldset>`;
   }).join('');
   let creds = null;
-
   const show = n => {
     ['1', '2', '3', 'done'].forEach(k => { $('step-' + k).hidden = k !== String(n); });
     steps.forEach(li => {
@@ -43,7 +42,6 @@
     $('ballot').scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
   const say = (id, text, ok) => { const m = $(id); m.textContent = text; m.hidden = !text; m.classList.toggle('ok', !!ok); };
-
   const call = async body => {
     if (ENDPOINT.startsWith('PASTE') || !/^https?:/.test(ENDPOINT)) return { ok: false, error: 'Online voting is not open yet.' };
     try {
@@ -53,7 +51,6 @@
       return { ok: false, error: 'We could not reach the ballot box. Check your connection and try again.' };
     }
   };
-
   $('signin').addEventListener('submit', async e => {
     e.preventDefault();
     const email = $('email').value.trim(), password = $('password').value;
@@ -66,11 +63,9 @@
     else if (res.voted) { $('done-text').textContent = res.error + ' Thank you for taking part.'; $('step-done').querySelector('h2').textContent = 'Your property has voted'; show('done'); }
     else say('msg-1', res.error);
   });
-
   $('reviewed').addEventListener('change', e => { $('to-vote').disabled = !e.target.checked; });
   $('to-vote').addEventListener('click', () => show(3));
   $('back').addEventListener('click', () => show(2));
-
   $('voteform').addEventListener('submit', async e => {
     e.preventDefault();
     const votes = {}, missing = [];
