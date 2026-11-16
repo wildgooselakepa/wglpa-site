@@ -2,12 +2,12 @@
   const BASE = String(window.WGLPA_BALLOT_URL || '').replace(/\/+$/, '');
   const $ = id => document.getElementById(id);
   const KEYS = ['bylaws', 'president', 'vicepresident', 'secretary', 'treasurer', 'memberatlarge'];
-  const LABELS = { vicepresident: 'Vice President', memberatlarge: 'Member at Large' };
+  const LABELS = { vicepresident: 'Vice President', memberatlarge: 'Director at Large' };
   // Keep the paper form synchronized without changing the surrounding page.
   if (!document.querySelector('input[name="p-memberatlarge"]')) {
     const field = document.createElement('fieldset');
     field.className = 'q mini';
-    field.innerHTML = '<legend>Member at Large: <em class="ph">Nominee to be announced</em></legend><div class="yn"><label class="choice"><input type="radio" name="p-memberatlarge" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-memberatlarge" value="no"> <span>No</span></label></div>';
+    field.innerHTML = '<legend>Director at Large: Thomas Myers</legend><div class="yn"><label class="choice"><input type="radio" name="p-memberatlarge" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-memberatlarge" value="no"> <span>No</span></label></div>';
     const submit = $('a-paper').querySelector('button[type="submit"]');
     submit.before(field);
   }
