@@ -66,7 +66,7 @@
           <h2 class="panel-h">Turnout and results</h2>
           <p id="a-state"></p>
           <dl class="stats" id="a-stats"></dl>
-          <div class="table-wrap"><table class="results"><thead><tr><th scope="col">Question</th><th scope="col">Yes</th><th scope="col">No</th><th scope="col">Result</th></tr></thead><tbody id="a-results"></tbody></table></div>
+          <div class="table-wrap"><table class="results"><thead><tr><th scope="col">Question</th><th scope="col">Yes / votes</th><th scope="col">No</th><th scope="col">Result</th></tr></thead><tbody id="a-results"></tbody></table></div>
           <div class="btns"><button class="submit" type="button" id="a-dl-results">Download results (CSV)</button><button class="btn ghost" type="button" id="a-toggle">Close voting</button></div>
           <p class="form-note">Voting closes on its own at the end of December 21, 2026. Import the results file into Proton Sheets (File, Import) to keep a record.</p>
         </div>
@@ -83,7 +83,7 @@
         <div class="login-card panel">
           <h2 class="panel-h">Record a paper ballot</h2>
           <p>For owners who return a paper ballot. Use the owner name exactly as it appears on the voter list, so the same owner cannot also vote online. For owners not on the list, use the name on the tax roll and enter the number of Properties they own.</p>
-          <p class="form-note"><strong>Member at Large.</strong> The ballot now includes Member at Large, with Thomas Myers as the nominee. Every paper ballot needs a Yes or No on all six questions, including Member at Large. If a paper ballot was printed before Member at Large was added, or leaves it blank, contact the owner for their Member at Large vote before recording the ballot.</p>
+          <p class="form-note"><strong>Member at Large.</strong> The ballot now includes Member at Large, with Thomas Myers as the nominee. Every paper ballot needs an answer on all six questions, including Member at Large. Vice President and Secretary each have two candidates: Scott Laing or David Robinson, and Julie Maynard or Rochelle Hurst. If a paper ballot was printed before Member at Large was added, or leaves it blank, contact the owner for their Member at Large vote before recording the ballot.</p>
           <form class="stack" id="a-paper" novalidate>
             <label>Owner name<input type="text" id="p-owner" autocomplete="off" required list="owners"></label>
             <datalist id="owners"></datalist>
@@ -95,11 +95,11 @@
             <fieldset class="q mini"><legend>President: James Hurst</legend>
               <div class="yn"><label class="choice"><input type="radio" name="p-president" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-president" value="no"> <span>No</span></label></div>
             </fieldset>
-            <fieldset class="q mini"><legend>Vice President: Scott Laing</legend>
-              <div class="yn"><label class="choice"><input type="radio" name="p-vicepresident" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-vicepresident" value="no"> <span>No</span></label></div>
+            <fieldset class="q mini"><legend>Vice President: choose one</legend>
+              <div class="yn"><label class="choice"><input type="radio" name="p-vicepresident" value="Scott Laing"> <span>Scott Laing</span></label><label class="choice"><input type="radio" name="p-vicepresident" value="David Robinson"> <span>David Robinson</span></label></div>
             </fieldset>
-            <fieldset class="q mini"><legend>Secretary: Julie Maynard</legend>
-              <div class="yn"><label class="choice"><input type="radio" name="p-secretary" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-secretary" value="no"> <span>No</span></label></div>
+            <fieldset class="q mini"><legend>Secretary: choose one</legend>
+              <div class="yn"><label class="choice"><input type="radio" name="p-secretary" value="Julie Maynard"> <span>Julie Maynard</span></label><label class="choice"><input type="radio" name="p-secretary" value="Rochelle Hurst"> <span>Rochelle Hurst</span></label></div>
             </fieldset>
             <fieldset class="q mini"><legend>Treasurer: Martin Brosnan</legend>
               <div class="yn"><label class="choice"><input type="radio" name="p-treasurer" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-treasurer" value="no"> <span>No</span></label></div>

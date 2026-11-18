@@ -1,13 +1,13 @@
 (() => {
   // The Cloudflare Worker URL is set in ballot-config.js.
   const ENDPOINT = String(window.WGLPA_BALLOT_URL || 'PASTE_WORKER_URL_HERE').replace(/\/+$/, '') + '/';
-  // A blank nominee shows the existing placeholder.
+  // A blank nominee shows the existing placeholder. Use nominees: [..] for a race with several candidates.
   const OFFICERS = [
     { key: 'president', office: 'President', nominee: 'James Hurst', email: 'president.pa@wildgooselake.org',
       duties: "Presides at meetings, is the association's single point of contact with Washtenaw County, Lyndon Township and the lake-management contractors, and signs documents the Board approves." },
-    { key: 'vicepresident', office: 'Vice President', nominee: 'Scott Laing', email: 'vicepresident.pa@wildgooselake.org',
+    { key: 'vicepresident', office: 'Vice President', nominees: ['Scott Laing', 'David Robinson'], email: 'vicepresident.pa@wildgooselake.org',
       duties: 'Acts for the President when the President is absent.' },
-    { key: 'secretary', office: 'Secretary', nominee: 'Julie Maynard', email: 'secretary.pa@wildgooselake.org',
+    { key: 'secretary', office: 'Secretary', nominees: ['Julie Maynard', 'Rochelle Hurst'], email: 'secretary.pa@wildgooselake.org',
       duties: 'Keeps the minutes and the member contact list, gives meeting notices, and posts notices, minutes and documents on this website.' },
     { key: 'treasurer', office: 'Treasurer', nominee: 'Martin Brosnan', email: 'treasurer.pa@wildgooselake.org',
       duties: "Receives gifts and sends acknowledgments, pays approved bills, keeps the books and a separate account for each fund, makes the association's member-approved contribution to the County project, files the State annual report, and gives a written financial report at the annual meeting." },
@@ -22,6 +22,11 @@
     const name = o.nominee ? esc(o.nominee) : 'the nominee';
     const email = o.email ? ` <a class="email" href="mailto:${esc(o.email)}">${esc(o.email)}</a>` : '';
     const details = o.duties || o.email ? `<p class="duties">${esc(o.duties)}${email}</p>` : '';
+    if (o.nominees) return `<fieldset class="q">
+      <legend><span class="q-n">${i + 2}</span> ${esc(o.office)}: choose one</legend>
+      ${details}
+      ${o.nominees.map(n => `<label class="choice"><input type="radio" name="${o.key}" value="${esc(n)}"> <span>${esc(n)}</span></label>`).join('\n      ')}
+    </fieldset>`;
     return `<fieldset class="q">
       <legend><span class="q-n">${i + 2}</span> ${esc(o.office)}: ${who}</legend>
       ${details}
@@ -73,8 +78,8 @@
       const pick = document.querySelector(`input[name="${q.key}"]:checked`);
       if (pick) votes[q.key] = pick.value; else missing.push(q.label);
     });
-    if (missing.length) return say('msg-3', 'Please choose Yes or No on every question. Still to answer: ' + missing.join(', ') + '.');
-    const summary = QUESTIONS.map(q => `${q.label}: ${votes[q.key].toUpperCase()}`).join('\n');
+    if (missing.length) return say('msg-3', 'Please answer every question. Still to answer: ' + missing.join(', ') + '.');
+    const summary = QUESTIONS.map(q => `${q.label}: ${/^(yes|no)$/.test(votes[q.key]) ? votes[q.key].toUpperCase() : votes[q.key]}`).join('\n');
     if (!confirm('Submit your ballot?\n\n' + summary + "\n\nYou can't change it after you submit.")) return;
     const btn = $('submit-vote'); btn.disabled = true; btn.textContent = 'Submitting…';
     say('msg-3', '');

@@ -31,7 +31,10 @@
     $('a-toggle').disabled = !s.open && new Date() >= new Date(s.closes);
     const stats = [['Owners voted', `${s.ownersVoted} of ${s.owners}`], ['Votes counted', `${s.votesCounted} of ${s.possibleVotes}`], ['Emails on list', s.emails]];
     $('a-stats').replaceChildren(...stats.map(([t, v]) => { const d = document.createElement('div'); d.innerHTML = '<dt></dt><dd></dd>'; d.firstChild.textContent = t; d.lastChild.textContent = v; return d; }));
-    $('a-results').replaceChildren(...s.results.map(r => { const tr = document.createElement('tr'); [r.question, r.yes, r.no, r.result].forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.append(td); }); return tr; }));
+    const row = cells => { const tr = document.createElement('tr'); cells.forEach(v => { const td = document.createElement('td'); td.textContent = v; tr.append(td); }); return tr; };
+    $('a-results').replaceChildren(...s.results.flatMap(r => r.contested
+      ? r.candidates.map((c, i) => row([`${r.question}: ${c.name}`, c.votes, '—', i === 0 ? r.result : '']))
+      : [row([r.question, r.yes, r.no, r.result])]));
   }
   async function refresh() {
     const r = await api('/admin/status');
@@ -90,7 +93,7 @@
     const votes = {};
     for (const k of KEYS) { const c = document.querySelector(`input[name="p-${k}"]:checked`); if (c) votes[k] = c.value; }
     if (!owner) return say('Enter the owner name.', false);
-    if (Object.keys(votes).length < KEYS.length) return say('Choose Yes or No for all six questions, as marked on the paper ballot.', false);
+    if (Object.keys(votes).length < KEYS.length) return say('Answer all six questions, as marked on the paper ballot.', false);
     const summary = KEYS.map(k => `${LABELS[k] || k[0].toUpperCase() + k.slice(1)}: ${votes[k]}`).join('\n');
     if (!confirm(`Record this paper ballot for ${owner}?\n\n${summary}\n\nThis can't be changed afterward.`)) return;
     const r = await post('/admin/paper', { owner, properties: $('p-props').value, votes });
