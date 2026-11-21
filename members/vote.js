@@ -11,7 +11,7 @@
       duties: 'Keeps the minutes and the member contact list, gives meeting notices, and posts notices, minutes and documents on this website.' },
     { key: 'treasurer', office: 'Treasurer', nominee: 'Martin Brosnan', email: 'treasurer.pa@wildgooselake.org',
       duties: "Receives gifts and sends acknowledgments, pays approved bills, keeps the books and a separate account for each fund, makes the association's member-approved contribution to the County project, files the State annual report, and gives a written financial report at the annual meeting." },
-    { key: 'memberatlarge', office: 'Member at Large', nominee: 'Thomas Myers', email: '', duties: '' }
+    { key: 'memberatlarge', office: 'Member at Large', nominees: ['Thomas Myers', 'Michael Russell'], email: '', duties: '' }
   ];
   const QUESTIONS = [{ key: 'bylaws', label: 'Bylaws' }, ...OFFICERS.map(o => ({ key: o.key, label: o.office }))];
   const $ = id => document.getElementById(id);

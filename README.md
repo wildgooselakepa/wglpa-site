@@ -23,7 +23,7 @@ public repository. To change the content or the password, re-encrypt the source 
 
 `members/vote.html` is the online ballot: members sign in with their email address and the shared
 member password, read the proposed Bylaws (`members/bylaws/`), and vote on the Bylaws and the officers. Single-nominee offices are Yes/No; offices with several candidates
-(Vice President, Secretary) are choose-one. Nominee names are set in `OFFICERS` in `members/vote.js`, the paper form in
+(Vice President, Secretary, Member at Large) are choose-one. Nominee names are set in `OFFICERS` in `members/vote.js`, the paper form in
 `members/admin.html`, and `QUESTIONS` in the Worker; all three must match.
 Votes are stored by a Cloudflare Worker with a D1 database (code kept outside this repository). The member email list and
 the password live only there, never in this repository; the master voter list is kept in Proton Sheets and uploaded as CSV.

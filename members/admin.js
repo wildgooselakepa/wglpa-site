@@ -7,7 +7,7 @@
   if (!document.querySelector('input[name="p-memberatlarge"]')) {
     const field = document.createElement('fieldset');
     field.className = 'q mini';
-    field.innerHTML = '<legend>Member at Large: Thomas Myers</legend><div class="yn"><label class="choice"><input type="radio" name="p-memberatlarge" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-memberatlarge" value="no"> <span>No</span></label></div>';
+    field.innerHTML = '<legend>Member at Large: choose one</legend><div class="yn"><label class="choice"><input type="radio" name="p-memberatlarge" value="Thomas Myers"> <span>Thomas Myers</span></label><label class="choice"><input type="radio" name="p-memberatlarge" value="Michael Russell"> <span>Michael Russell</span></label></div>';
     const submit = $('a-paper').querySelector('button[type="submit"]');
     submit.before(field);
   }
