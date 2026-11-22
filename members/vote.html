@@ -48,8 +48,9 @@
     <div class="wrap">
       <p class="crumbs"><a href="../index.html">Home</a> <span aria-hidden="true">/</span> <a href="./">Members</a> <span aria-hidden="true">/</span> Member Vote</p>
       <span class="eyebrow">Member ballot</span>
-      <h1>Vote on the Bylaws and the Board officers</h1>
-      <p class="lede">Sign in, read the Bylaws, and vote on the Bylaws and the Board officers by Monday, December 21, 2026. Each property has one vote.</p>
+      <h1>Vote for the first Board of Directors</h1>
+      <p class="lede">Sign in and vote for the first Board of Directors by Monday, December 21, 2026. Each property has one vote.</p>
+      <p class="lede">The proposed Bylaws are not part of this election. They will be brought to the members for a vote after review by legal counsel.</p>
       <p class="lede"><strong>Voting re-opens on Tuesday, December 1, 2026.</strong></p>
     </div>
   </section>
@@ -57,7 +58,7 @@
   <section class="band" id="ballot">
     <div class="wrap ballot">
       <ol class="steps" aria-label="Ballot steps">
-        <li data-step="1" class="on">Sign in</li><li data-step="2">Review the Bylaws</li><li data-step="3">Vote</li>
+        <li data-step="1" class="on">Sign in</li><li data-step="2">Vote</li>
       </ol>
 
       <!-- Step 1: sign in -->
@@ -74,36 +75,19 @@
         <p class="form-note">Don't have the password, or your email isn't recognized? Write to <a class="email" href="mailto:secretary.pa@wildgooselake.org">secretary.pa@wildgooselake.org</a>. You can also ask for a paper ballot.</p>
       </div>
 
-      <!-- Step 2: review -->
-      <div class="panel" id="step-2" hidden>
+      <!-- Step 2: vote -->
+      <div class="login-card panel" id="step-2" hidden>
         <span class="eyebrow">Step 2</span>
-        <h2 class="panel-h">Review the proposed Bylaws</h2>
-        <p>The proposed Bylaws are not posted here at the moment. They will be posted on this website by December 1, 2026, for members to review before voting.</p>
-        <div hidden>
-          <label class="check"><input type="checkbox" id="reviewed"> I have read the proposed Bylaws.</label>
-          <div class="btns"><button class="submit" type="button" id="to-vote" disabled>Continue to vote</button></div>
-        </div>
-      </div>
-
-      <!-- Step 3: vote -->
-      <div class="login-card panel" id="step-3" hidden>
-        <span class="eyebrow">Step 3</span>
         <h2 class="panel-h">Cast your ballot</h2>
         <form class="stack" id="voteform" novalidate>
-          <fieldset class="q">
-            <legend><span class="q-n">1</span> Shall the members ratify the proposed Bylaws of Wild Goose Lake Protection Association, Inc.?</legend>
-            <label class="choice"><input type="radio" name="bylaws" value="yes"> <span>Yes, ratify the Bylaws</span></label>
-            <label class="choice"><input type="radio" name="bylaws" value="no"> <span>No, do not ratify the Bylaws</span></label>
-          </fieldset>
           <h3 class="officers-h">Board officers</h3>
-          <p class="form-note">The first officers serve until the first annual meeting in September 2027 (Bylaws Article X).</p>
+          <p class="form-note">The first officers serve until the first annual meeting in September 2027.</p>
           <div id="officers"></div>
           <p class="form-note">Each property has one vote. If you own more than one property, your ballot counts once for each. If you share ownership, agree on your vote with your co-owners first. Only one of you can submit it. Once you submit, the vote can't be changed. The ballot is secret: the association records that your property voted, not how.</p>
           <div class="btns">
             <button class="submit" type="submit" id="submit-vote">Submit my vote</button>
-            <button class="btn ghost" type="button" id="back">Back to the Bylaws</button>
           </div>
-          <p class="msg" id="msg-3" role="alert" hidden></p>
+          <p class="msg" id="msg-2" role="alert" hidden></p>
         </form>
       </div>
 

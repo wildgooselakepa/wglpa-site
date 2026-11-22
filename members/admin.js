@@ -1,7 +1,7 @@
 (() => {
   const BASE = String(window.WGLPA_BALLOT_URL || '').replace(/\/+$/, '');
   const $ = id => document.getElementById(id);
-  const KEYS = ['bylaws', 'president', 'vicepresident', 'secretary', 'treasurer', 'memberatlarge'];
+  const KEYS = ['president', 'vicepresident', 'secretary', 'treasurer', 'memberatlarge'];
   const LABELS = { vicepresident: 'Vice President', memberatlarge: 'Member at Large' };
   // Keep the paper form synchronized without changing the surrounding page.
   if (!document.querySelector('input[name="p-memberatlarge"]')) {
@@ -93,7 +93,7 @@
     const votes = {};
     for (const k of KEYS) { const c = document.querySelector(`input[name="p-${k}"]:checked`); if (c) votes[k] = c.value; }
     if (!owner) return say('Enter the owner name.', false);
-    if (Object.keys(votes).length < KEYS.length) return say('Answer all six questions, as marked on the paper ballot.', false);
+    if (Object.keys(votes).length < KEYS.length) return say('Answer all five questions, as marked on the paper ballot.', false);
     const summary = KEYS.map(k => `${LABELS[k] || k[0].toUpperCase() + k.slice(1)}: ${votes[k]}`).join('\n');
     if (!confirm(`Record this paper ballot for ${owner}?\n\n${summary}\n\nThis can't be changed afterward.`)) return;
     const r = await post('/admin/paper', { owner, properties: $('p-props').value, votes });

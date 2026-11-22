@@ -83,15 +83,12 @@
         <div class="login-card panel">
           <h2 class="panel-h">Record a paper ballot</h2>
           <p>For owners who return a paper ballot. Use the owner name exactly as it appears on the voter list, so the same owner cannot also vote online. For owners not on the list, use the name on the tax roll and enter the number of Properties they own.</p>
-          <p class="form-note"><strong>Member at Large.</strong> The ballot now includes Member at Large, with Thomas Myers and Michael Russell as the nominees. Every paper ballot needs an answer on all six questions, including Member at Large. President, Vice President, Secretary and Member at Large each have two candidates: James Hurst or Thomas Myers, Scott Laing or David Robinson, Julie Maynard or Rochelle Hurst, and Thomas Myers or Michael Russell. If a paper ballot was printed before Thomas Myers was added for President or Michael Russell for Member at Large, or leaves either question blank, contact the owner for their choice before recording the ballot.</p>
+          <p class="form-note"><strong>Member at Large.</strong> The ballot now includes Member at Large, with Thomas Myers and Michael Russell as the nominees. The Bylaws are not on this ballot. Every paper ballot needs an answer on all five questions, including Member at Large. President, Vice President, Secretary and Member at Large each have two candidates: James Hurst or Thomas Myers, Scott Laing or David Robinson, Julie Maynard or Rochelle Hurst, and Thomas Myers or Michael Russell. If a paper ballot was printed before Thomas Myers was added for President or Michael Russell for Member at Large, or leaves either question blank, contact the owner for their choice before recording the ballot.</p>
           <form class="stack" id="a-paper" novalidate>
             <label>Owner name<input type="text" id="p-owner" autocomplete="off" required list="owners"></label>
             <datalist id="owners"></datalist>
             <label>Properties (votes)<input type="number" id="p-props" min="1" max="20" value="1"></label>
             <p class="form-note">If the owner is on the voter list, the number of votes from the list is used.</p>
-            <fieldset class="q mini"><legend>Ratify the Bylaws</legend>
-              <div class="yn"><label class="choice"><input type="radio" name="p-bylaws" value="yes"> <span>Yes</span></label><label class="choice"><input type="radio" name="p-bylaws" value="no"> <span>No</span></label></div>
-            </fieldset>
             <fieldset class="q mini"><legend>President: choose one</legend>
               <div class="yn"><label class="choice"><input type="radio" name="p-president" value="James Hurst"> <span>James Hurst</span></label><label class="choice"><input type="radio" name="p-president" value="Thomas Myers"> <span>Thomas Myers</span></label></div>
             </fieldset>
