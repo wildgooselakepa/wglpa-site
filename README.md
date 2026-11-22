@@ -22,7 +22,7 @@ public repository. To change the content or the password, re-encrypt the source 
 ## Online Bylaws ballot
 
 `members/vote.html` is the online ballot: members sign in with their email address and the shared
-member password, read the proposed Bylaws (`members/bylaws/`), and vote on the Bylaws and the officers. Single-nominee offices are Yes/No; offices with several candidates
+member password, read the proposed Bylaws (the page images and PDF go in `members/bylaws/`; currently removed, so step 2 shows a notice and voting cannot continue until they are restored), and vote on the Bylaws and the officers. Single-nominee offices are Yes/No; offices with several candidates
 (President, Vice President, Secretary, Member at Large) are choose-one. Nominee names are set in `OFFICERS` in `members/vote.js`, the paper form in
 `members/admin.html`, and `QUESTIONS` in the Worker; all three must match.
 Votes are stored by a Cloudflare Worker with a D1 database (code kept outside this repository). The member email list and
