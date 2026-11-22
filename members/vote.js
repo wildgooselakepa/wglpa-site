@@ -3,7 +3,7 @@
   const ENDPOINT = String(window.WGLPA_BALLOT_URL || 'PASTE_WORKER_URL_HERE').replace(/\/+$/, '') + '/';
   // A blank nominee shows the existing placeholder. Use nominees: [..] for a race with several candidates.
   const OFFICERS = [
-    { key: 'president', office: 'President', nominee: 'James Hurst', email: 'president.pa@wildgooselake.org',
+    { key: 'president', office: 'President', nominees: ['James Hurst', 'Thomas Myers'], email: 'president.pa@wildgooselake.org',
       duties: "Presides at meetings, is the association's single point of contact with Washtenaw County, Lyndon Township and the lake-management contractors, and signs documents the Board approves." },
     { key: 'vicepresident', office: 'Vice President', nominees: ['Scott Laing', 'David Robinson'], email: 'vicepresident.pa@wildgooselake.org',
       duties: 'Acts for the President when the President is absent.' },
